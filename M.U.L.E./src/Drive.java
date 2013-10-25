@@ -8,7 +8,12 @@ public class Drive extends JFrame{
 		
 	}
 
+	private int x = 905;
+	private int y = 528;
 	public Drive(){
-		
+		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		setSize(x,y);
+		setVisible(true);
+		setResizable(false);
 	}
 }
