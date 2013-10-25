@@ -1,7 +1,9 @@
 
 public class Game {
 
-	public void playerOutTown() {
-		
+	private Drive drive;
+	
+	public Game(Drive d){
+		drive = d;
 	}
 }
