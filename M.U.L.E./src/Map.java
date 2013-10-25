@@ -2,14 +2,20 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 import javax.swing.JPanel;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 
 public class Map extends JPanel{
 
-	
+	/**
+	 * This is constructor of the Map class
+	 * @param mapType is the type of map to initiate
+	 */
 	public Map(String mapType){
 		createMap(mapType);
 		setPreferredSize(new Dimension(900, 500));
+		setLayout(new GridLayout(5, 9, 0, 0));
 		setVisible(true);
 		validate();
 	}
