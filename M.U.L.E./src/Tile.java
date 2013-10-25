@@ -15,11 +15,18 @@ public class Tile extends JButton{
 	protected int price;
 	
 	/**
-	 * the construction of tile class, creating different tiles
-	 * in the map.
-	 * @param str	the tile type
+	 * This is the constructor of Tile class
+	 * @param str is the type of tile to initiate
 	 */
-	public boolean Tile(String str){
+	public Tile(String str){
+		createTile(str);
+	}
+	
+	/**
+	 * This method decides which tile to initiate
+	 * @param str is the tile type
+	 */
+	private boolean createTile(String str){
 		
 		//checking the tile input and creat the tile
 		if (str == null){
