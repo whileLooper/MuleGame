@@ -8,6 +8,9 @@ import java.awt.GridLayout;
 
 public class Map extends JPanel{
 
+	
+	private Tile[][] tiles = new Tile[5][9];
+	
 	/**
 	 * This is constructor of the Map class
 	 * @param mapType is the type of map to initiate
@@ -81,7 +84,7 @@ public class Map extends JPanel{
 						tile = null;
 					}
 				}
-				
+				tiles[i][j] = tile;
 				add(tile);
 			}
 		}
