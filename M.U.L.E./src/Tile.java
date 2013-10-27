@@ -29,6 +29,7 @@ public class Tile extends JLabel{
 		energy = e;
 		ore = o;
 		crystite = c;
+		setIcon(i);
 	}
 	
 	
