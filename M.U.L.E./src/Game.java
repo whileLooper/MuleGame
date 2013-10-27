@@ -5,5 +5,7 @@ public class Game {
 	
 	public Game(Drive d){
 		drive = d;
+		Start start = new Start(this);
+		d.add(start);
 	}
 }
