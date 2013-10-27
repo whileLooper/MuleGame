@@ -1,5 +1,6 @@
 import java.awt.*;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -30,6 +31,18 @@ public class Tile extends JLabel{
 		ore = o;
 		crystite = c;
 		setIcon(i);
+	}
+	
+	public boolean beBought(Player player){
+		if(bought){
+			System.out.println("Oops! Sorry, this land has been owned by someone else.");
+			return false;
+		}else{
+			bought = true;
+			owner = player;
+			setBorder(BorderFactory.createLineBorder(owner.getColor(), 10));
+			return true;
+		}
 	}
 	
 	
