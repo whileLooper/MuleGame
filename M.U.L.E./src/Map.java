@@ -18,6 +18,7 @@ public class Map extends JPanel{
 		setLayout(new GridLayout(5, 9, 0, 0));
 		setVisible(true);
 		validate();
+		repaint();
 	}
 	
 	/**
@@ -49,7 +50,38 @@ public class Map extends JPanel{
 
 		for(int i = 0; i < 5; i ++){
 			for(int j = 0; j < 9; j++){
-				Tile tile = new Tile(cmap[i][j]);
+				String tileS = cmap[i][j];
+				Tile tile;
+				switch(tileS){
+					case "P":{
+						tile = new Plain();
+						break;
+					}
+					case "R":{
+						tile = new River();
+						break;
+					}
+					case "M1":{
+						tile = new M1();
+						break;
+					}
+					case "M2":{
+						tile = new M2();
+						break;
+					}
+					case "M3":{
+						tile = new M3();
+						break;
+					}
+					case "Town":{
+						tile = new TownT();
+						break;
+					}
+					default:{
+						tile = null;
+					}
+				}
+				
 				add(tile);
 			}
 		}

@@ -1,75 +1,35 @@
 import java.awt.*;
 
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-public class Tile extends JButton{
+public class Tile extends JLabel{
 	
-	private Image image;
+	
+	protected ImageIcon image;
 	protected Point p;
-	protected static int food;
-	protected static int energy;
-	protected static int ore;
-	protected static int crystite;
+	protected final int food;
+	protected final int energy;
+	protected final int ore;
+	protected final int crystite;
 	protected Player owner;
 	protected Boolean bought = false;
 	protected int price;
 	
-	/**
-	 * This is the constructor of Tile class
-	 * @param str is the type of tile to initiate
-	 */
-	public Tile(String str){
-		createTile(str);
+    /**
+     * This is the constructor the tile class
+     * @param f is the amount of food the tile products
+     * @param e is the amount of energy the tile products
+     * @param o is the amount of ore the tile products
+     * @param c is the amount of crystal the tile products 
+     */
+	public Tile(ImageIcon i, int f, int e, int o, int c){
+		image = i;
+		food = f;
+		energy = e;
+		ore = o;
+		crystite = c;
 	}
 	
-	/**
-	 * This method decides which tile to initiate
-	 * @param str is the tile type
-	 */
-	private boolean createTile(String str){
-		
-		//checking the tile input and creat the tile
-		if (str == null){
-			return false;
-		}
-		switch (str){
-			case "M1":
-				createM1();
-				break;
-			
-			case "M2":
-				createM2();
-				break;
-				
-			case "M3":
-				createM3();
-				break;
-				
-			case "Town":
-				createTown();
-				break;
-			
-			case "Plain":
-				createPlain();
-				break;
-			
-			case "River":
-				createRiver();
-				break;
-		}
-		return true;
-	}
-	
-	public void createM1();
-	public void createM2();
-	public void createM3();
-	public void createTown();
-	public void createPlain();
-	public void createRiver();
-
-
-
-	
-
 	
 }
