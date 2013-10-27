@@ -33,6 +33,12 @@ public class Tile extends JLabel{
 		setIcon(i);
 	}
 	
+	/**
+	 * This method is used for land purchase, it will return a boolean value to tell player whether this land is purchasable
+	 * or not, and if it can be bought, then the land will be marked player's color.
+	 * @param player
+	 * @return
+	 */
 	public boolean beBought(Player player){
 		if(bought){
 			System.out.println("Oops! Sorry, this land has been owned by someone else.");
