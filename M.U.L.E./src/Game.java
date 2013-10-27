@@ -43,4 +43,18 @@ public class Game {
 	public Player getCurrentPlayer(){
 		return players[currentPlayer];
 	}
+	
+	/**
+	 * This method is used to do land purchase, price of the land will be decided by current game state, 0 for land grand,
+	 * 300 for land purchase period, and during players' turns, which means that player buy land from land office, the price
+	 * of the land is decided by game turn
+	 * @param land is the tile selected by player;
+	 */
+	public void playerBuyLand(Tile land){
+		Player currentPlayer = getCurrentPlayer();
+		int landprice = 0;
+		if(gState == GameState.LandPurchase) landprice = 300;
+		else if(gState == GameState.PlayerTurns) landprice = 300;// need to be changed later 
+		currentPlayer.buyLand(landprice, land);
+	}
 }
