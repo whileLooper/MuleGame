@@ -22,7 +22,7 @@ public class Town extends JPanel implements KeyListener {
 	}
 	
 	public void keyPressed(KeyEvent e) {}
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {}b
 	public void keyTyped(KeyEvent e) {
 		if (e.getKeyChar() == 'w' && pLocation.getY() > 0) {
 			pLocation.setLocation(pLocation.getX(), pLocation.getY()-1);
