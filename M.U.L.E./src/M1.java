@@ -13,6 +13,6 @@ public class M1 extends Tile{
 	 * This is the constructor for M1 Class
 	 */
 	public M1(){
-		super(new ImageIcon("src/M1.png"), 1, 1, 2, new Random().nextInt(4));
+		super(new ImageIcon("M1.png"), 1, 1, 2, new Random().nextInt(4));
 	}
 }

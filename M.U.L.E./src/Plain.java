@@ -12,6 +12,6 @@ public class Plain extends Tile {
 	 * This is the constructor of the Plain Class
 	 */
 	public Plain(){
-		super(new ImageIcon("src/Plain.png"), 2, 3, 1, new Random().nextInt(4));
+		super(new ImageIcon("Plain.png"), 2, 3, 1, new Random().nextInt(4));
 	}
 }

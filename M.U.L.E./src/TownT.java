@@ -11,6 +11,6 @@ public class TownT extends Tile{
 	 * This is the constructor of the TownT Class
 	 */
 	public TownT(){
-		super(new ImageIcon("src/Town.png"), 0, 0, 0, 0);
+		super(new ImageIcon("Town.png"), 0, 0, 0, 0);
 	}
 }

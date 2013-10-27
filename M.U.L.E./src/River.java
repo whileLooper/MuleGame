@@ -12,6 +12,6 @@ public class River extends Tile {
 	 * This is the constructor of the River Class
 	 */
 	public River(){
-		super(new ImageIcon("src/River.png"), 4, 2, 0, new Random().nextInt(4));
+		super(new ImageIcon("River.png"), 4, 2, 0, new Random().nextInt(4));
 	}
 }

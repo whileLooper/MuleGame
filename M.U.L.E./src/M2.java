@@ -12,6 +12,6 @@ public class M2 extends Tile {
 	 * This is the constructor for M2 Class
 	 */
 	public M2(){
-		super(new ImageIcon("src/M2.png"), 1, 1, 3, new Random().nextInt(4));
+		super(new ImageIcon("M2.png"), 1, 1, 3, new Random().nextInt(4));
 	}
 }
