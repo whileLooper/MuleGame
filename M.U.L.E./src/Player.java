@@ -41,18 +41,23 @@ public class Player {
 
 	/**
 	 * This method is for players to buy lands, first it checks whether player have enough money, and check whether the land 
-	 * is purchasable, if so, then the deal is done.
+	 * is purchasable, if so, then the deal is done, and at last it will return a boolean value to indicate whether the deal
+	 * is successful or not
 	 * @param price is the price for the tile
 	 * @param land is the tile to buy
 	 */
-	public void buyLand(int price, Tile land){
+	public boolean buyLand(int price, Tile land){
 		if(money > price){
 			if(land.beBought(this)){
 				money -= price;
 				lands.add(land);
+				System.out.println(name + " has just buy a land costing $" + price);
+				return true;
 			}
+			return false;
 		}else{
 			System.out.println("Oops, you don't have enought money...");
+			return false;
 		}
 	}
 }
