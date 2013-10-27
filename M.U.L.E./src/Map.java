@@ -4,6 +4,11 @@ import java.awt.Point;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 
 public class Map extends JPanel{
@@ -16,6 +21,21 @@ public class Map extends JPanel{
 	 * @param mapType is the type of map to initiate
 	 */
 	public Map(String mapType){
+		addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+			}
+		});
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+			}
+		});
 		createMap(mapType);
 		setPreferredSize(new Dimension(900, 500));
 		setLayout(new GridLayout(5, 9, 0, 0));
