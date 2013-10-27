@@ -1,3 +1,4 @@
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
 
@@ -13,4 +14,14 @@ public class TownT extends Tile{
 	public TownT(){
 		super(new ImageIcon("Town.png"), 0, 0, 0, 0);
 	}
+	
+	@Override
+	/**
+	 * This method overrides Tile's, because town can not been bought, just return false
+	 */
+	public boolean beBought(Player player){
+		System.out.println("This is town, and you can not buy it");
+		return false;
+	}
+	
 }
