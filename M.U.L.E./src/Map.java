@@ -61,4 +61,6 @@ public class Map extends JPanel{
 	private void randomMap(){
 		
 	}
+	
+	
 }
