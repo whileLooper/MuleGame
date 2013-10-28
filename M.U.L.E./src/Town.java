@@ -44,6 +44,9 @@ public class Town extends JPanel implements KeyListener {
 		pub = new Pub();
 	}
 	
+	/**
+	 * The draw method for town.
+	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
