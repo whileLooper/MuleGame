@@ -1,5 +1,7 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.util.ArrayList;
 
 
@@ -19,6 +21,10 @@ public class Player {
 	private int ore;
 	private int crystal;
 	
+	private Point mapLocation;
+	private Point townLocation;
+	
+	
 	/**
 	 * This is the Player class' constructor
 	 * @param n is the player's name
@@ -37,6 +43,14 @@ public class Player {
 	 */
 	public Color getColor(){
 		return color;
+	}
+	
+	/**
+	 * This method returns player's name
+	 * @return player's name
+	 */
+	public String getName(){
+		return name;
 	}
 
 	/**
@@ -59,5 +73,53 @@ public class Player {
 			System.out.println("Oops, you don't have enought money...");
 			return false;
 		}
+	}
+	
+	/**
+	 * This method returns player's location on the map
+	 * @return player's location on map
+	 */
+	public Point getMapLocation(){
+		return mapLocation;
+	}
+	
+	/**
+	 * This method sets player's location on the map
+	 * @param p is player's new location on map
+	 */
+	public void setMapLocation(Point p){
+		mapLocation = p;
+	}
+	
+	/**
+	 * This method returns player's location on the down
+	 * @return player's location on the map
+	 */
+	public Point getTownLocation(){
+		return townLocation;
+	}
+	
+	/**
+	 * This method sets player's location on the town
+	 * @param p is player's new location on the town
+	 */
+	public void setTownLocation(Point p){
+		townLocation = p;
+	}
+	
+	/**
+	 * This method is used to draw the player on map
+	 * @param g is the graphics 
+	 */
+	public void drawOnMap(Graphics g){
+		g.drawImage(image, mapLocation.x, mapLocation.y, 50, 50, null);
+	}
+	
+	/**
+	 * This method is used to draw player on town
+	 * @param g is the graphics
+	 */
+	public void drawOnTown(Graphics g){
+		g.drawImage(image, townLocation.x, townLocation.y, 50, 50, null);
 	}
 }
