@@ -13,6 +13,7 @@ import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 import javax.swing.JMenu;
 
@@ -32,9 +33,12 @@ import java.awt.GridLayout;
 
 
 
+
+
 import javax.swing.SpringLayout;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -77,7 +81,12 @@ public class Start extends JPanel{
 	public Start(Game g){
 		game = g;
 		//playerSetting();
+		
+		setPreferredSize(new Dimension(900, 500));
+		setVisible(true);
 		gameSetting();
+		//validate();
+		//repaint();
 	}
 	
 	/**
