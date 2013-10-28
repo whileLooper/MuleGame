@@ -122,6 +122,7 @@ public class Game {
 		if(gState == GameState.LandGrant) gState = GameState.LandPurchase;
 		else if(gState == GameState.LandPurchase){
 			gState = GameState.PlayerTurns;
+			map.repaint();
 			GameStart();
 		}
 	}
@@ -142,6 +143,9 @@ public class Game {
 		
 	}
 	
+	/**
+	 * This method will be called, when player enters pub
+	 */
 	public void playerEnterPub(){
 		
 	}
@@ -150,9 +154,33 @@ public class Game {
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
 	private void GameStart(){
-		map.repaint();
+		map.removeMouseListener((map.getMouseListeners())[0]);
+		map.setFocusable(true);
+		Thread time = new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				turnTime = 50;
+				while(turnTime > 0){
+					System.out.println(turnTime + "s left");
+					turnTime -= 1;
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		});
+		time.start();
+		//map.repaint();
+		/**
 		while(gState == GameState.PlayerTurns){
-			turnTime = 60;
+			
+			turnTime = 50;
 			while(turnTime > 0){
 				System.out.println(turnTime + "s left");
 				turnTime -= 1;
@@ -165,6 +193,6 @@ public class Game {
 			}
 			System.out.println("Time up! Next player");
 			nextPlayer();
-		}
+		}*/
 	}
 }
