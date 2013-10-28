@@ -212,7 +212,8 @@ public class Start extends JPanel{
 		gbl_setting.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gbl_setting);
 		JLabel lblPlayer = new JLabel();
-		lblPlayer.setText("Player #"+ (currentPlayer+1));
+		int player = currentPlayer + 1;
+		lblPlayer.setText("Player #"+ player);
 
 		GridBagConstraints gbc_lblPlayer = new GridBagConstraints();
 		gbc_lblPlayer.insets = new Insets(0, 0, 5, 5);
