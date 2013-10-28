@@ -35,6 +35,20 @@ public class Player {
 		name = n;
 		color = c;
 		race = r;
+		initiate();
+	}
+	
+	/**
+	 * This method gives a initial value to player's money and other resources according to player's race and game difficulty
+	 */
+	private void initiate(){
+		switch(race){
+		case "Human": money = 600; break;
+		case "Flapper": money = 1600; break;
+		case "Others": money = 1000; break;
+		default:;
+		
+		}
 	}
 	
 	/**
