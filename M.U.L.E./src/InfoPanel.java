@@ -1,5 +1,10 @@
 import java.awt.Dimension;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLayeredPane;
@@ -9,19 +14,22 @@ import javax.swing.JLabel;
 
 
 public class InfoPanel extends JPanel {
+	
+	JPanel TimerPanel = new JPanel();
+	JPanel PlayerInfoPanel = new JPanel();
+	JProgressBar pbar = new JProgressBar();;
+
 
 	public InfoPanel(){
 		setBackground(Color.GRAY);
 		setPreferredSize(new Dimension(900, 160));
 		setLayout(null);
 		
-		JPanel TimerPanel = new JPanel();
 		TimerPanel.setBounds(0, 0, 900, 30);
 		TimerPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		TimerPanel.setBackground(Color.RED);
+		TimerPanel.setBackground(Color.GRAY);
 		add(TimerPanel);
 		
-		JPanel PlayerInfoPanel = new JPanel();
 		PlayerInfoPanel.setBounds(0, 30, 900, 130);
 		add(PlayerInfoPanel);
 		PlayerInfoPanel.setLayout(new GridLayout(0, 5, 0, 0));
@@ -57,7 +65,7 @@ public class InfoPanel extends JPanel {
 		PlayerInfoPanel.add(Player_2);
 		
 		JLabel lblMoney = new JLabel("Player_2");
-		lblMoney.setBounds(10, 11, 46, 14);
+		lblMoney.setBounds(10, 11, 61, 14);
 		Player_2.add(lblMoney);
 		
 		JLabel label = new JLabel("Money:");
@@ -82,7 +90,7 @@ public class InfoPanel extends JPanel {
 		PlayerInfoPanel.add(Player_3);
 		
 		JLabel lblFood = new JLabel("Player_3");
-		lblFood.setBounds(10, 11, 46, 14);
+		lblFood.setBounds(10, 11, 61, 14);
 		Player_3.add(lblFood);
 		
 		JLabel label_4 = new JLabel("Money:");
@@ -107,7 +115,7 @@ public class InfoPanel extends JPanel {
 		PlayerInfoPanel.add(Player_4);
 		
 		JLabel lblEnergy = new JLabel("Player_4");
-		lblEnergy.setBounds(10, 11, 46, 14);
+		lblEnergy.setBounds(10, 11, 57, 14);
 		Player_4.add(lblEnergy);
 		
 		JLabel label_8 = new JLabel("Money:");
@@ -151,8 +159,57 @@ public class InfoPanel extends JPanel {
 		label_14.setBounds(10, 105, 46, 14);
 		Town.add(label_14);
 		this.setVisible(true);
+
+
+		TimerPanel.setLayout(null);
+		pbar.setBounds(0, 0, 900, 30);
+		pbar.setBackground(new Color(50, 205, 50));
+		pbar.setForeground(Color.LIGHT_GRAY);
 		
-		
-		
+		TimerPanel.add(pbar);
+
+
 	}
+
+
+	
+	/**
+	 * this class draw a progress bar to showing the timing for turns.
+	 * @param max the max value for the progress bar
+	 * @param min the min value for the progress bar
+	 */
+	public void countDown(int max, int min){		
+		pbar.setMinimum(min);
+		pbar.setMaximum(max);
+
+	    for (int i = min; i <= max; i++) {
+		      final int percent = i;
+		      if(i > (max - 10)) pbar.setBackground(new  Color(220,20,60));
+		      
+		      try {
+		        SwingUtilities.invokeLater(new Runnable() {
+		          public void run() {
+						pbar.setValue(percent);
+						TimerPanel.repaint();
+		          }
+		        });
+		        java.lang.Thread.sleep(1000);
+		      } catch (InterruptedException e) {
+		        ;
+		      }
+		    }
+	}
+	
+	  public static void main(String args[]) {
+
+		    final InfoPanel it = new InfoPanel();
+
+		    JFrame frame = new JFrame("Progress Bar Example");
+		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		    frame.setContentPane(it);
+		    frame.pack();
+		    frame.setVisible(true);
+		    it.countDown(20, 0);
+
+		  }
 }
