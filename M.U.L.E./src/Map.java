@@ -35,15 +35,18 @@ public class Map extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.out.println("mouse pressed");
 				Point point = e.getPoint();
 				int x = point.x / 100;
 				int y = point.y / 100;
+				//System.out.println(x + " " + y + " " + tiles[y][x]);
 				game.mouseClicked(tiles[y][x]);
 			}
 		});
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
+				System.out.println("Key pressed");
 				if(game.isPlayerTurn()){
 					Player player= game.getCurrentPlayer();
 					Point p = player.getMapLocation();
@@ -64,7 +67,7 @@ public class Map extends JPanel{
 						break;
 					}
 					case KeyEvent.VK_LEFT:{
-						y -= 10;
+						x -= 10;
 						break;
 					}
 					default:
@@ -80,9 +83,11 @@ public class Map extends JPanel{
 				}
 			}
 		});
-		createMap(mapType);
+		
+		setFocusable(true);
 		setPreferredSize(new Dimension(900, 500));
 		setLayout(new GridLayout(5, 9, 0, 0));
+		createMap(mapType);
 		setVisible(true);
 		validate();
 		repaint();
