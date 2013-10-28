@@ -68,6 +68,14 @@ public class Player {
 	public String getName(){
 		return name;
 	}
+	
+	/**
+	 * This method adds player's money
+	 * @param m is the amount of money to add
+	 */
+	public void addMoney(int m){
+		money += m;
+	}
 
 	/**
 	 * This method is for players to buy lands, first it checks whether player have enough money, and check whether the land 
