@@ -15,12 +15,14 @@ public class Map extends JPanel{
 
 	
 	private Tile[][] tiles = new Tile[5][9];
+	private Game game;
 	
 	/**
 	 * This is constructor of the Map class
 	 * @param mapType is the type of map to initiate
 	 */
-	public Map(String mapType){
+	public Map(Game g, String mapType){
+		game = g;
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -29,6 +31,10 @@ public class Map extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Point point = e.getPoint();
+				int x = point.x / 100;
+				int y = point.y / 100;
+				game.mouseClicked(tiles[y][x]);
 			}
 		});
 		addKeyListener(new KeyAdapter() {
