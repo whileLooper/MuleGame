@@ -38,8 +38,10 @@ public class Game {
 		players = start.getPlayers();
 		map = new Map(this, mapType);
 		//drive.getContentPane().remove(start);
-		start.setVisible(false);
+		//start.setVisible(false);
+		drive.remove(start);
 		drive.add(map);
+		drive.revalidate();
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
@@ -84,6 +86,10 @@ public class Game {
 				nextPlayer();
 			}
 		}
+	}
+	
+	public void keyPressed(int x, int y){
+		System.out.println(x + " " + y);
 	}
 	
 	/**
@@ -154,8 +160,8 @@ public class Game {
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
 	private void GameStart(){
-		map.removeMouseListener((map.getMouseListeners())[0]);
 		map.setFocusable(true);
+		
 		Thread time = new Thread(new Runnable(){
 
 			@Override
