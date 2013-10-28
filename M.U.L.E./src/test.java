@@ -10,6 +10,7 @@ public class test {
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		Map map = new Map("Standard");
 	    frame.getContentPane().add(map);
+	    frame.add(new Start());
 	    frame.setSize(905,528);
 	    frame.setVisible(true);
 	    frame.setResizable(false);
