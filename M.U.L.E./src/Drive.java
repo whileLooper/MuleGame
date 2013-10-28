@@ -5,8 +5,14 @@ public class Drive extends JFrame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Drive drive = new Drive();
-		Game game = new Game(drive);
+		//Drive drive = new Drive();
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		Game game = new Game(frame);
+	    frame.setSize(905,528);
+	    frame.setVisible(true);
+	    frame.setResizable(false);
+		
 		
 	}
 
