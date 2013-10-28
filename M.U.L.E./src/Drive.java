@@ -9,15 +9,15 @@ public class Drive extends JFrame{
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		Game game = new Game(frame);
-	    frame.setSize(905,528);
+	    frame.setSize(910,688);
 	    frame.setVisible(true);
 	    frame.setResizable(false);
 		
 		
 	}
 
-	private int x = 905;
-	private int y = 528;
+	private int x = 910;
+	private int y = 688;
 	
 	public Drive(){
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);

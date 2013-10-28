@@ -43,6 +43,7 @@ public class Map extends JPanel{
 				game.mouseClicked(tiles[y][x]);
 			}
 		});
+		
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {

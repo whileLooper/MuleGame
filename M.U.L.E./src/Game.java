@@ -1,3 +1,5 @@
+import java.awt.FlowLayout;
+
 import javax.swing.JFrame;
 
 
@@ -9,6 +11,7 @@ public class Game {
 	private Player[] players;
 	private GameState gState;
 	private TurnState tState;
+	private InfoPanel info; 
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -26,8 +29,11 @@ public class Game {
 	 */
 	public Game(JFrame d){
 		drive = d;
+		drive.setLayout(new FlowLayout());
 		start = new Start(this);
+		info = new InfoPanel();
 		d.getContentPane().add(start);
+		d.getContentPane().add(info);
 	}
 	
 	/**
@@ -40,7 +46,9 @@ public class Game {
 		//drive.getContentPane().remove(start);
 		//start.setVisible(false);
 		drive.remove(start);
+		drive.remove(info);
 		drive.add(map);
+		drive.add(info);
 		drive.revalidate();
 		currentPlayer = 0;
 		numOfTurn = 0;
