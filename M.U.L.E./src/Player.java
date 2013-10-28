@@ -4,6 +4,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 
 public class Player {
 	
@@ -13,15 +15,15 @@ public class Player {
 	private String name;
 	private Color color;
 	private String race;
-	private Image image;
-	private ArrayList<Tile> lands;
+	private Image image = (new ImageIcon("player1.png")).getImage();
+	private ArrayList<Tile> lands = new ArrayList<Tile>();
 	
 	private int money;
 	private int energy;
 	private int ore;
 	private int crystal;
 	
-	private Point mapLocation;
+	private Point mapLocation = new Point(425, 375);
 	private Point townLocation;
 	
 	
