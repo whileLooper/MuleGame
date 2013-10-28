@@ -1,7 +1,9 @@
+import javax.swing.JFrame;
+
 
 public class Game {
 
-	private Drive drive;
+	private JFrame drive;
 	private Start start;
 	private Map map;
 	private Player[] players;
@@ -22,10 +24,10 @@ public class Game {
 	 * This is the constructor for Game class
 	 * @param d is the one instance of drive class
 	 */
-	public Game(Drive d){
+	public Game(JFrame d){
 		drive = d;
 		start = new Start(this);
-		d.add(start);
+		d.getContentPane().add(start);
 	}
 	
 	/**
@@ -35,7 +37,8 @@ public class Game {
 		String mapType = start.getMapType();
 		players = start.getPlayers();
 		map = new Map(this, mapType);
-		drive.removeAll();
+		//drive.getContentPane().remove(start);
+		start.setVisible(false);
 		drive.add(map);
 		currentPlayer = 0;
 		numOfTurn = 0;
