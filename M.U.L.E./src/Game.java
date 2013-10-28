@@ -115,6 +115,30 @@ public class Game {
 	private void nextGameState(){
 		numOfTurn = 0;
 		if(gState == GameState.LandGrant) gState = GameState.LandPurchase;
-		else if(gState == GameState.LandPurchase) gState = GameState.PlayerTurns;
+		else if(gState == GameState.LandPurchase){
+			gState = GameState.PlayerTurns;
+			map.repaint();
+			GameStart();
+		}
+	}
+	
+	/**
+	 * This method check whether the game is in the player turns
+	 * @return true if it's in player turns, false if not
+	 */
+	public boolean isPlayerTurn(){
+		if(gState == GameState.PlayerTurns) return true;
+		return false;
+	}
+	
+	/**
+	 * This method will be called, when player touches town tile, and player will enter town, the town panel will be display
+	 */
+	public void playerEnterTown(){
+		
+	}
+	
+	private void GameStart(){
+		
 	}
 }
