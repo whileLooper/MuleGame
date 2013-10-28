@@ -1,21 +1,19 @@
 package StorePackage;
 import java.awt.*;
 
-public class Pub {
-	private Point[] dimension;
+public class Pub extends Store {
 	
 	public Pub() {
 		setDimension();
+		setBorder();
 	}
 	
 	public void setDimension() {
-		dimension = new Point[Store.SIZE];
-		for (int i = 0; i < Store.WALL_SIZE_X; i++) {
-			dimension[i] = new Point(Store.PUB_START_X+i,Store.PUB_START_Y);
-		}
-		for (int j = Store.WALL_SIZE_X; j < Store.WALL_SIZE_X + Store.WALL_SIZE_Y; j++) {
-			dimension[j] = new Point(Store.PUB_START_X+Store.WALL_SIZE_X, Store.PUB_START_Y+j-Store.WALL_SIZE_X);
-		}
+		LEFT_LEFT = new Point(300,200);
+		LEFT_MID = new Point(320, 200);
+		LEFT_RIGHT = new Point(320, 230);
+		RIGHT_LEFT = new Point(380,230);
+		RIGHT_MID = new Point(380,200);
+		RIGHT_RIGHT = new Point(400,200);
 	}
-	
 }
