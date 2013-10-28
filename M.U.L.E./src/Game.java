@@ -16,6 +16,8 @@ public class Game {
 	
 	private boolean passLandPurchase = true;
 	
+	private int turnTime;
+	
 	/**
 	 * This is the constructor for Game class
 	 * @param d is the one instance of drive class
@@ -117,7 +119,6 @@ public class Game {
 		if(gState == GameState.LandGrant) gState = GameState.LandPurchase;
 		else if(gState == GameState.LandPurchase){
 			gState = GameState.PlayerTurns;
-			map.repaint();
 			GameStart();
 		}
 	}
@@ -138,7 +139,29 @@ public class Game {
 		
 	}
 	
-	private void GameStart(){
+	public void playerEnterPub(){
 		
+	}
+	
+	/**
+	 * This method mainly control the game process, every player takes an turn to do their things;
+	 */
+	private void GameStart(){
+		map.repaint();
+		while(gState == GameState.PlayerTurns){
+			turnTime = 60;
+			while(turnTime > 0){
+				System.out.println(turnTime + "s left");
+				turnTime -= 1;
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			System.out.println("Time up! Next player");
+			nextPlayer();
+		}
 	}
 }
