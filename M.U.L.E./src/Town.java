@@ -48,6 +48,9 @@ public class Town extends JPanel implements KeyListener {
 		super.paintComponent(g);
 		
 		g.drawImage(backGround, 0, 0, 1000, 1000, null); // Draws background
+		/**
+		 * Player.getImage() method missing.
+		 */
 	//	g.drawImage(player.getImage(), (int)pLocation.getX(), (int)pLocation.getY(), PLAYER_SIZE, PLAYER_SIZE, null); // Draws player
 	}
 	
@@ -68,12 +71,17 @@ public class Town extends JPanel implements KeyListener {
 		}
 		if (inBorder(pLocation, pub.getArrayListBorder())) {
 			/**
-			 * Player enter pub.
+			 * Player enter pub method missing.
 			 */
 		}
 		repaint();
 	}
-	
+	/**
+	 * Check if Point x is in border
+	 * @param x: current location of player
+	 * @param p: arraylist of border
+	 * @return true if in border, false if not in.
+	 */
 	public boolean inBorder(Point x, ArrayList<Point> p) {
 		for (int i = 0; i < p.size(); i++) {
 			if (x.equals(p.get(i))) {

@@ -8,6 +8,9 @@ public class Pub extends Store {
 		setBorder();
 	}
 	
+	/**
+	 * Set the points of the store.
+	 */
 	public void setDimension() {
 		LEFT_LEFT = new Point(300,200);
 		LEFT_MID = new Point(320, 200);

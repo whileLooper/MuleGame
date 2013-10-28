@@ -19,6 +19,9 @@ public abstract class Store {
 	public Point LEFT_LEFT, LEFT_MID, LEFT_RIGHT, RIGHT_LEFT, RIGHT_MID, RIGHT_RIGHT;
 	public ArrayList<Point> Border = new ArrayList();
 	abstract void setDimension();
+	/**
+	 * Added points of border into the Border ArrayList
+	 */
 	protected void setBorder() {
 		for (int i = 0; i < 20; i++) {
 			Border.add(new Point((int)LEFT_LEFT.getX() + i, (int)LEFT_LEFT.getY()));
@@ -36,6 +39,9 @@ public abstract class Store {
 			Border.add(new Point((int)RIGHT_MID.getX()+m, (int)RIGHT_MID.getY()));
 		}
 	}
+	/**
+	 * @return border in array format
+	 */
 	public Point[] getBorder() {
 		Point[] B = new Point[Border.size()];
 		for (int i = 0; i < Border.size(); i++) {
@@ -44,6 +50,10 @@ public abstract class Store {
 		return B;
 	}
 	
+	/**
+	 * 
+	 * @return border in arrayList format
+	 */
 	public ArrayList<Point> getArrayListBorder() {
 		return Border;
 	}
