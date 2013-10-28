@@ -1,7 +1,11 @@
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyAdapter;
@@ -40,6 +44,40 @@ public class Map extends JPanel{
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
+				if(game.isPlayerTurn()){
+					Player player= game.getCurrentPlayer();
+					Point p = player.getMapLocation();
+					int x = p.x;
+					int y = p.y;
+					int key = e.getKeyCode();
+					switch(key){
+					case KeyEvent.VK_DOWN:{
+						y += 10;
+						break;
+					}
+					case KeyEvent.VK_UP:{
+						y -= 10;
+						break;
+					}
+					case KeyEvent.VK_RIGHT:{
+						x += 10;
+						break;
+					}
+					case KeyEvent.VK_LEFT:{
+						y -= 10;
+						break;
+					}
+					default:
+					}
+					
+					if(x + 50 > 400 && x < 500 && y + 50 > 200 && y < 300){
+						System.out.println("enter town");
+						game.playerEnterTown();
+					}else if(x >= 0 && x + 50 <= 900 && y >= 0 && y + 50 <= 500){
+						player.setMapLocation(new Point(x, y));
+						repaint();
+					}
+				}
 			}
 		});
 		createMap(mapType);
@@ -123,5 +161,14 @@ public class Map extends JPanel{
 		
 	}
 	
-	
+	@Override
+	/**
+	 * This method overrides the one in superclass to draw player
+	 */
+	protected void paintChildren(Graphics g) {
+        super.paintChildren(g);
+        if(game.isPlayerTurn()){
+        	game.getCurrentPlayer().drawOnMap(g);
+        }
+    } 
 }
