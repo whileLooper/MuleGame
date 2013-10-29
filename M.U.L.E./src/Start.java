@@ -35,6 +35,7 @@ import java.awt.GridLayout;
 
 
 
+
 import javax.swing.SpringLayout;
 
 import java.awt.Color;
@@ -42,6 +43,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.Insets;
 
 import javax.swing.JTextField;
@@ -85,6 +87,7 @@ public class Start extends JPanel{
 		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		gameSetting();
+		
 		//validate();
 		//repaint();
 	}
@@ -126,9 +129,9 @@ public class Start extends JPanel{
 	private void gameSetting(){
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, -67, -67, 0, -67, 0, -67, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -141,6 +144,7 @@ public class Start extends JPanel{
 		
 		JLabel lblMap = new JLabel("Map");
 		GridBagConstraints gbc_lblMap = new GridBagConstraints();
+		gbc_lblMap.anchor = GridBagConstraints.WEST;
 		gbc_lblMap.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMap.gridx = 2;
 		gbc_lblMap.gridy = 2;
@@ -161,26 +165,32 @@ public class Start extends JPanel{
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 4;
 		add(comboBox, gbc_comboBox);
+				
+				final JComboBox comboBox_1 = new JComboBox();
+				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
+				GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
+				gbc_comboBox_1.anchor = GridBagConstraints.WEST;
+				gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
+				gbc_comboBox_1.gridx = 2;
+				gbc_comboBox_1.gridy = 4;
+				add(comboBox_1, gbc_comboBox_1);
 		
-		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
-		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-		gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_1.gridx = 2;
-		gbc_comboBox_1.gridy = 4;
-		add(comboBox_1, gbc_comboBox_1);
-		
-		final JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
-		GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
-		gbc_comboBox_2.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_2.gridx = 3;
-		gbc_comboBox_2.gridy = 4;
-		add(comboBox_2, gbc_comboBox_2);
+				
+				final JComboBox comboBox_2 = new JComboBox();
+				comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
+				GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
+				gbc_comboBox_2.insets = new Insets(0, 0, 5, 5);
+				gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
+				gbc_comboBox_2.gridx = 3;
+				gbc_comboBox_2.gridy = 4;
+				add(comboBox_2, gbc_comboBox_2);
 		
 		JButton btnNext = new JButton("Next");
+		GridBagConstraints gbc_btnNext = new GridBagConstraints();
+		gbc_btnNext.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNext.gridx = 7;
+		gbc_btnNext.gridy = 4;
+		add(btnNext, gbc_btnNext);
 		btnNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -191,62 +201,71 @@ public class Start extends JPanel{
 				playerInput();
 			}
 		});
-		GridBagConstraints gbc_btnNext = new GridBagConstraints();
-		gbc_btnNext.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNext.gridx = 3;
-		gbc_btnNext.gridy = 6;
-		add(btnNext, gbc_btnNext);
 	}
 
 	
 	/**
 	 * Setting player name, player numbers panels.
 	 */
+
+
+	
+//	 /**
+//	  * @wbp.parser.entryPoint
+//	  */
 	private void playerSetting(){
 		removeAll();
+		int l= 8;
+		int h= 3;
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, -67, -67, 0, -67, 0, -67, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
 		
-		GridBagLayout gbl_setting = new GridBagLayout();
-		gbl_setting.columnWidths = new int[]{32, 0, 0, 0, 0, 0};
-		gbl_setting.rowHeights = new int[]{21, 0, 0, 0, 0, 0, 0};
-		gbl_setting.columnWeights = new double[]{1.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_setting.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-		setLayout(gbl_setting);
+//		GridBagLayout gbl_setting = new GridBagLayout();
+//		gbl_setting.columnWidths = new int[]{32, 0, 0, 0, 0, 0};
+//		gbl_setting.rowHeights = new int[]{21, 0, 0, 0, 0, 0, 0};
+//		gbl_setting.columnWeights = new double[]{1.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+//		gbl_setting.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+//		setLayout(gbl_setting);
 		JLabel lblPlayer = new JLabel();
 		int player = currentPlayer + 1;
 		lblPlayer.setText("Player #"+ player);
 
 		GridBagConstraints gbc_lblPlayer = new GridBagConstraints();
 		gbc_lblPlayer.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPlayer.gridx = 0;
-		gbc_lblPlayer.gridy = 1;
+		gbc_lblPlayer.gridx = 0+l;
+		gbc_lblPlayer.gridy = 1+h;
 		add(lblPlayer, gbc_lblPlayer);
 		
 		JLabel lblName = new JLabel("Name");
 		GridBagConstraints gbc_lblName = new GridBagConstraints();
 		gbc_lblName.insets = new Insets(0, 0, 5, 5);
-		gbc_lblName.gridx = 1;
-		gbc_lblName.gridy = 2;
+		gbc_lblName.gridx = 1+l;
+		gbc_lblName.gridy = 0+h;
 		add(lblName, gbc_lblName);
 		
 		JLabel lblLabel = new JLabel("Race");
 		GridBagConstraints gbc_lblLabel = new GridBagConstraints();
 		gbc_lblLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblLabel.gridx = 2;
-		gbc_lblLabel.gridy = 2;
+		gbc_lblLabel.gridx = 2+l;
+		gbc_lblLabel.gridy = 0+h;
 		add(lblLabel, gbc_lblLabel);
 		
 		JLabel lblColor = new JLabel("Color");
 		GridBagConstraints gbc_lblColor = new GridBagConstraints();
 		gbc_lblColor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblColor.gridx = 3;
-		gbc_lblColor.gridy = 2;
+		gbc_lblColor.gridx = 3+l;
+		gbc_lblColor.gridy = 0+h;
 		add(lblColor, gbc_lblColor);
 		
 		final JTextField textField_1 = new JTextField();
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
 		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 3;
+		gbc_textField_1.gridx = 1+l;
+		gbc_textField_1.gridy = 1+h;
 		add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
@@ -254,16 +273,16 @@ public class Start extends JPanel{
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Flapper", "Human", "Others"}));
 		GridBagConstraints gbc_comboBox_3 = new GridBagConstraints();
 		gbc_comboBox_3.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_3.gridx = 2;
-		gbc_comboBox_3.gridy = 3;
+		gbc_comboBox_3.gridx = 2+l;
+		gbc_comboBox_3.gridy = 1+h;
 		add(comboBox_3, gbc_comboBox_3);
 		
 		final JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"Red", "Yellow", "Green", "Blue"}));
 		GridBagConstraints gbc_comboBox_4 = new GridBagConstraints();
 		gbc_comboBox_4.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_4.gridx = 3;
-		gbc_comboBox_4.gridy = 3;
+		gbc_comboBox_4.gridx = 3+l;
+		gbc_comboBox_4.gridy = 1+h;
 		add(comboBox_4, gbc_comboBox_4);
 		
 		JButton btnNext_1 = new JButton("Next");
@@ -294,12 +313,23 @@ public class Start extends JPanel{
 		});
 		GridBagConstraints gbc_btnNext_1 = new GridBagConstraints();
 		gbc_btnNext_1.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNext_1.gridx = 3;
-		gbc_btnNext_1.gridy = 4;
+		gbc_btnNext_1.gridx = 5+l;
+		gbc_btnNext_1.gridy = 2+h;
 		add(btnNext_1, gbc_btnNext_1);
 		
 		validate();
 		repaint();
 	}
 	
+	 public void paintComponent(Graphics page)
+     {
+         super.paintComponent(page);
+         BufferedImage img = null;
+         try {
+                     page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
+             } catch (IOException e) {
+                     // TODO Auto-generated catch block
+                     e.printStackTrace();
+             }
+     }
 }
