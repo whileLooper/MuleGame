@@ -23,6 +23,8 @@ public class Game {
 	private boolean passLandPurchase = true;
 	
 	private int turnTime;
+	private Thread time;
+	
 	
 	/**
 	 * This is the constructor for Game class
@@ -197,6 +199,9 @@ public class Game {
 	 * This method will be called, when player enters pub
 	 */
 	public void playerEnterPub(){
+		int money = Pub.PubGambling(numOfTurn, turnTime);
+		turnTime = 0;
+		System.out.println("pub done");
 		
 	}
 	
@@ -207,7 +212,7 @@ public class Game {
 	private void GameStart(){
 		map.setFocusable(true);
 		
-		Thread time = new Thread(new Runnable(){
+		time = new Thread(new Runnable(){
 
 			@Override
 			public void run() {
