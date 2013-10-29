@@ -35,7 +35,7 @@ public class Map extends JPanel{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("mouse pressed");
+				//System.out.println("mouse pressed");
 				Point point = e.getPoint();
 				int x = point.x / 100;
 				int y = point.y / 100;
@@ -47,7 +47,7 @@ public class Map extends JPanel{
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				System.out.println("Key pressed");
+				//System.out.println("Key pressed");
 				if(game.isPlayerTurn()){
 					Player player= game.getCurrentPlayer();
 					Point p = player.getMapLocation();
