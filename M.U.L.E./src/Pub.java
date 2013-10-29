@@ -1,10 +1,23 @@
 
 public class Pub {
 
+	/**
+	 * This is the Pub Class
+	 */
+	
+	/**
+	 * This is the constructor for Pub Class
+	 */
 	public Pub(){
 		
 	}
 	
+	/**
+	 * This is a static method used to calculate the money bonus player earns through gambling
+	 * @param round is the current number of round
+	 * @param time is the time player left
+	 * @return the final bonus calculated
+	 */
 	public static int PubGambling(int round, int time){
 		int rB = 0;
 		int tB = 0;
