@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 
-public class Player {
+public class Player implements Comparable{
 	
 	/**
 	 * This is the Player class, used to store player's information
@@ -72,6 +72,14 @@ public class Player {
 	}
 	
 	/**
+	 * This method return player's money
+	 * @return player's money
+	 */
+	public int getMoney(){
+		return money;
+	}
+	
+	/**
 	 * This method adds player's money
 	 * @param m is the amount of money to add
 	 */
@@ -118,6 +126,13 @@ public class Player {
 	}
 	
 	/**
+	 * This method resets player's location 
+	 */
+	public void resetMapLocation(){
+		mapLocation = new Point(425, 375);
+	}
+	
+	/**
 	 * This method returns player's location on the down
 	 * @return player's location on the map
 	 */
@@ -159,4 +174,10 @@ public class Player {
 		imgMove = 0;
 			}
 		}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return money - ((Player)o).getMoney();
+	}
 }
