@@ -46,7 +46,7 @@ public class Town extends JPanel{
 				default:
 				}
 				
-				if(x + 50 >= 500 || x <= 0 || y + 50 >= 300 && y <= 0){
+				if(x + 50 >= 500 || x <= 0 || y + 50 >= 300 || y <= 0){
 					System.out.println("Leave Town");
 					game.playerLeaveTown();
 				}else if((x > 0 && x + 50 < 500 && y >= 100 && y + 50 <= 200) || (x >= 200 && x + 50 <= 300 && y > 0 && y + 50 < 300)){
