@@ -226,7 +226,7 @@ public class Start extends JPanel{
 		add(comboBox_1);
 		
 		JButton btnNewButton = new JButton("NEXT\u2192");
-		btnNewButton.setBounds(687, 109, 117, 41);
+		btnNewButton.setBounds(687, 109, 83, 36);
 
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
