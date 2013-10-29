@@ -1,6 +1,8 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.Point;
 
 import javax.swing.ImageIcon;
@@ -27,6 +29,7 @@ public class Map extends JPanel{
 	 */
 	public Map(Game g, String mapType){
 		game = g;
+		this.requestFocusInWindow();
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -43,6 +46,8 @@ public class Map extends JPanel{
 				game.mouseClicked(tiles[y][x]);
 			}
 		});
+		
+		this.requestFocus(true);
 		
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -83,15 +88,15 @@ public class Map extends JPanel{
 					}
 				}
 			}
-		});
-		
-		setFocusable(true);
-		setPreferredSize(new Dimension(900, 500));
-		setLayout(new GridLayout(5, 9, 0, 0));
-		createMap(mapType);
-		setVisible(true);
-		validate();
-		repaint();
+		});		      
+		this.setFocusable(true);
+		this.setPreferredSize(new Dimension(900, 500));
+		this.setLayout(new GridLayout(5, 9, 0, 0));
+		this.createMap(mapType);
+		this.setVisible(true);
+		this.validate();
+		this.repaint();
+
 	}
 	
 	/**

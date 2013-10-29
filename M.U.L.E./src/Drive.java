@@ -12,10 +12,8 @@ public class Drive extends JFrame{
 	    frame.setSize(910,688);
 	    frame.setVisible(true);
 	    frame.setResizable(false);
-		
-		
 	}
-
+	
 	private int x = 910;
 	private int y = 688;
 	
