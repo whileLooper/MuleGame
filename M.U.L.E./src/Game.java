@@ -1,4 +1,5 @@
 import java.awt.FlowLayout;
+import java.awt.Point;
 
 import javax.swing.JFrame;
 
@@ -96,9 +97,6 @@ public class Game {
 		}
 	}
 	
-	public void keyPressed(int x, int y){
-		System.out.println(x + " " + y);
-	}
 	
 	/**
 	 * This method will be called, when one player finishes his turn, and process to next player
@@ -162,7 +160,37 @@ public class Game {
 	 * This method will be called, when player touches town tile, and player will enter town, the town panel will be display
 	 */
 	public void playerEnterTown(){
+		Town town= new Town(this);
+		getDirection();
+		drive.remove(map);
+		drive.add(town);
+		drive.revalidate();
+	}
+	
+	/**
+	 * This method will be called, when player leaves town
+	 */
+	public void playerLeaveTown(){
 		
+	}
+	
+	/**
+	 * This method determines the direction player enter town
+	 */
+	private void getDirection(){
+		Player player = getCurrentPlayer();
+		Point pOnM = player.getMapLocation();
+		int x = pOnM.x;
+		int y = pOnM.y;
+		if(y > 150 && y < 300 && x < 350){
+			player.setTownLocation(new Point(0, 125));
+		}else if(x > 350 && x < 500 && y < 200){
+			player.setTownLocation(new Point(225, 0));
+		}else if(y > 150 && y < 300 && x > 500){
+			player.setTownLocation(new Point(450, 125));
+		}else{
+			player.setTownLocation(new Point(225, 250));
+		}
 	}
 	
 	/**
