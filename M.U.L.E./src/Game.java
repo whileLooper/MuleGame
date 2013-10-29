@@ -1,6 +1,6 @@
 import java.awt.FlowLayout;
 import java.awt.Point;
-
+import java.util.Arrays;
 import javax.swing.JFrame;
 
 
@@ -24,6 +24,7 @@ public class Game {
 	
 	private int turnTime;
 	private Thread time;
+	private Town town;
 	
 	
 	/**
@@ -130,9 +131,20 @@ public class Game {
 			if(numOfTurn == 12){
 				// end of game!
 			}else{
-				System.out.println("Next Player");
+				System.out.println("Next Turn");
+				sortPlayer();
 				GameStart();
 			}
+		}
+	}
+	
+	/**
+	 * This method sort the player according to player's money, player with least money start the turn
+	 */
+	private void sortPlayer(){
+		Arrays.sort(players);
+		for(Player p : players){
+			System.out.println(p.getMoney());
 		}
 	}
 	
@@ -144,7 +156,7 @@ public class Game {
 		if(gState == GameState.LandGrant) gState = GameState.LandPurchase;
 		else if(gState == GameState.LandPurchase){
 			gState = GameState.PlayerTurns;
-			map.repaint();
+			sortPlayer();
 			GameStart();
 		}
 	}
@@ -162,18 +174,22 @@ public class Game {
 	 * This method will be called, when player touches town tile, and player will enter town, the town panel will be display
 	 */
 	public void playerEnterTown(){
-		Town town= new Town(this);
+		town= new Town(this);
 		getDirection();
 		drive.remove(map);
 		drive.add(town);
 		drive.revalidate();
+		drive.repaint();
 	}
 	
 	/**
 	 * This method will be called, when player leaves town
 	 */
 	public void playerLeaveTown(){
-		
+		drive.remove(town);
+		drive.add(map);
+		drive.revalidate();
+		drive.repaint();
 	}
 	
 	/**
@@ -201,8 +217,14 @@ public class Game {
 	public void playerEnterPub(){
 		int money = Pub.PubGambling(numOfTurn, turnTime);
 		turnTime = 0;
-		System.out.println("pub done");
-		
+		System.out.println("It's " + numOfTurn + ", and there are " + turnTime + " s left, so player gets " + money 
+				+ " through gambling.");
+		getCurrentPlayer().addMoney(money);
+		drive.remove(town);
+		drive.add(map);
+		drive.revalidate();
+		drive.repaint();
+		nextPlayer();
 	}
 	
 	
@@ -210,10 +232,10 @@ public class Game {
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
 	private void GameStart(){
+		getCurrentPlayer().resetMapLocation();
+		map.repaint();
 		map.setFocusable(true);
-		
 		time = new Thread(new Runnable(){
-
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
