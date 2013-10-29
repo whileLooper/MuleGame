@@ -243,15 +243,23 @@ public class Start extends JPanel{
 				case "Blue": color = Color.BLUE; break;
 				default:
 				}
-				players[currentPlayer] = new Player(name, color, race);
 				System.out.println("Player #" + currentPlayer + " Name " + name + " Color: " + c + " Race" + race);
-				currentPlayer ++;
-				if(currentPlayer == numOfPlayers){
-					//System.out.println("done");
-					game.setUpMap();
-				}else{
+				
+				
+				if (sameColor(color) || sameName(name)) {
 					playerSetting();
 				}
+				else{
+					players[currentPlayer] = new Player(name, color, race);
+					currentPlayer ++;
+					if (currentPlayer == numOfPlayers) {
+						// System.out.println("done");
+						game.setUpMap();
+					} else {
+						playerSetting();
+					}
+				}
+				
 			}
 		});
 
@@ -261,6 +269,40 @@ public class Start extends JPanel{
 		repaint();
 	}
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	
+	/**
+	 * Check if color is in player list. Return true if there is, return false if there isn't.
+	 */
+	public boolean sameColor(Color c) {
+		for(int n = 0; n < currentPlayer; n++){
+			if(players[n].getColor() == c){
+				System.out.println("Oops! The color has been chosen...");
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if name is in player list. Return true if there is, return false if there isn't.
+	 */
+	public boolean sameName(String name) {
+		if (name.equals("")) {
+			System.out.println("Please enter a name");
+			return true;
+		}
+		for (int i = 0; i < currentPlayer; i++) {
+			if(players[i].getName() == name) {
+				System.out.println("Oops! The name has been chosen...");
+
+				return true;
+			}
+		}
+		return false;
+	}
 	 public void paintComponent(Graphics page)
      {
          super.paintComponent(page);
