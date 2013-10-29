@@ -132,15 +132,15 @@ public class Start extends JPanel{
 		setLayout(null);
 		
 		JLabel lblDifficulty = new JLabel("Difficulty");
-		lblDifficulty.setBounds(100, 60, 42, 14);
+		lblDifficulty.setBounds(100, 60, 83, 14);
 		add(lblDifficulty);
 		
 		JLabel lblMap = new JLabel("Map");
-		lblMap.setBounds(263, 60, 20, 14);
+		lblMap.setBounds(263, 60, 69, 14);
 		add(lblMap);
 		
 		JLabel lblOfPlayers = new JLabel("# of Players");
-		lblOfPlayers.setBounds(420, 60, 59, 14);
+		lblOfPlayers.setBounds(412, 60, 83, 14);
 		add(lblOfPlayers);
 		
 		final JComboBox comboBox = new JComboBox();
