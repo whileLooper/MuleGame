@@ -47,13 +47,14 @@ public class Town extends JPanel{
 				}
 				
 				if(x + 50 >= 500 || x <= 0 || y + 50 >= 300 && y <= 0){
-					System.out.println("leave town");
+					System.out.println("Leave Town");
 					game.playerLeaveTown();
 				}else if((x > 0 && x + 50 < 500 && y >= 100 && y + 50 <= 200) || (x >= 200 && x + 50 <= 300 && y > 0 && y + 50 < 300)){
 					player.setTownLocation(new Point(x, y));
 					repaint();
-				}else{
-					
+				}else if(x > 310 && x + 50 < 390 && y + 50 > 200){
+					System.out.println("Enter Pub");
+					game.playerEnterPub();
 				}
 			}
 		});
