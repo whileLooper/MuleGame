@@ -108,6 +108,11 @@ public class Game {
 		if(currentPlayer == players.length){
 			currentPlayer = 0;
 			nextTurn();
+		}else{
+			if(isPlayerTurn()){
+				System.out.println("Next Player");
+				GameStart();
+			}
 		}
 	}
 	
@@ -124,6 +129,9 @@ public class Game {
 		}else if(gState == GameState.PlayerTurns){
 			if(numOfTurn == 12){
 				// end of game!
+			}else{
+				System.out.println("Next Player");
+				GameStart();
 			}
 		}
 	}
@@ -164,6 +172,7 @@ public class Game {
 		
 	}
 	
+	
 	/**
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
@@ -186,27 +195,10 @@ public class Game {
 						e.printStackTrace();
 					}
 				}
+				nextPlayer();
 			}
-			
 		});
 		time.start();
-		//map.repaint();
-		/**
-		while(gState == GameState.PlayerTurns){
-			
-			turnTime = 50;
-			while(turnTime > 0){
-				System.out.println(turnTime + "s left");
-				turnTime -= 1;
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			System.out.println("Time up! Next player");
-			nextPlayer();
-		}*/
 	}
+	
 }
