@@ -15,7 +15,9 @@ public class Player {
 	private String name;
 	private Color color;
 	private String race;
-	private Image image = (new ImageIcon("player1.png")).getImage();
+	private Image image1 = (new ImageIcon("player1.png")).getImage();
+	private Image image2 = (new ImageIcon("player2.png")).getImage();
+	private int imgMove = 0;
 	private ArrayList<Tile> lands = new ArrayList<Tile>();
 	
 	private int money;
@@ -136,7 +138,12 @@ public class Player {
 	 * @param g is the graphics 
 	 */
 	public void drawOnMap(Graphics g){
-		g.drawImage(image, mapLocation.x, mapLocation.y, 50, 50, null);
+		if(imgMove == 0){
+		g.drawImage(image1, mapLocation.x, mapLocation.y, 50, 50, null);
+		imgMove = 1;
+		}else{
+		g.drawImage(image2, mapLocation.x, mapLocation.y, 50, 50, null);
+		imgMove = 0;}
 	}
 	
 	/**
@@ -144,6 +151,12 @@ public class Player {
 	 * @param g is the graphics
 	 */
 	public void drawOnTown(Graphics g){
-		g.drawImage(image, townLocation.x, townLocation.y, 50, 50, null);
-	}
+		if(imgMove == 0){
+		g.drawImage(image1, townLocation.x, townLocation.y, 50, 50, null);
+		imgMove = 1;
+		}else{
+		g.drawImage(image2, townLocation.x, townLocation.y, 50, 50, null);
+		imgMove = 0;
+			}
+		}
 }
