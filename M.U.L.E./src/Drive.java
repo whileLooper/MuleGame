@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 
@@ -8,6 +10,7 @@ public class Drive extends JFrame{
 		//Drive drive = new Drive();
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new BorderLayout());
 		Game game = new Game(frame);
 	    frame.setSize(910,688);
 	    frame.setVisible(true);
