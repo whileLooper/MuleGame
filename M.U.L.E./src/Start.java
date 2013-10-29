@@ -76,6 +76,8 @@ public class Start extends JPanel{
 	private Player[] players;
 	//private static int pn=1;
 	private Game game;
+	private JTextField textField;
+	private JTextField textField_1;
 	
 	/**
 	 * Setting the game start option.
@@ -127,70 +129,39 @@ public class Start extends JPanel{
 	 * Setting game start menu elements panels
 	 * */
 	private void gameSetting(){
-		
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, -67, -67, 0, -67, 0, -67, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setLayout(null);
 		
 		JLabel lblDifficulty = new JLabel("Difficulty");
-		GridBagConstraints gbc_lblDifficulty = new GridBagConstraints();
-		gbc_lblDifficulty.insets = new Insets(0, 0, 5, 5);
-		gbc_lblDifficulty.gridx = 1;
-		gbc_lblDifficulty.gridy = 2;
-		add(lblDifficulty, gbc_lblDifficulty);
+		lblDifficulty.setBounds(100, 60, 42, 14);
+		add(lblDifficulty);
 		
 		JLabel lblMap = new JLabel("Map");
-		GridBagConstraints gbc_lblMap = new GridBagConstraints();
-		gbc_lblMap.anchor = GridBagConstraints.WEST;
-		gbc_lblMap.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMap.gridx = 2;
-		gbc_lblMap.gridy = 2;
-		add(lblMap, gbc_lblMap);
+		lblMap.setBounds(263, 60, 20, 14);
+		add(lblMap);
 		
 		JLabel lblOfPlayers = new JLabel("# of Players");
-		GridBagConstraints gbc_lblOfPlayers = new GridBagConstraints();
-		gbc_lblOfPlayers.insets = new Insets(0, 0, 5, 5);
-		gbc_lblOfPlayers.gridx = 3;
-		gbc_lblOfPlayers.gridy = 2;
-		add(lblOfPlayers, gbc_lblOfPlayers);
+		lblOfPlayers.setBounds(420, 60, 59, 14);
+		add(lblOfPlayers);
 		
 		final JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(100, 94, 83, 36);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Beginner", "Standard", "Tournament"}));
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 1;
-		gbc_comboBox.gridy = 4;
-		add(comboBox, gbc_comboBox);
+		add(comboBox);
 				
 				final JComboBox comboBox_1 = new JComboBox();
+				comboBox_1.setBounds(263, 94, 69, 36);
 				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
-				GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-				gbc_comboBox_1.anchor = GridBagConstraints.WEST;
-				gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
-				gbc_comboBox_1.gridx = 2;
-				gbc_comboBox_1.gridy = 4;
-				add(comboBox_1, gbc_comboBox_1);
+				add(comboBox_1);
 		
 				
 				final JComboBox comboBox_2 = new JComboBox();
+				comboBox_2.setBounds(420, 94, 59, 36);
 				comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
-				GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
-				gbc_comboBox_2.insets = new Insets(0, 0, 5, 5);
-				gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
-				gbc_comboBox_2.gridx = 3;
-				gbc_comboBox_2.gridy = 4;
-				add(comboBox_2, gbc_comboBox_2);
+				add(comboBox_2);
 		
-		JButton btnNext = new JButton("Next");
-		GridBagConstraints gbc_btnNext = new GridBagConstraints();
-		gbc_btnNext.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNext.gridx = 7;
-		gbc_btnNext.gridy = 4;
-		add(btnNext, gbc_btnNext);
+		JButton btnNext = new JButton("Next\u2192");
+		btnNext.setBounds(597, 94, 83, 36);
+		add(btnNext);
 		btnNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -215,83 +186,55 @@ public class Start extends JPanel{
 //	  */
 	private void playerSetting(){
 		removeAll();
-		int l= 8;
-		int h= 3;
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, -67, -67, 0, -67, 0, -67, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setLayout(null);
 		
-//		GridBagLayout gbl_setting = new GridBagLayout();
-//		gbl_setting.columnWidths = new int[]{32, 0, 0, 0, 0, 0};
-//		gbl_setting.rowHeights = new int[]{21, 0, 0, 0, 0, 0, 0};
-//		gbl_setting.columnWeights = new double[]{1.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-//		gbl_setting.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-//		setLayout(gbl_setting);
-		JLabel lblPlayer = new JLabel();
 		int player = currentPlayer + 1;
-		lblPlayer.setText("Player #"+ player);
-
-		GridBagConstraints gbc_lblPlayer = new GridBagConstraints();
-		gbc_lblPlayer.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPlayer.gridx = 0+l;
-		gbc_lblPlayer.gridy = 1+h;
-		add(lblPlayer, gbc_lblPlayer);
+		JLabel lblPlayer = new JLabel("Player#" + player);
+		lblPlayer.setBounds(109, 48, 64, 14);
+		add(lblPlayer);
 		
 		JLabel lblName = new JLabel("Name");
-		GridBagConstraints gbc_lblName = new GridBagConstraints();
-		gbc_lblName.insets = new Insets(0, 0, 5, 5);
-		gbc_lblName.gridx = 1+l;
-		gbc_lblName.gridy = 0+h;
-		add(lblName, gbc_lblName);
+		lblName.setBounds(280, 88, 86, 14);
+		add(lblName);
 		
-		JLabel lblLabel = new JLabel("Race");
-		GridBagConstraints gbc_lblLabel = new GridBagConstraints();
-		gbc_lblLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblLabel.gridx = 2+l;
-		gbc_lblLabel.gridy = 0+h;
-		add(lblLabel, gbc_lblLabel);
-		
+		JLabel lblRace = new JLabel("Race");
+		lblRace.setBounds(429, 88, 67, 14);
+		add(lblRace);
+
 		JLabel lblColor = new JLabel("Color");
-		GridBagConstraints gbc_lblColor = new GridBagConstraints();
-		gbc_lblColor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblColor.gridx = 3+l;
-		gbc_lblColor.gridy = 0+h;
-		add(lblColor, gbc_lblColor);
+		lblColor.setBounds(569, 88, 61, 14);
+		add(lblColor);
 		
-		final JTextField textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.gridx = 1+l;
-		gbc_textField_1.gridy = 1+h;
-		add(textField_1, gbc_textField_1);
+		textField = new JTextField();
+		textField.setBounds(90, 85, 137, 188);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(280, 110, 86, 20);
+		add(textField_1);
 		textField_1.setColumns(10);
 		
-		final JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Flapper", "Human", "Others"}));
-		GridBagConstraints gbc_comboBox_3 = new GridBagConstraints();
-		gbc_comboBox_3.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_3.gridx = 2+l;
-		gbc_comboBox_3.gridy = 1+h;
-		add(comboBox_3, gbc_comboBox_3);
+		final JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Flapper", "Human", "Others"}));
+		comboBox.setBounds(429, 110, 67, 20);
+		add(comboBox);
 		
-		final JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"Red", "Yellow", "Green", "Blue"}));
-		GridBagConstraints gbc_comboBox_4 = new GridBagConstraints();
-		gbc_comboBox_4.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_4.gridx = 3+l;
-		gbc_comboBox_4.gridy = 1+h;
-		add(comboBox_4, gbc_comboBox_4);
+		final JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Red", "Yellow", "Green", "Blue"}));
+		comboBox_1.setBounds(569, 110, 61, 20);
+		add(comboBox_1);
 		
-		JButton btnNext_1 = new JButton("Next");
-		btnNext_1.addMouseListener(new MouseAdapter() {
+		JButton btnNewButton = new JButton("NEXT\u2192");
+		btnNewButton.setBounds(687, 109, 117, 41);
+
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String name = textField_1.getText();
-				String race = (String) comboBox_3.getSelectedItem();
-				String c = (String) comboBox_4.getSelectedItem();
+				String race = (String) comboBox.getSelectedItem();
+				String c = (String) comboBox_1.getSelectedItem();
 				Color color = null;
 				switch(c){
 				case "Red": color = Color.RED; break;
@@ -311,11 +254,8 @@ public class Start extends JPanel{
 				}
 			}
 		});
-		GridBagConstraints gbc_btnNext_1 = new GridBagConstraints();
-		gbc_btnNext_1.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNext_1.gridx = 5+l;
-		gbc_btnNext_1.gridy = 2+h;
-		add(btnNext_1, gbc_btnNext_1);
+
+		add(btnNewButton);
 		
 		validate();
 		repaint();
