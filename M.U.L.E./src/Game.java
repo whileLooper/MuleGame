@@ -1,6 +1,8 @@
 import java.awt.FlowLayout;
 import java.awt.Point;
 import java.util.Arrays;
+import java.util.Random;
+
 import javax.swing.JFrame;
 
 
@@ -84,7 +86,7 @@ public class Game {
 		Player currentPlayer = getCurrentPlayer();
 		int landprice = 0;
 		if(gState == GameState.LandPurchase) landprice = 300;
-		else if(gState == GameState.PlayerTurns) landprice = 300;// need to be changed later 
+		else if(gState == GameState.PlayerTurns) landprice = 300 + (new Random().nextInt(100));// need to be changed later 
 		return currentPlayer.buyLand(landprice, land);
 	}
 	
