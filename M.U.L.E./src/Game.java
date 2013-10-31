@@ -59,6 +59,7 @@ public class Game {
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
+		town = new Town(this);
 	}
 	
 	/**
@@ -180,7 +181,7 @@ public class Game {
 	 * This method will be called, when player touches town tile, and player will enter town, the town panel will be display
 	 */
 	public void playerEnterTown(){
-		town= new Town(this);
+		//town= new Town(this);
 		getDirection();
 		drive.remove(map);
 		drive.add(town);
