@@ -250,7 +250,7 @@ public class Start extends JPanel{
 					playerSetting();
 				}
 				else{
-					players[currentPlayer] = new Player(name, color, race);
+					players[currentPlayer] = new Player(name, color, race, difficulty);
 					currentPlayer ++;
 					if (currentPlayer == numOfPlayers) {
 						// System.out.println("done");
