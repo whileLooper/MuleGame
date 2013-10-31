@@ -1,3 +1,5 @@
+import java.util.Random;
+
 
 public class Pub {
 
@@ -36,10 +38,11 @@ public class Pub {
 		case 12: rB = 200; break;
 		default:
 		}
-		if(time < 50 && time >= 37) tB = 200;
-		else if(time < 37 && time >= 25) tB = 150;
-		else if(time < 25 && time >= 12) tB = 100;
-		else if(time < 12 && time >= 0) tB = 50;
+		Random rand = new Random();
+		if(time < 50 && time >= 37) tB = rand.nextInt(200);
+		else if(time < 37 && time >= 25) tB = rand.nextInt(150);
+		else if(time < 25 && time >= 12) tB = rand.nextInt(100);
+		else if(time < 12 && time >= 0) tB = rand.nextInt(50);
 		int result = rB + tB;
 		if(result > 250) return 250;
 		return result;
