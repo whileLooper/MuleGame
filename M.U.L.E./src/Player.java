@@ -21,9 +21,10 @@ public class Player implements Comparable{
 	private ArrayList<Tile> lands = new ArrayList<Tile>();
 	
 	private int money;
+	private int food;
 	private int energy;
-	private int ore;
-	private int crystal;
+	private int ore = 0 ;
+	private int crystal = 0;
 	
 	private Point mapLocation = new Point(425, 375);
 	private Point townLocation;
@@ -35,23 +36,34 @@ public class Player implements Comparable{
 	 * @param c is the player's color
 	 * @param r is the player's race
 	 */
-	public Player(String n, Color c, String r){
+	public Player(String n, Color c, String r, String gameD){
 		name = n;
 		color = c;
 		race = r;
-		initiate();
+		initiate(gameD);
 	}
 	
 	/**
 	 * This method gives a initial value to player's money and other resources according to player's race and game difficulty
 	 */
-	private void initiate(){
+	private void initiate(String gameD){
 		switch(race){
 		case "Human": money = 600; break;
 		case "Flapper": money = 1600; break;
 		case "Others": money = 1000; break;
 		default:;
-		
+		}
+		switch(gameD){
+		case "Beginner":{
+			food = 8; energy = 4; break;
+		}
+		case "Standard":{
+			food = 4; energy = 2; break;
+		}
+		case "Tournament":{
+			food = 4; energy = 2; break;
+		}
+		default:;
 		}
 	}
 	
@@ -77,6 +89,14 @@ public class Player implements Comparable{
 	 */
 	public int getMoney(){
 		return money;
+	}
+	
+	/**
+	 * This method returns player's food amount
+	 * @return player's food amount
+	 */
+	public int getFood(){
+		return food;
 	}
 	
 	/**
