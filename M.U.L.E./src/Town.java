@@ -63,6 +63,7 @@ public class Town extends JPanel{
 		setPreferredSize(new Dimension(500, 300));
 		setVisible(true);
 		repaint();
+		
 	}
 	
 	@Override
