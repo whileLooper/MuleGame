@@ -129,6 +129,8 @@ public class Player implements Comparable{
 		}
 	}
 	
+	
+	
 	/**
 	 * This method returns player's location on the map
 	 * @return player's location on map
