@@ -13,6 +13,7 @@ public class Game {
 	private GameState gState;
 	private TurnState tState;
 	private InfoPanel info; 
+	private String difficulty;
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -46,6 +47,7 @@ public class Game {
 	public void setUpMap(){
 		String mapType = start.getMapType();
 		players = start.getPlayers();
+		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
 		//drive.getContentPane().remove(start);
 		//start.setVisible(false);
@@ -65,6 +67,10 @@ public class Game {
 	 */
 	public Player getCurrentPlayer(){
 		return players[currentPlayer];
+	}
+	
+	public String getDifficulty(){
+		return difficulty;
 	}
 	
 	/**
@@ -239,7 +245,7 @@ public class Game {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				turnTime = 50;
+				turnTime = playerTime();
 				while(turnTime > 0){
 					System.out.println(turnTime + "s left");
 					turnTime -= 1;
@@ -254,6 +260,33 @@ public class Game {
 			}
 		});
 		time.start();
+	}
+	
+	/**
+	 * This method decides player's turn time based on player's food amount 
+	 * @return the seconds player gets on this turn
+	 */
+	private int playerTime(){
+		Player player = getCurrentPlayer();
+		int food = player.getFood();
+		int need = foodNeeded();
+		if(food >= need) return 50;
+		if(food < need && food > 0) return 30;
+		return 5;
+	}
+	
+	/**
+	 * This method decides how much of food player needs to get through the turn
+	 * @return the amount of food need
+	 */
+	private int foodNeeded(){
+		if(numOfTurn >= 1 && numOfTurn < 5){
+			return 3;
+		}else if(numOfTurn >= 5 && numOfTurn < 9){
+			return 4;
+		}else{
+			return 5;
+		}
 	}
 	
 }
