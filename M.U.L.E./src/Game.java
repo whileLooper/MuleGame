@@ -90,6 +90,9 @@ public class Game {
 		return currentPlayer.buyLand(landprice, land);
 	}
 	
+	public boolean playerBuyResourcec(String type, int price){
+		return getCurrentPlayer().buyResource(type, price);
+	}
 	/**
 	 * This method decided what to do after player click mouse
 	 * @param land is the tile people clicked on
