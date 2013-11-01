@@ -16,13 +16,15 @@ public class Store extends JPanel {
 	private final int FOODM_PRICE = 25, ENERGYM_PRICE = 50+MULE_PRICE;
 	private final int SMITHOREM_PRICE = 75+MULE_PRICE;
 	private final int CRYSTITEM_PRICE = 100+MULE_PRICE;
+	private Player p;
 	
 	private int food, energy, smithore, crystite, mule; 
 	/**
 	 * Constructor for Store Class
 	 */
 	
-	public Store(String difficulty) {
+	public Store(String difficulty, Player p) {
+		this.p = p;
 		if (difficulty == "Beginner") {
 			food = 16;
 			energy = 16;
@@ -41,40 +43,49 @@ public class Store extends JPanel {
 		
 	public boolean buy(String type) {
 		if (type == "food" && food>0 && mule>0) {
-			mule-=1;
-			food-=1;
+			if (p.buyResource("food", FOODM_PRICE)) {
+				mule-=1;
+				food-=1;
+			}
 			return true;
 		}
 		else if (type == "energy" && energy>0 && mule>0) {
-			mule-=1;
-			energy-=1;
+			if (p.buyResource("energy", ENERGYM_PRICE)) {
+				mule-=1;
+				energy-=1;
+			}
 			return true;
 		}
 		else if (type == "smithore" && smithore > 0 && mule > 0) {
-			mule-=1;
-			smithore-=1;
+			if (p.buyResource("smithore", SMITHOREM_PRICE)) {
+				mule-=1;
+				smithore-=1;
+			}
 			return true;
 		}
 		else if (type == "crystite" && crystite > 0 && mule > 0) {
-			mule-=1;
-			crystite-=1;
+			
+			if (p.buyResource("crystite", CRYSTITEM_PRICE)) {
+				mule-=1;
+				crystite-=1;
+			}
 			return true;
 		}
 		return false;
 	}
 	
 	public void sell(String type) {
-		if (type == "food") {
+		if (type == "food" && p.sellResource("food")) {
 			food+=1;
 		}
-		else if (type == "energy") {
+		else if (type == "energy" && p.sellResource("energy")) {
 			energy+=1;
 		}
-		else if (type == "smithore") {
+		else if (type == "smithore" && p.sellResource("smithore")) {
 			smithore+=1;
 			mule+=1;
 		}
-		else if (type == "crystite") {
+		else if (type == "crystite" && p.sellResource("crystite")) {
 			crystite+=1;
 		}
 	}
