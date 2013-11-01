@@ -130,6 +130,7 @@ public class Player implements Comparable{
 	}
 	
 	public boolean buyResource(String type, int price){
+		return false;
 		
 	}
 	
