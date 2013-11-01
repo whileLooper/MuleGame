@@ -129,7 +129,9 @@ public class Player implements Comparable{
 		}
 	}
 	
-	
+	public boolean buyResource(String type, int price){
+		
+	}
 	
 	/**
 	 * This method returns player's location on the map
