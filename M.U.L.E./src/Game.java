@@ -25,7 +25,8 @@ public class Game {
 	
 	private boolean passLandPurchase = true;
 	
-	private int turnTime;
+	private int turnTime ;
+	private final int requireFood = 10;
 	private Thread time;
 	private Town town;
 	
@@ -52,7 +53,7 @@ public class Game {
 		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
 		//drive.getContentPane().remove(start);
-		//start.setVisible(false);
+		start.setVisible(false);
 		drive.remove(start);
 		drive.remove(info);
 		drive.add(map);
@@ -145,6 +146,7 @@ public class Game {
 			}else{
 				System.out.println("Next Turn");
 				sortPlayer();
+				//timerReduce(turnTime);
 				GameStart();
 			}
 		}
@@ -156,7 +158,7 @@ public class Game {
 	private void sortPlayer(){
 		Arrays.sort(players);
 		for(Player p : players){
-			System.out.println(p.getMoney());
+			System.out.println(p.getName()+p.getMoney());
 		}
 	}
 	
@@ -169,6 +171,7 @@ public class Game {
 		else if(gState == GameState.LandPurchase){
 			gState = GameState.PlayerTurns;
 			sortPlayer();
+			//timerReduce(turnTime);
 			GameStart();
 		}
 	}
@@ -189,7 +192,9 @@ public class Game {
 		//town= new Town(this);
 		getDirection();
 		drive.remove(map);
+		drive.remove(info);
 		drive.add(town);
+		drive.add(info);
 		drive.revalidate();
 		drive.repaint();
 	}
@@ -266,6 +271,16 @@ public class Game {
 			}
 		});
 		time.start();
+	}
+	/**
+	 * counting the each turn player's timer.
+	 * @param turnTime
+	 */
+	private void timerReduce(int turnTime){
+		Player player = getCurrentPlayer();
+		int food = player.getFood();
+		if(food > 0 || food < requireFood) turnTime = 30;
+		else if(food == 0) turnTime = 5;
 	}
 	
 	/**
