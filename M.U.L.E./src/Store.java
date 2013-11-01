@@ -95,6 +95,7 @@ public class Store {
 			p.deductSmithore();
 			p.addMoney(SMITHORE_PRICE);
 			smithore+=1;
+			mule+=1;
 		}
 		else if (type == "crystite" && p.getCrystite() > 0) {
 			p.deductCrystite();
