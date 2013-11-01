@@ -3,7 +3,9 @@
 import java.awt.*;
 import java.util.*;
 
-public class Store {
+import javax.swing.JPanel;
+
+public class Store extends JPanel {
 	/**
 	 * This is the Store Class
 	 */
