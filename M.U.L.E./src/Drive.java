@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 
+@SuppressWarnings("serial")
 public class Drive extends JFrame{
 
 	public static void main(String[] args) {
