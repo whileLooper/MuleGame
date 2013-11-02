@@ -29,6 +29,9 @@ public class Player implements Comparable{
 	private Point mapLocation = new Point(425, 375);
 	private Point townLocation;
 	
+	private Mule currentMule;
+	private ArrayList<Mule> mules = new ArrayList<Mule>();
+	
 	
 	/**
 	 * This is the Player class' constructor
@@ -148,6 +151,23 @@ public class Player implements Comparable{
 			return false;
 		}else{
 			System.out.println("Oops, you don't have enought money...");
+			return false;
+		}
+	}
+	
+	/**
+	 * This method used for player to buy mule
+	 * @param m is the mule people are trying to buy
+	 * @param price is the mule's price
+	 * @return whether the transition is successful
+	 */
+	public boolean buyMule(Mule m, int price){
+		if(money >= price){
+			money -= price;
+			currentMule = m;
+			mules.add(currentMule);
+			return true;
+		}else{
 			return false;
 		}
 	}
