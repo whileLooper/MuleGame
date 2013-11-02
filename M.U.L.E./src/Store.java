@@ -377,4 +377,23 @@ public class Store extends JPanel {
 	public int getCrystiteMulePrice() {
 		return CRYSTITEM_PRICE; 
 	}
+	
+	/**
+	 * @return the number of food
+	 */
+	public int getFood() {
+		return Food;
+	}
+	
+	public int getEnergy() {
+		return Energy;
+	}
+	
+	public int getCrystite() {
+		return Crystite;
+	}
+	
+	public int getSmithore() {
+		return Smithore;
+	}
 }
