@@ -45,7 +45,6 @@ public class InfoPanel extends JPanel {
 		PlayerInfoPanel.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		JLayeredPane Player_1 = new JLayeredPane();
-		Player_1.setToolTipText("");
 		Player_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_1);
 		
@@ -70,7 +69,6 @@ public class InfoPanel extends JPanel {
 		Player_1.add(lblOre_1);
 		
 		JLayeredPane Player_2 = new JLayeredPane();
-		Player_2.setToolTipText("");
 		Player_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_2);
 		
@@ -95,7 +93,6 @@ public class InfoPanel extends JPanel {
 		Player_2.add(label_3);
 		
 		JLayeredPane Player_3 = new JLayeredPane();
-		Player_3.setToolTipText("");
 		Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_3);
 		
@@ -120,7 +117,6 @@ public class InfoPanel extends JPanel {
 		Player_3.add(label_7);
 		
 		JLayeredPane Player_4 = new JLayeredPane();
-		Player_4.setToolTipText("");
 		Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_4);
 		
@@ -145,7 +141,6 @@ public class InfoPanel extends JPanel {
 		Player_4.add(label_11);
 		
 		JLayeredPane Town = new JLayeredPane();
-		Town.setToolTipText("");
 		Town.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Town);
 		
