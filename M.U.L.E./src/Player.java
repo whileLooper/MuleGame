@@ -212,7 +212,7 @@ public class Player implements Comparable{
 	 * @param price is the price player can get to sell the product
 	 * @return whether this transition is successful
 	 */
-	public boolean sellRecourse(String type, int price){
+	public boolean sellResource(String type, int price){
 		switch(type){
 		case "Food":{
 			if(food > 0){
