@@ -16,6 +16,7 @@ public class Mule {
 	private String muleType;
 	private Point mapLocation = new Point(425, 375);
 	private Point townLocation;
+	private String owner;
 	private Image image1 = (new ImageIcon("mule.png")).getImage();
 	private Image image2 = (new ImageIcon("mule.png")).getImage();
 	private Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
@@ -97,13 +98,42 @@ public class Mule {
 	/*
 	 * setting the mule on the land
 	 */
-	public void setMule(Graphics g){
+	public void setDownMule(Graphics g){
 		
 		g.drawImage(setDownImg, townLocation.x, townLocation.y, 50, 34, null);
 
 	}
 	
+	/*
+	 * determine the right tile to set down
+	 */
+	public boolean aviliableSet(Tile tile){
+		if(tile.getName() == owner) return true;
+		return false;
+	}
 	
+	/**
+	 * this method return the owner of mule
+	 * @param player
+	 * @return player name
+	 */
+	public void setMuleOwner(Player player){
+		owner = player.getName();
+	}
 	
+	/**
+	 * get the owner name of mule
+	 * @return owner of mule
+	 */
+	public String muleOwner(){
+		return owner;
+	}
+	
+	/*
+	 * doing the run away action for mule 
+	 */
+	public void runAway(){
+		
+	}	
 	
 }
