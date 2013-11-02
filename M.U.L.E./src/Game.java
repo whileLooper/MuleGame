@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 public class Game {
@@ -39,9 +40,21 @@ public class Game {
 		drive = d;
 		drive.setLayout(new FlowLayout());
 		start = new Start(this);
-		info = new InfoPanel(players[0], players[1], players[2], players[3]);
 		d.getContentPane().add(start);
 		d.getContentPane().add(info);
+	}
+	
+	/**
+	 * This method used to change display
+	 * @param toremove is the panel to remove from frame
+	 * @param toadd is the panel to add to frame
+	 */
+	public void changeDisplay(JPanel toremove, JPanel toadd){
+		drive.remove(toremove);
+		drive.remove(info);
+		drive.add(toadd);
+		drive.add(info);
+		drive.revalidate();
 	}
 	
 	/**
@@ -52,8 +65,8 @@ public class Game {
 		players = start.getPlayers();
 		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
-		//drive.getContentPane().remove(start);
-		start.setVisible(false);
+		town = new Town(this);
+		info = new InfoPanel(players, town.getStore());
 		drive.remove(start);
 		drive.remove(info);
 		drive.add(map);
@@ -62,7 +75,6 @@ public class Game {
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
-		town = new Town(this);
 	}
 	
 	/**
