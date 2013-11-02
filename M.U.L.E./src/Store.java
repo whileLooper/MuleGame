@@ -457,9 +457,11 @@ public class Store extends JPanel {
 	}
 	
 	public boolean buyMule(Mule m, int price) {
-		if (p.buyMule(m, price)) {
-			Mule-=1;
-			return true;
+		if(Mule > 0){
+			if (p.buyMule(m, price)) {
+				Mule-=1;
+			    return true;
+			}
 		}
 		return false;
 	}
