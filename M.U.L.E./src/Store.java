@@ -161,7 +161,7 @@ public class Store extends JPanel {
 		button.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Food" , p);
+				buy("Food");
 			}
 			
 		});
@@ -170,7 +170,7 @@ public class Store extends JPanel {
 		btnNewButton_1.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Food" , p);
+				sell("Food");
 			}
 			
 		});
@@ -183,7 +183,7 @@ public class Store extends JPanel {
 		button_1.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Energy" , p);
+				buy("Energy");
 			}
 			
 		});
@@ -194,7 +194,7 @@ public class Store extends JPanel {
 		button_2.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Energy" , p);
+				sell("Energy");
 			}
 			
 		});
@@ -205,7 +205,7 @@ public class Store extends JPanel {
 		button_3.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Smithore" , p);
+				buy("Smithore");
 			}
 			
 		});
@@ -216,7 +216,7 @@ public class Store extends JPanel {
 		button_4.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Smithore" , p);
+				sell("Smithore");
 			}
 			
 		});
@@ -225,7 +225,7 @@ public class Store extends JPanel {
 		button_5.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Crystite" , p);
+				buy("Crystite");
 			}
 			
 		});
@@ -238,7 +238,7 @@ public class Store extends JPanel {
 		btnNewButton_2.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Crystite" , p);
+				sell("Crystite");
 			}
 			
 		});
@@ -354,17 +354,17 @@ public class Store extends JPanel {
 	 * @param type the type of resource the player is selling.
 	 */
 	public void sell(String type) {
-		if (type == "Food" && p.sellResource("Food")) {
+		if (type == "Food" && p.sellResource("Food", FOOD_PRICE)) {
 			Food+=1;
 		}
-		else if (type == "Energy" && p.sellResource("Energy")) {
+		else if (type == "Energy" && p.sellResource("Energy", ENERGY_PRICE)) {
 			Energy+=1;
 		}
-		else if (type == "Smithore" && p.sellResource("Smithore")) {
+		else if (type == "Smithore" && p.sellResource("Smithore", SMITHORE_PRICE)) {
 			Smithore+=1;
 			Mule+=1;
 		}
-		else if (type == "Crystite" && p.sellResource("Crystite")) {
+		else if (type == "Crystite" && p.sellResource("Crystite", CRYSTITE_PRICE)) {
 			Crystite+=1;
 		}
 	}
