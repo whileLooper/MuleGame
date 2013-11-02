@@ -39,7 +39,7 @@ public class Game {
 		drive = d;
 		drive.setLayout(new FlowLayout());
 		start = new Start(this);
-		info = new InfoPanel();
+		info = new InfoPanel(players[0], players[1], players[2], players[3]);
 		d.getContentPane().add(start);
 		d.getContentPane().add(info);
 	}
