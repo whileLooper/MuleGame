@@ -205,7 +205,7 @@ public class InfoPanel extends JPanel {
 		  	Player p2 = new Player("bobo2", Color.GREEN, "human", "gameD");
 		  	Player p3 = new Player("bobo3", Color.YELLOW, "human", "gameD");
 		  	Player p4 = new Player("bobo4", Color.BLACK, "human", "gameD");
-		    final InfoPanel it = new InfoPanel(p1, p2, p3, p4, new Store("hello", p1));
+		    final InfoPanel it = new InfoPanel(p1, p2, p3, p4, new Store("hello"));
 
 		    JFrame frame = new JFrame("Progress Bar Example");
 		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
