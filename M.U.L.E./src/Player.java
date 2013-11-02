@@ -100,6 +100,29 @@ public class Player implements Comparable{
 	}
 	
 	/**
+	 * This method used to get player's energy amount
+	 * @return player's energy amount
+	 */
+	public int getEnergy(){
+		return energy;
+	}
+	
+	/**
+	 * This method used to get player's ore amount
+	 * @return player's ore amount
+	 */
+	public int getOre(){
+		return ore;
+	}
+	
+	/**
+	 * This method used to get player
+	 * @return
+	 */
+	public int getCrystal(){
+		return crystal;
+	}
+	/**
 	 * This method adds player's money
 	 * @param m is the amount of money to add
 	 */
