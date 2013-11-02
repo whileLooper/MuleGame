@@ -116,8 +116,8 @@ public class Player implements Comparable{
 	}
 	
 	/**
-	 * This method used to get player
-	 * @return
+	 * This method used to get player's crystal amount
+	 * @return player's crystal amount
 	 */
 	public int getCrystal(){
 		return crystal;
