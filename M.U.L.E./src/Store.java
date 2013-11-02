@@ -458,7 +458,9 @@ public class Store extends JPanel {
 
 	
 	public void buyMule() {
-		Mule-=1;
+		if (Mule > 0) {
+			Mule-=1;
+		}
 	}
 	
 	public void playerEnterTown(Player p) {
