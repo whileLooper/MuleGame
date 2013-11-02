@@ -396,4 +396,8 @@ public class Store extends JPanel {
 	public int getSmithore() {
 		return Smithore;
 	}
+	
+	public int getMule() {
+		return Mule;
+	}
 }
