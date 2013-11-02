@@ -21,12 +21,10 @@ public class InfoPanel extends JPanel {
 
 
 	public InfoPanel(Player[] playerList, Store s){
+		System.out.println(playerList.length);
 		if (playerList.length == 2) {
-			Player[] tmp = new Player[4];
-			tmp[0] = playerList[0];
-			tmp[1] = playerList[1];
-			tmp[2] = new Player(null, null, null, null);
-			tmp[3] = new Player(null, null, null, null);
+			Player[] tmp = {playerList[0], playerList[1], playerList[0], playerList[0]};
+			System.out.println(tmp.length);
 			System.out.println("length = 2");
 			playerList = tmp;
 		}
@@ -224,7 +222,7 @@ public class InfoPanel extends JPanel {
 		  	Player p3 = new Player("bobo3", Color.YELLOW, "human", "gameD");
 		  	Player p4 = new Player("bobo4", Color.BLACK, "human", "gameD");
 		  	Player[] playerList = {p1, p2};
-		    final InfoPanel it = new InfoPanel(playerList, new Store("hello"));
+		  	InfoPanel it = new InfoPanel(playerList, new Store("hello"));
 
 		    JFrame frame = new JFrame("Progress Bar Example");
 		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
