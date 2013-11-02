@@ -13,6 +13,10 @@ public class Town extends JPanel{
 	
 	private Game game;
 	
+	private Store store;
+	
+	private boolean playerInStore = false;
+	
 	/**
 	 * This is the constructor for Town class
 	 * @param g is the game
@@ -46,15 +50,17 @@ public class Town extends JPanel{
 				default:
 				}
 				
-				if(x + 50 >= 500 || x <= 0 || y + 50 >= 300 || y <= 0){
+				if(x + 50 > 500 || x < 0 || y + 50 > 300 || y < 0){
 					System.out.println("Leave Town");
 					game.playerLeaveTown();
-				}else if((x > 0 && x + 50 < 500 && y >= 100 && y + 50 <= 200) || (x >= 200 && x + 50 <= 300 && y > 0 && y + 50 < 300)){
+				}else if((x >= 0 && x + 50 <= 500 && y >= 100 && y + 50 <= 200) || (x >= 200 && x + 50 <= 300 && y >= 0 && y + 50 <= 300)){
 					player.setTownLocation(new Point(x, y));
 					repaint();
-				}else if(x > 310 && x + 50 < 390 && y + 50 > 200){
+				}else if(x > 310 && x + 50 < 490 && y < 100){
 					System.out.println("Enter Pub");
 					game.playerEnterPub();
+				}else if(x > 310 && x + 50 < 490 && y + 50 > 200){
+					playerEnterStore();
 				}
 			}
 		});
@@ -63,7 +69,32 @@ public class Town extends JPanel{
 		setPreferredSize(new Dimension(500, 300));
 		setVisible(true);
 		repaint();
-		
+		store = new Store(game.getDifficulty(), this);
+	}
+	
+	/**
+	 * This method called when player enters store
+	 */
+	public void playerEnterStore(){
+		add(store);
+		revalidate();
+		repaint();
+		playerInStore = true;
+		store.playerEnterTown(game.getCurrentPlayer());
+	}
+	
+	public void playerOutStore(){
+		remove(store);
+		revalidate();
+		repaint();
+		playerInStore = false;
+	}
+	/**
+	 * This method used to get store object in Town class
+	 * @return
+	 */
+	public Store getStore(){
+		return store;
 	}
 	
 	@Override
@@ -73,6 +104,8 @@ public class Town extends JPanel{
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage((new ImageIcon("townp.png")).getImage(), 0,0, 500, 300, null);
-		game.getCurrentPlayer().drawOnTown(g);
+		if(!playerInStore){
+			game.getCurrentPlayer().drawOnTown(g);
+		}
 	}
 }
