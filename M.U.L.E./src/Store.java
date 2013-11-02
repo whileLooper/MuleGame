@@ -27,15 +27,13 @@ public class Store extends JPanel {
 	private final int FOODM_PRICE = 25, ENERGYM_PRICE = 50+MULE_PRICE;
 	private final int SMITHOREM_PRICE = 75+MULE_PRICE;
 	private final int CRYSTITEM_PRICE = 100+MULE_PRICE;
-	private Player p;
 	
 	private int Food, Energy, Smithore, Crystite, Mule; 
 	/**
 	 * Constructor for Store Class
 	 */
 	
-	public Store(String difficulty, Player p) {
-		this.p = p;
+	public Store(String difficulty) {
 		if (difficulty == "Beginner") {
 			Food = 16;
 			Energy = 16;
@@ -262,7 +260,7 @@ public class Store extends JPanel {
 	 * @param type is the type of food the player bought
 	 * @return true if the purchase is successful, false if it failed.
 	 */
-	public boolean buy(String type) {
+	public boolean buy(String type, Player p) {
 		if (type == "Food" && Food>0 && Mule>0) {
 			if (p.buyResource("Food", FOODM_PRICE)) {
 				Mule-=1;
@@ -298,7 +296,7 @@ public class Store extends JPanel {
 	/**
 	 * @param type the type of resource the player is selling.
 	 */
-	public void sell(String type) {
+	public void sell(String type, Player p) {
 		if (type == "Food" && p.sellResource("Food")) {
 			Food+=1;
 		}
