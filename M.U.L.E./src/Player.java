@@ -190,11 +190,11 @@ public class Player implements Comparable{
 				energy += 1;
 				break;
 			}
-			case "Ore":{
+			case "Smithore":{
 				ore += 1;
 				break;
 			}
-			case "Crystal":{
+			case "Crystite":{
 				crystal += 1;
 				break;
 			}
@@ -230,7 +230,7 @@ public class Player implements Comparable{
 			}
 			return false;
 		}
-		case "Ore":{
+		case "Smithore":{
 			if(ore > 0){
 				ore --;
 				money += price;
@@ -238,7 +238,7 @@ public class Player implements Comparable{
 			}
 			return false;
 		}
-		case "Crystal":{
+		case "Crystite":{
 			if(crystal > 0){
 				crystal --;
 				money += price;
