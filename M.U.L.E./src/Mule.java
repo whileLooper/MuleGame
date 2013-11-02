@@ -18,6 +18,7 @@ public class Mule {
 	private Point townLocation;
 	private Image image1 = (new ImageIcon("mule.png")).getImage();
 	private Image image2 = (new ImageIcon("mule.png")).getImage();
+	private Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
 	private int imgMove = 0;
 	
 	/*
@@ -92,5 +93,17 @@ public class Mule {
 		imgMove = 0;
 			}
 		}
+	
+	/*
+	 * setting the mule on the land
+	 */
+	public void setMule(Graphics g){
+		
+		g.drawImage(setDownImg, townLocation.x, townLocation.y, 50, 34, null);
+
+	}
+	
+	
+	
 	
 }
