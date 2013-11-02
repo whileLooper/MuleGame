@@ -129,9 +129,83 @@ public class Player implements Comparable{
 		}
 	}
 	
+	/**
+	 * This method used for player to buy recourse
+	 * @param type is the kind of recourse to buy
+	 * @param price is the price per recourse unit
+	 * @return whether the transition is successful
+	 */
 	public boolean buyResource(String type, int price){
+		if( money >= price){
+			money -= price;
+			switch(type){
+			case "Food":{
+				food += 1;
+				break;
+			}
+			case "Energy":{
+				energy += 1;
+				break;
+			}
+			case "Ore":{
+				ore += 1;
+				break;
+			}
+			case "Crystal":{
+				crystal += 1;
+				break;
+			}
+			default:;
+			}
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	/**
+	 * This method used for player to sell recourse
+	 * @param type is the type player wants sell
+	 * @param price is the price player can get to sell the product
+	 * @return whether this transition is successful
+	 */
+	public boolean sellRecourse(String type, int price){
+		switch(type){
+		case "Food":{
+			if(food > 0){
+				food --;
+				money += price;
+				return true;
+			}
+			return false;
+		}
+		case "Energy":{
+			if(energy > 0){
+				energy --;
+				money += price;
+				return true;
+			}
+			return false;
+		}
+		case "Ore":{
+			if(ore > 0){
+				ore --;
+				money += price;
+				return true;
+			}
+			return false;
+		}
+		case "Crystal":{
+			if(crystal > 0){
+				crystal --;
+				money += price;
+				return true;
+			}
+			return false;
+		}
+		default:;
+		}
 		return false;
-		
 	}
 	
 	/**
