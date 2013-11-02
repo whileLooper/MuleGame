@@ -249,6 +249,9 @@ public class Start extends JPanel{
 				if (sameColor(color) || sameName(name)) {
 					playerSetting();
 				}
+				else if (name.length() > 12) {
+					playerSetting();
+				}
 				else{
 					players[currentPlayer] = new Player(name, color, race, difficulty);
 					currentPlayer ++;
