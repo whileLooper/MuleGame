@@ -155,7 +155,7 @@ public class InfoPanel extends JPanel {
 		label_13.setBounds(10, 84, 200, 14);
 		Town.add(label_13);
 		
-		JLabel label_14 = new JLabel("Ore: " + s.getOre());
+		JLabel label_14 = new JLabel("Ore: " + s.getSmithore());
 		label_14.setBounds(10, 105, 200, 14);
 		Town.add(label_14);
 		this.setVisible(true);
