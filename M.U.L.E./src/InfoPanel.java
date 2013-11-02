@@ -45,128 +45,128 @@ public class InfoPanel extends JPanel {
 		PlayerInfoPanel.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		JLayeredPane Player_1 = new JLayeredPane();
-		Player_1.setToolTipText("Current Player Turn");
+		Player_1.setToolTipText("");
 		Player_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_1);
 		
 		JLabel lblPlayname = new JLabel("Player_1: " + playerList[0].getName());
-		lblPlayname.setBounds(10, 11, 200, 14);
+		lblPlayname.setBounds(10, 11, 170, 14);
 		Player_1.add(lblPlayname);
 		
 		JLabel lblMoney_1 = new JLabel("Money: " + playerList[0].getMoney());
-		lblMoney_1.setBounds(10, 36, 200, 14);
+		lblMoney_1.setBounds(10, 36, 170, 14);
 		Player_1.add(lblMoney_1);
 		
 		JLabel lblFood_1 = new JLabel("Food: " + playerList[0].getFood());
-		lblFood_1.setBounds(10, 61, 200, 14);
+		lblFood_1.setBounds(10, 61, 170, 14);
 		Player_1.add(lblFood_1);
 		
 		JLabel lblEnergy_1 = new JLabel("Energy: " + playerList[0].getEnergy());
-		lblEnergy_1.setBounds(10, 86, 200, 14);
+		lblEnergy_1.setBounds(10, 86, 170, 14);
 		Player_1.add(lblEnergy_1);
 		
 		JLabel lblOre_1 = new JLabel("Ore: " + playerList[0].getOre());
-		lblOre_1.setBounds(10, 111, 200, 14);
+		lblOre_1.setBounds(10, 111, 170, 14);
 		Player_1.add(lblOre_1);
 		
 		JLayeredPane Player_2 = new JLayeredPane();
-		Player_2.setToolTipText("Current Money");
+		Player_2.setToolTipText("");
 		Player_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_2);
 		
 		JLabel lblMoney = new JLabel("Player_2: " + playerList[1].getName());
-		lblMoney.setBounds(10, 11, 200, 14);
+		lblMoney.setBounds(10, 11, 170, 14);
 		Player_2.add(lblMoney);
 		
 		JLabel label = new JLabel("Money: " + playerList[1].getMoney());
-		label.setBounds(10, 36, 200, 14);
+		label.setBounds(10, 36, 170, 14);
 		Player_2.add(label);
 		
 		JLabel label_1 = new JLabel("Food: " + playerList[1].getFood());
-		label_1.setBounds(10, 58, 200, 14);
+		label_1.setBounds(10, 58, 170, 14);
 		Player_2.add(label_1);
 		
 		JLabel label_2 = new JLabel("Energy: " + playerList[1].getEnergy());
-		label_2.setBounds(10, 83, 200, 14);
+		label_2.setBounds(10, 83, 170, 14);
 		Player_2.add(label_2);
 		
 		JLabel label_3 = new JLabel("Ore: " + playerList[1].getOre());
-		label_3.setBounds(10, 105, 200, 14);
+		label_3.setBounds(10, 105, 170, 14);
 		Player_2.add(label_3);
 		
 		JLayeredPane Player_3 = new JLayeredPane();
-		Player_3.setToolTipText("Current Food Amount");
+		Player_3.setToolTipText("");
 		Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_3);
 		
 		JLabel lblFood = new JLabel("Player_3: " + playerList[2].getName());
-		lblFood.setBounds(10, 11, 200, 14);
+		lblFood.setBounds(10, 11, 170, 14);
 		Player_3.add(lblFood);
 		
 		JLabel label_4 = new JLabel("Money: " + playerList[2].getMoney());
-		label_4.setBounds(10, 36, 200, 14);
+		label_4.setBounds(10, 36, 170, 14);
 		Player_3.add(label_4);
 		
 		JLabel label_5 = new JLabel("Food: " + playerList[2].getFood());
-		label_5.setBounds(10, 58, 200, 14);
+		label_5.setBounds(10, 58, 170, 14);
 		Player_3.add(label_5);
 		
 		JLabel label_6 = new JLabel("Energy: " + playerList[2].getEnergy());
-		label_6.setBounds(10, 81, 200, 14);
+		label_6.setBounds(10, 81, 170, 14);
 		Player_3.add(label_6);
 		
 		JLabel label_7 = new JLabel("Ore: " + playerList[2].getOre());
-		label_7.setBounds(10, 105, 200, 14);
+		label_7.setBounds(10, 105, 170, 14);
 		Player_3.add(label_7);
 		
 		JLayeredPane Player_4 = new JLayeredPane();
-		Player_4.setToolTipText("Current Energy Amount");
+		Player_4.setToolTipText("");
 		Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_4);
 		
 		JLabel lblEnergy = new JLabel("Player_4: " + playerList[3].getName());
-		lblEnergy.setBounds(10, 11, 200, 14);
+		lblEnergy.setBounds(10, 11, 170, 14);
 		Player_4.add(lblEnergy);
 		
 		JLabel label_8 = new JLabel("Money: " + playerList[3].getMoney());
-		label_8.setBounds(10, 36, 200, 14);
+		label_8.setBounds(10, 36, 170, 14);
 		Player_4.add(label_8);
 		
 		JLabel label_9 = new JLabel("Food: " + playerList[3].getFood());
-		label_9.setBounds(10, 58, 200, 14);
+		label_9.setBounds(10, 58, 170, 14);
 		Player_4.add(label_9);
 		
 		JLabel label_10 = new JLabel("Energy: " + playerList[3].getEnergy());
-		label_10.setBounds(10, 82, 200, 14);
+		label_10.setBounds(10, 82, 170, 14);
 		Player_4.add(label_10);
 		
 		JLabel label_11 = new JLabel("Ore: " + playerList[3].getOre());
-		label_11.setBounds(10, 105, 200, 14);
+		label_11.setBounds(10, 105, 170, 14);
 		Player_4.add(label_11);
 		
 		JLayeredPane Town = new JLayeredPane();
-		Town.setToolTipText("Current Ore Amount");
+		Town.setToolTipText("");
 		Town.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Town);
 		
 		JLabel lblOre = new JLabel("Town");
-		lblOre.setBounds(10, 11, 200, 14);
+		lblOre.setBounds(10, 11, 170, 14);
 		Town.add(lblOre);
 		
 		JLabel lblMule = new JLabel("Mule: " + s.getMule());
-		lblMule.setBounds(10, 34, 200, 14);
+		lblMule.setBounds(10, 34, 170, 14);
 		Town.add(lblMule);
 		
 		JLabel label_12 = new JLabel("Food: " + s.getFood());
-		label_12.setBounds(10, 59, 200, 14);
+		label_12.setBounds(10, 59, 170, 14);
 		Town.add(label_12);
 		
 		JLabel label_13 = new JLabel("Energy: " + s.getEnergy());
-		label_13.setBounds(10, 84, 200, 14);
+		label_13.setBounds(10, 84, 170, 14);
 		Town.add(label_13);
 		
 		JLabel label_14 = new JLabel("Ore: " + s.getSmithore());
-		label_14.setBounds(10, 105, 200, 14);
+		label_14.setBounds(10, 105, 170, 14);
 		Town.add(label_14);
 		this.setVisible(true);
 
