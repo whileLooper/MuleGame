@@ -455,12 +455,13 @@ public class Store extends JPanel {
 	public int getMule() {
 		return Mule;
 	}
-
 	
-	public void buyMule() {
-		if (Mule > 0) {
+	public boolean buyMule(Mule m, int price) {
+		if (p.buyMule(m, price)) {
 			Mule-=1;
+			return true;
 		}
+		return false;
 	}
 	
 	public void playerEnterTown(Player p) {
