@@ -92,53 +92,155 @@ public class InfoPanel extends JPanel {
 		label_3.setBounds(10, 105, 170, 14);
 		Player_2.add(label_3);
 		
-		JLayeredPane Player_3 = new JLayeredPane();
-		Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		PlayerInfoPanel.add(Player_3);
+		if (playerList[3] == null && playerList[2] == null) {
+			JLayeredPane Player_3 = new JLayeredPane();
+			Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_3);
+				
+			JLabel lblFood = new JLabel("Player_3: ");
+			lblFood.setBounds(10, 11, 170, 14);
+			Player_3.add(lblFood);
+				
+			JLabel label_4 = new JLabel("Money: ");
+			label_4.setBounds(10, 36, 170, 14);
+			Player_3.add(label_4);
+				
+			JLabel label_5 = new JLabel("Food: ");
+			label_5.setBounds(10, 58, 170, 14);
+			Player_3.add(label_5);
+				
+			JLabel label_6 = new JLabel("Energy: ");
+			label_6.setBounds(10, 81, 170, 14);
+			Player_3.add(label_6);
+				
+			JLabel label_7 = new JLabel("Ore: ");
+			label_7.setBounds(10, 105, 170, 14);
+			Player_3.add(label_7);
+			
+			JLayeredPane Player_4 = new JLayeredPane();
+			Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_4);
+				
+			JLabel lblEnergy = new JLabel("Player_4: ");
+			lblEnergy.setBounds(10, 11, 170, 14);
+			Player_4.add(lblEnergy);
+				
+			JLabel label_8 = new JLabel("Money: ");
+			label_8.setBounds(10, 36, 170, 14);
+			Player_4.add(label_8);
+				
+			JLabel label_9 = new JLabel("Food: ");
+			label_9.setBounds(10, 58, 170, 14);
+			Player_4.add(label_9);
+				
+			JLabel label_10 = new JLabel("Energy: ");
+			label_10.setBounds(10, 82, 170, 14);
+			Player_4.add(label_10);
+				
+			JLabel label_11 = new JLabel("Ore: ");
+			label_11.setBounds(10, 105, 170, 14);
+			Player_4.add(label_11);
+		}
 		
-		JLabel lblFood = new JLabel("Player_3: " + playerList[2].getName());
-		lblFood.setBounds(10, 11, 170, 14);
-		Player_3.add(lblFood);
+		else if (playerList[3] == null) {
+			JLayeredPane Player_3 = new JLayeredPane();
+			Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_3);
+			
+			JLabel lblFood = new JLabel("Player_3: " + playerList[2].getName());
+			lblFood.setBounds(10, 11, 170, 14);
+			Player_3.add(lblFood);
+			
+			JLabel label_4 = new JLabel("Money: " + playerList[2].getMoney());
+			label_4.setBounds(10, 36, 170, 14);
+			Player_3.add(label_4);
+			
+			JLabel label_5 = new JLabel("Food: " + playerList[2].getFood());
+			label_5.setBounds(10, 58, 170, 14);
+			Player_3.add(label_5);
+			
+			JLabel label_6 = new JLabel("Energy: " + playerList[2].getEnergy());
+			label_6.setBounds(10, 81, 170, 14);
+			Player_3.add(label_6);
+			
+			JLabel label_7 = new JLabel("Ore: " + playerList[2].getOre());
+			label_7.setBounds(10, 105, 170, 14);
+			Player_3.add(label_7);
 		
-		JLabel label_4 = new JLabel("Money: " + playerList[2].getMoney());
-		label_4.setBounds(10, 36, 170, 14);
-		Player_3.add(label_4);
+			JLayeredPane Player_4 = new JLayeredPane();
+			Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_4);
+			
+			JLabel lblEnergy = new JLabel("Player_4: ");
+			lblEnergy.setBounds(10, 11, 170, 14);
+			Player_4.add(lblEnergy);
+			
+			JLabel label_8 = new JLabel("Money: ");
+			label_8.setBounds(10, 36, 170, 14);
+			Player_4.add(label_8);
+			
+			JLabel label_9 = new JLabel("Food: ");
+			label_9.setBounds(10, 58, 170, 14);
+			Player_4.add(label_9);
+			
+			JLabel label_10 = new JLabel("Energy: ");
+			label_10.setBounds(10, 82, 170, 14);
+			Player_4.add(label_10);
+			
+			JLabel label_11 = new JLabel("Ore: ");
+			label_11.setBounds(10, 105, 170, 14);
+			Player_4.add(label_11);
+		}
 		
-		JLabel label_5 = new JLabel("Food: " + playerList[2].getFood());
-		label_5.setBounds(10, 58, 170, 14);
-		Player_3.add(label_5);
+		else {
+			JLayeredPane Player_3 = new JLayeredPane();
+			Player_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_3);
+			
+			JLabel lblFood = new JLabel("Player_3: " + playerList[2].getName());
+			lblFood.setBounds(10, 11, 170, 14);
+			Player_3.add(lblFood);
+			
+			JLabel label_4 = new JLabel("Money: " + playerList[2].getMoney());
+			label_4.setBounds(10, 36, 170, 14);
+			Player_3.add(label_4);
+			
+			JLabel label_5 = new JLabel("Food: " + playerList[2].getFood());
+			label_5.setBounds(10, 58, 170, 14);
+			Player_3.add(label_5);
+			
+			JLabel label_6 = new JLabel("Energy: " + playerList[2].getEnergy());
+			label_6.setBounds(10, 81, 170, 14);
+			Player_3.add(label_6);
+			
+			JLabel label_7 = new JLabel("Ore: " + playerList[2].getOre());
+			label_7.setBounds(10, 105, 170, 14);
+			Player_3.add(label_7);
 		
-		JLabel label_6 = new JLabel("Energy: " + playerList[2].getEnergy());
-		label_6.setBounds(10, 81, 170, 14);
-		Player_3.add(label_6);
-		
-		JLabel label_7 = new JLabel("Ore: " + playerList[2].getOre());
-		label_7.setBounds(10, 105, 170, 14);
-		Player_3.add(label_7);
-		
-		JLayeredPane Player_4 = new JLayeredPane();
-		Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		PlayerInfoPanel.add(Player_4);
-		
-		JLabel lblEnergy = new JLabel("Player_4: " + playerList[3].getName());
-		lblEnergy.setBounds(10, 11, 170, 14);
-		Player_4.add(lblEnergy);
-		
-		JLabel label_8 = new JLabel("Money: " + playerList[3].getMoney());
-		label_8.setBounds(10, 36, 170, 14);
-		Player_4.add(label_8);
-		
-		JLabel label_9 = new JLabel("Food: " + playerList[3].getFood());
-		label_9.setBounds(10, 58, 170, 14);
-		Player_4.add(label_9);
-		
-		JLabel label_10 = new JLabel("Energy: " + playerList[3].getEnergy());
-		label_10.setBounds(10, 82, 170, 14);
-		Player_4.add(label_10);
-		
-		JLabel label_11 = new JLabel("Ore: " + playerList[3].getOre());
-		label_11.setBounds(10, 105, 170, 14);
-		Player_4.add(label_11);
+			JLayeredPane Player_4 = new JLayeredPane();
+			Player_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			PlayerInfoPanel.add(Player_4);
+			
+			JLabel lblEnergy = new JLabel("Player_4: " + playerList[3].getName());
+			lblEnergy.setBounds(10, 11, 170, 14);
+			Player_4.add(lblEnergy);
+			
+			JLabel label_8 = new JLabel("Money: " + playerList[3].getMoney());
+			label_8.setBounds(10, 36, 170, 14);
+			Player_4.add(label_8);
+			
+			JLabel label_9 = new JLabel("Food: " + playerList[3].getFood());
+			label_9.setBounds(10, 58, 170, 14);
+			Player_4.add(label_9);
+			
+			JLabel label_10 = new JLabel("Energy: " + playerList[3].getEnergy());
+			label_10.setBounds(10, 82, 170, 14);
+			Player_4.add(label_10);
+			
+			JLabel label_11 = new JLabel("Ore: " + playerList[3].getOre());
+			label_11.setBounds(10, 105, 170, 14);
+			Player_4.add(label_11);
+		}
 		
 		JLayeredPane Town = new JLayeredPane();
 		Town.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -211,7 +313,7 @@ public class InfoPanel extends JPanel {
 		  	Player p3 = new Player("bobo3", Color.YELLOW, "human", "gameD");
 		  	Player p4 = new Player("bobo4", Color.BLACK, "human", "gameD");
 		  	Player[] playerList = {p1, p2, p3, p4};
-		  	InfoPanel it = new InfoPanel(playerList, new Store("hello"));
+		  	InfoPanel it = new InfoPanel(playerList, new Store("hello", new Town(new Game(new JFrame()))));
 
 		    JFrame frame = new JFrame("Progress Bar Example");
 		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
