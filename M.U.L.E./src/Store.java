@@ -496,9 +496,13 @@ public class Store extends JPanel {
 				Mule-=1;
 			    return true;
 			}
+		}else{
+			System.out
+					.println("Transition failed, since Store doesn't have enough mule");
+			return false;
 		}
-		System.out.println("Transition failed, since Store doesn't have enough mule");
 		return false;
+		
 	}
 	
 	public void playerEnterTown(Player p) {
