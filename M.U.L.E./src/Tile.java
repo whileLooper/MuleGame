@@ -4,6 +4,12 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+/**
+ * 
+ * @author Qian, Bo, 
+ *
+ */
+@SuppressWarnings("serial")
 public class Tile extends JLabel{
 	
 	
@@ -16,6 +22,7 @@ public class Tile extends JLabel{
 	protected Player owner;
 	protected Boolean bought = false;
 	protected int price;
+	protected String resourceType;
 	
     /**
      * This is the constructor the tile class
@@ -51,5 +58,51 @@ public class Tile extends JLabel{
 		}
 	}
 	
+	/**
+	 * is own by player
+	 * @return true if own by player, return false no one own this tile
+	 */
+	public boolean isOwned(){
+		if(owner.getName() == null) return false;
+		else
+			return true;
+	}
+	
+	/**
+	 * check the land is empty land with owner or not
+	 * @return	empty resource if true,
+	 */
+	public boolean isEmpty(){
+		if(resourceType == null) return true;
+		else return false;
+	}
+	/**
+	 * this method is getting the owner of tile
+	 * @return owner of tile
+	 */
+	public String getOwner(){
+		if(owner == null){
+			System.out.println("This land is not own by anyone");
+			return null;
+		}
+		else
+			return owner.getName();
+	}
+	
+	public void setResource(String type){
+		if(isOwned() && isEmpty())
+			resourceType = type;
+	}
+	/**
+	 * the method to get resource type in tile
+	 * @return
+	 */
+	public String getResource(){
+		if(isOwned()){
+			return resourceType;
+		}
+		else 
+			return "no owner land.";
+	}
 	
 }
