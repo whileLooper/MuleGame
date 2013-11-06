@@ -200,6 +200,7 @@ public class Player implements Comparable{
 			}
 			default:;
 			}
+			
 			return true;
 		}else{
 			return false;
@@ -294,28 +295,29 @@ public class Player implements Comparable{
 	 * This method is used to draw the player on map
 	 * @param g is the graphics 
 	 */
-	public void drawOnMap(Graphics g){
-		if(imgMove == 0){
-		g.drawImage(image1, mapLocation.x, mapLocation.y, 50, 50, null);
-		imgMove = 1;
-		}else{
-		g.drawImage(image2, mapLocation.x, mapLocation.y, 50, 50, null);
-		imgMove = 0;}
+	public void drawOnMap(Graphics g) {
+		if (imgMove == 0) {
+			g.drawImage(image1, mapLocation.x, mapLocation.y, 50, 50, null);
+			imgMove = 1;
+		} else {
+			g.drawImage(image2, mapLocation.x, mapLocation.y, 50, 50, null);
+			imgMove = 0;
+		}
 	}
 	
 	/**
 	 * This method is used to draw player on town
 	 * @param g is the graphics
 	 */
-	public void drawOnTown(Graphics g){
-		if(imgMove == 0){
-		g.drawImage(image1, townLocation.x, townLocation.y, 50, 50, null);
-		imgMove = 1;
-		}else{
-		g.drawImage(image2, townLocation.x, townLocation.y, 50, 50, null);
-		imgMove = 0;
-			}
+	public void drawOnTown(Graphics g) {
+		if (imgMove == 0) {
+			g.drawImage(image1, townLocation.x, townLocation.y, 50, 50, null);
+			imgMove = 1;
+		} else {
+			g.drawImage(image2, townLocation.x, townLocation.y, 50, 50, null);
+			imgMove = 0;
 		}
+	}
 
 	@Override
 	public int compareTo(Object o) {
