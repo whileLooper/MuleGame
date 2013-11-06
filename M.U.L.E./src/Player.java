@@ -162,13 +162,21 @@ public class Player implements Comparable{
 	 * @return whether the transition is successful
 	 */
 	public boolean buyMule(String m, int price){
-		if(money >= price && currentMule == null){
-			money -= price;
-			currentMule = new Mule(m, this);
-			mules.add(currentMule);
-			System.out.println(name + " buys a " + m + " costing " + price + " with left " + money);
-			return true;
+		if(money >= price){
+			if(currentMule != null){
+				money -= price;
+				currentMule = new Mule(m, this);
+				mules.add(currentMule);
+				System.out.println(name + " buys a " + m + " costing " + price
+						+ " with left " + money);
+				return true;
+			}else{
+				System.out.println("Transition failed, since you have one mule with you");
+				return false;
+			}
+			
 		}else{
+			System.out.println("Transition failed, since you don't have enought money");
 			return false;
 		}
 	}
@@ -204,6 +212,7 @@ public class Player implements Comparable{
 			System.out.println(name + " buys 1 " + type + " costing " + price + " left " + money);
 			return true;
 		}else{
+			System.out.println("Transition failed, since you don't have enought money");
 			return false;
 		}
 	}
@@ -223,6 +232,7 @@ public class Player implements Comparable{
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
+			System.out.println("Transition failed, since you don't have enought resource");
 			return false;
 		}
 		case "Energy":{
@@ -232,6 +242,7 @@ public class Player implements Comparable{
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
+			System.out.println("Transition failed, since you don't have enought resource");
 			return false;
 		}
 		case "Smithore":{
@@ -241,6 +252,7 @@ public class Player implements Comparable{
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
+			System.out.println("Transition failed, since you don't have enought resource");
 			return false;
 		}
 		case "Crystite":{
@@ -250,6 +262,7 @@ public class Player implements Comparable{
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
+			System.out.println("Transition failed, since you don't have enought resource");
 			return false;
 		}
 		default:;
