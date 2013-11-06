@@ -28,6 +28,8 @@ public class Store extends JPanel {
 	private final int SMITHOREM_PRICE = 75+MULE_PRICE;
 	private final int CRYSTITEM_PRICE = 100+MULE_PRICE;
 
+	private boolean success = false;
+	private int successDis = 0;
 	private Player p;
 	private Town town;
 
@@ -53,7 +55,7 @@ public class Store extends JPanel {
 			Mule = 14;
 			
 		}
-		window1();
+		window2();
 
 	}
 	private void window1() {
@@ -93,7 +95,8 @@ public class Store extends JPanel {
 		btnFoodMule.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			p.buyMule(new Mule("Food"), FOODM_PRICE);
+			if(buyMule("Food Mule", FOODM_PRICE))
+				success = true;
 			window4();
 			}
 		});
@@ -103,7 +106,8 @@ public class Store extends JPanel {
 		btnEne.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			p.buyMule(new Mule("Energy"), ENERGYM_PRICE);
+			if(buyMule("Energy Mule", ENERGYM_PRICE))
+				success = true;
 			window4();
 			}
 		});
@@ -116,7 +120,9 @@ public class Store extends JPanel {
 		btnOreMule.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			p.buyMule(new Mule("Smithore"), SMITHOREM_PRICE);
+			
+			if(buyMule("Smithore Mule", SMITHOREM_PRICE))
+				success = true;
 			window4();
 			}
 		});
@@ -127,7 +133,8 @@ public class Store extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			p.buyMule(new Mule("Crystite"), CRYSTITEM_PRICE);
+			if(buyMule("Crystite Mule", CRYSTITEM_PRICE))
+				success = true;
 			window4();
 			}
 		});
@@ -268,6 +275,7 @@ public class Store extends JPanel {
 		btnDone.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				successDis = 1;
 				window4();
 			}
 			
@@ -281,7 +289,17 @@ public class Store extends JPanel {
 		removeAll();
 	    setLayout(null);
 		
-		JLabel lblTrueFalse = new JLabel("true false");
+		JLabel lblTrueFalse = new JLabel("");
+		if(successDis == 1){
+			lblTrueFalse.setText("");
+			successDis =0;
+		}
+		else if(success){
+			lblTrueFalse.setText("Purchase Successful");
+			success = false;
+		}else if (!success){
+			lblTrueFalse.setText("Purchase Failed");
+		}
 		lblTrueFalse.setBounds(131, 71, 46, 14);
 		add(lblTrueFalse);
 		
@@ -456,7 +474,7 @@ public class Store extends JPanel {
 		return Mule;
 	}
 	
-	public boolean buyMule(Mule m, int price) {
+	public boolean buyMule(String m, int price) {
 		if(Mule > 0){
 			if (p.buyMule(m, price)) {
 				Mule-=1;
