@@ -166,6 +166,7 @@ public class Player implements Comparable{
 			money -= price;
 			currentMule = new Mule(m, this);
 			mules.add(currentMule);
+			System.out.println(name + " buys a " + m + " costing " + price + " with left " + money);
 			return true;
 		}else{
 			return false;
@@ -200,7 +201,7 @@ public class Player implements Comparable{
 			}
 			default:;
 			}
-			
+			System.out.println(name + " buys 1 " + type + " costing " + price + " left " + money);
 			return true;
 		}else{
 			return false;
@@ -219,6 +220,7 @@ public class Player implements Comparable{
 			if(food > 0){
 				food --;
 				money += price;
+				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
 			return false;
@@ -227,6 +229,7 @@ public class Player implements Comparable{
 			if(energy > 0){
 				energy --;
 				money += price;
+				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
 			return false;
@@ -235,6 +238,7 @@ public class Player implements Comparable{
 			if(ore > 0){
 				ore --;
 				money += price;
+				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
 			return false;
@@ -243,6 +247,7 @@ public class Player implements Comparable{
 			if(crystal > 0){
 				crystal --;
 				money += price;
+				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
 			}
 			return false;
