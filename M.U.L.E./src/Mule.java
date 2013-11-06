@@ -17,7 +17,7 @@ public class Mule {
 	private Point townLocation = new Point(445, 140);
 	private String owner;
 	private Player player;
-	private Image image1 = (new ImageIcon("mule.png")).getImage();
+	private Image image1 = (new ImageIcon("mule1.png")).getImage();
 	private Image image2 = (new ImageIcon("mule2.png")).getImage();
 	private Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
 	private int imgMove = 0;
@@ -83,13 +83,7 @@ public class Mule {
 	 *            is the graphics
 	 */
 	public void drawOnMap(Graphics g) {
-		if (imgMove == 0) {
-			g.drawImage(image1, townLocation.x, townLocation.y, 50, 50, null);
-			imgMove = 1;
-		} else {
-			g.drawImage(image2, townLocation.x, townLocation.y, 50, 50, null);
-			imgMove = 0;
-		}
+		followPlayer(player.getMapLocation(), g);
 	}
 
 	/**
@@ -106,13 +100,13 @@ public class Mule {
 	/**
 	 * 
 	 */
-	private void followPlayer(Point townLocation, Graphics g) {
+	private void followPlayer(Point Location, Graphics g) {
 		// TODO Auto-generated method stub
 		if (imgMove == 0) {
-			g.drawImage(image1, townLocation.x + 40, townLocation.y, 50, 50, null);
+			g.drawImage(image1, Location.x + 45, Location.y, 50, 50, null);
 			imgMove = 1;
 		} else {
-			g.drawImage(image2, townLocation.x + 40, townLocation.y, 50, 50, null);
+			g.drawImage(image2, Location.x + 45, Location.y, 50, 50, null);
 			imgMove = 0;
 		}
 	}
@@ -122,7 +116,7 @@ public class Mule {
 	 */
 	public void setDownMule(Graphics g) {
 
-		g.drawImage(setDownImg, townLocation.x, townLocation.y, 50, 34, null);
+		g.drawImage(setDownImg, mapLocation.x, mapLocation.y, 50, 50, null);
 
 	}
 
@@ -142,7 +136,7 @@ public class Mule {
 
 		System.out.println("this is not a empty land, the mule ran away...");
 		while (mapLocation.x <= 900) {
-			g.drawImage(image2, townLocation.x + 5, townLocation.y, 50, 34,
+			g.drawImage(image2, mapLocation.x + 5, townLocation.y, 50, 34,
 					null);
 		}
 
