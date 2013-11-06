@@ -21,8 +21,7 @@ public class Tile extends JLabel{
 	protected final int crystite;
 	protected Player owner;
 	protected Boolean bought = false;
-	protected int price;
-	protected String resourceType;
+	protected Mule mule = null;
 	
     /**
      * This is the constructor the tile class
@@ -63,9 +62,8 @@ public class Tile extends JLabel{
 	 * @return true if own by player, return false no one own this tile
 	 */
 	public boolean isOwned(){
-		if(owner.getName() == null) return false;
-		else
-			return true;
+		if(bought) return true;
+		else return false;
 	}
 	
 	/**
@@ -73,7 +71,7 @@ public class Tile extends JLabel{
 	 * @return	empty resource if true,
 	 */
 	public boolean isEmpty(){
-		if(resourceType == null) return true;
+		if(mule == null) return true;
 		else return false;
 	}
 	/**
@@ -89,20 +87,19 @@ public class Tile extends JLabel{
 			return owner.getName();
 	}
 	
-	public void setResource(String type){
-		if(isOwned() && isEmpty())
-			resourceType = type;
-	}
 	/**
-	 * the method to get resource type in tile
-	 * @return
+	 * This method used to set mule on the tile
+	 * @param m is the mule to put on the tile
 	 */
-	public String getResource(){
-		if(isOwned()){
-			return resourceType;
-		}
-		else 
-			return "no owner land.";
+	public void setMule(Mule m){
+		mule = m;
 	}
 	
+	/**
+	 * This method used to get the mule on the tile
+	 * @return the mule on the tile
+	 */
+	public Mule getMule(){
+		return mule;
+	}
 }
