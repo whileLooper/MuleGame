@@ -41,6 +41,7 @@ public class Store extends JPanel {
 	public Store(String difficulty, Town t) {
 		setPreferredSize(new Dimension(500, 300));
 		setVisible(true);
+		setOpaque(false);
 		town = t;
 		if (difficulty == "Beginner") {
 			Food = 16;
@@ -57,7 +58,7 @@ public class Store extends JPanel {
 			Mule = 14;
 			
 		}
-		window2();
+		window1();
 
 	}
 	private void window1() {
@@ -302,7 +303,7 @@ public class Store extends JPanel {
 		}else if (!success){
 			lblTrueFalse.setText("Purchase Failed");
 		}
-		lblTrueFalse.setBounds(131, 71, 46, 14);
+		lblTrueFalse.setBounds(131, 71, 206, 28);
 		add(lblTrueFalse);
 		
 		JLabel lblDoYouNeed = new JLabel("Do you need anything else?");
