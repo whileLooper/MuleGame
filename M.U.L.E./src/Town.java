@@ -72,6 +72,13 @@ public class Town extends JPanel{
 		store = new Store(game.getDifficulty(), this);
 	}
 	
+	public void reset(){
+		if(playerInStore){
+			playerOutStore();
+			store.reset();
+		}
+	}
+	
 	/**
 	 * This method called when player enters store
 	 */
