@@ -37,7 +37,6 @@ public class Store extends JPanel {
 	/**
 	 * Constructor for Store Class
 	 */
-	
 	public Store(String difficulty, Town t) {
 		setPreferredSize(new Dimension(500, 300));
 		setVisible(true);
@@ -61,6 +60,9 @@ public class Store extends JPanel {
 		window1();
 
 	}
+	/**
+	 * draw window 1
+	 */
 	private void window1() {
 		removeAll();
 		setLayout(null);
@@ -155,6 +157,9 @@ public class Store extends JPanel {
 		repaint();
 
 	}
+	/**
+	 * draw window 3
+	 */
 	private void window3(){
 		removeAll();
 		setLayout(null);
@@ -298,6 +303,9 @@ public class Store extends JPanel {
 		validate();
 		repaint();
 	}
+	/**
+	 * draw window 4
+	 */
 	private void window4(){
 		removeAll();
 	    setLayout(null);
@@ -350,6 +358,7 @@ public class Store extends JPanel {
 		repaint();
 	}
 	/**
+	 * buy resource method
 	 * 
 	 * @param type is the type of food the player bought
 	 * @return true if the purchase is successful, false if it failed.
@@ -385,6 +394,8 @@ public class Store extends JPanel {
 	}
 	
 	/**
+	 * sell resource 
+	 * 
 	 * @param type the type of resource the player is selling.
 	 */
 	public void sell(String type) {
@@ -474,22 +485,38 @@ public class Store extends JPanel {
 		return Food;
 	}
 	
+	/**
+	 * @return the number of energy
+	 */
 	public int getEnergy() {
 		return Energy;
 	}
-	
+	/**
+	 * @return the number of Crystite
+	 */
 	public int getCrystite() {
 		return Crystite;
 	}
 	
+	/**
+	 * @return the number of Smithore
+	 */
 	public int getSmithore() {
 		return Smithore;
 	}
-	
+	/**
+	 * @return the number of Mule
+	 */
 	public int getMule() {
 		return Mule;
 	}
-	
+	/**
+	 * buy mule method
+	 *  
+	 * @param m string of mule type
+	 * @param price  mule price
+	 * @return weather purchase successful or not
+	 */
 	public boolean buyMule(String m, int price) {
 		if(Mule > 0){
 			if (p.buyMule(m, price)) {
@@ -504,10 +531,17 @@ public class Store extends JPanel {
 		return false;
 		
 	}
-	
+	/**
+	 * choose player
+	 * 
+	 * @param p player
+	 */
 	public void playerEnterTown(Player p) {
 		this.p = p;
 	}
+	/**
+	 * reset the gui to window1
+	 */
 	public void reset(){
 	 window1();
 	}
