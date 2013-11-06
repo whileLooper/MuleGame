@@ -21,6 +21,7 @@ public class Mule {
 	private Image image2 = (new ImageIcon("mule2.png")).getImage();
 	private Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
 	private int imgMove = 0;
+	private boolean isSet = false;
 
 	/*
 	 * 
@@ -83,7 +84,12 @@ public class Mule {
 	 *            is the graphics
 	 */
 	public void drawOnMap(Graphics g) {
-		followPlayer(player.getMapLocation(), g);
+		if(isSet){
+			g.drawImage(setDownImg, mapLocation.x, mapLocation.y, 50, 50, null);
+		}else{
+			followPlayer(player.getMapLocation(), g);
+		}
+		
 	}
 
 	/**
@@ -93,7 +99,6 @@ public class Mule {
 	 *            is the graphics
 	 */
 	public void drawOnTown(Graphics g) {
-
 		followPlayer(player.getTownLocation(), g);
 	}
 
@@ -111,12 +116,18 @@ public class Mule {
 		}
 	}
 
-	/*
+	/**
 	 * setting the mule on the land
 	 */
-	public void setDownMule(Graphics g) {
-
-		g.drawImage(setDownImg, mapLocation.x, mapLocation.y, 50, 50, null);
+	public boolean setDownMule(Tile tile) {
+		if(tile.isEmpty()){
+			tile.setMule(this);
+			isSet = true;
+			setMapLocation(player.getMapLocation());
+			return true;
+		}
+		runAway();
+		return false;
 
 	}
 
@@ -129,16 +140,12 @@ public class Mule {
 		return owner;
 	}
 
-	/*
+	/**
 	 * doing the run away action for mule
 	 */
-	public void runAway(Tile tile, Graphics g) {
+	public void runAway() {
 
-		System.out.println("this is not a empty land, the mule ran away...");
-		while (mapLocation.x <= 900) {
-			g.drawImage(image2, mapLocation.x + 5, townLocation.y, 50, 34,
-					null);
-		}
+		
 
 	}
 
