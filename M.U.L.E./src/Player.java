@@ -29,7 +29,7 @@ public class Player implements Comparable{
 	private Point mapLocation = new Point(425, 375);
 	private Point townLocation;
 	
-	private Mule currentMule;
+	private Mule currentMule = null;
 	private ArrayList<Mule> mules = new ArrayList<Mule>();
 	
 	
@@ -162,7 +162,7 @@ public class Player implements Comparable{
 	 * @return whether the transition is successful
 	 */
 	public boolean buyMule(String m, int price){
-		if(money >= price){
+		if(money >= price && currentMule == null){
 			money -= price;
 			currentMule = new Mule(m, this);
 			mules.add(currentMule);
@@ -308,6 +308,9 @@ public class Player implements Comparable{
 			g.drawImage(image2, mapLocation.x, mapLocation.y, 50, 50, null);
 			imgMove = 0;
 		}
+		if(currentMule != null){
+			currentMule.drawOnMap(g);
+		}
 	}
 	
 	/**
@@ -321,6 +324,9 @@ public class Player implements Comparable{
 		} else {
 			g.drawImage(image2, townLocation.x, townLocation.y, 50, 50, null);
 			imgMove = 0;
+		}
+		if(currentMule != null){
+			currentMule.drawOnTown(g);
 		}
 	}
 
