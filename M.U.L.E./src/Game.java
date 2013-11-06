@@ -41,7 +41,7 @@ public class Game {
 		drive.setLayout(new FlowLayout());
 		start = new Start(this);
 		d.getContentPane().add(start);
-		d.getContentPane().add(info);
+		//d.getContentPane().add(info);
 	}
 	
 	/**
@@ -51,10 +51,11 @@ public class Game {
 	 */
 	public void changeDisplay(JPanel toremove, JPanel toadd){
 		drive.remove(toremove);
-		drive.remove(info);
+		//drive.remove(info);
 		drive.add(toadd);
-		drive.add(info);
+		//drive.add(info);
 		drive.revalidate();
+		drive.repaint();
 	}
 	
 	/**
@@ -67,11 +68,7 @@ public class Game {
 		map = new Map(this, mapType);
 		town = new Town(this);
 		info = new InfoPanel(players, town.getStore());
-		drive.remove(start);
-		drive.remove(info);
-		drive.add(map);
-		drive.add(info);
-		drive.revalidate();
+		changeDisplay(start, map);
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
@@ -137,7 +134,6 @@ public class Game {
 		}else{
 			if(isPlayerTurn()){
 				System.out.println("Next Player");
-				GameStart();
 			}
 		}
 	}
@@ -159,7 +155,7 @@ public class Game {
 				System.out.println("Next Turn");
 				sortPlayer();
 				//timerReduce(turnTime);
-				GameStart();
+				
 			}
 		}
 	}
@@ -203,22 +199,14 @@ public class Game {
 	public void playerEnterTown(){
 		//town= new Town(this);
 		getDirection();
-		drive.remove(map);
-		drive.remove(info);
-		drive.add(town);
-		drive.add(info);
-		drive.revalidate();
-		drive.repaint();
+		changeDisplay(map, town);
 	}
 	
 	/**
 	 * This method will be called, when player leaves town
 	 */
 	public void playerLeaveTown(){
-		drive.remove(town);
-		drive.add(map);
-		drive.revalidate();
-		drive.repaint();
+		changeDisplay(town, map);
 	}
 	
 	/**
@@ -244,15 +232,13 @@ public class Game {
 	 * This method will be called, when player enters pub
 	 */
 	public void playerEnterPub(){
+		changeDisplay(town, map);
 		int money = Pub.PubGambling(numOfTurn, turnTime);
 		turnTime = 0;
 		System.out.println("It's " + numOfTurn + ", and there are " + turnTime + " s left, so player gets " + money 
 				+ " through gambling.");
 		getCurrentPlayer().addMoney(money);
-		drive.remove(town);
-		drive.add(map);
-		drive.revalidate();
-		drive.repaint();
+		
 		nextPlayer();
 	}
 	
@@ -261,38 +247,35 @@ public class Game {
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
 	private void GameStart(){
-		getCurrentPlayer().resetMapLocation();
-		map.repaint();
-		map.setFocusable(true);
+		
+		
+		
 		time = new Thread(new Runnable(){
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				turnTime = playerTime();
-				while(turnTime > 0){
-					System.out.println(turnTime + "s left");
-					turnTime -= 1;
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				while(gState == GameState.PlayerTurns){
+					getCurrentPlayer().resetMapLocation();
+					map.repaint();
+					map.setFocusable(true);
+
+					turnTime = playerTime();
+					while (turnTime > 0) {
+						System.out.println(turnTime + "s left");
+						turnTime -= 1;
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
+					nextPlayer();
 				}
-				nextPlayer();
+				
 			}
 		});
 		time.start();
-	}
-	/**
-	 * counting the each turn player's timer.
-	 * @param turnTime
-	 */
-	private void timerReduce(int turnTime){
-		Player player = getCurrentPlayer();
-		int food = player.getFood();
-		if(food > 0 || food < requireFood) turnTime = 30;
-		else if(food == 0) turnTime = 5;
 	}
 	
 	/**
