@@ -380,6 +380,7 @@ public class Store extends JPanel {
 			}
 			return true;
 		}
+		System.out.println("Transition failed, since Store doesn't have enough resource");
 		return false;
 	}
 	
@@ -496,6 +497,7 @@ public class Store extends JPanel {
 			    return true;
 			}
 		}
+		System.out.println("Transition failed, since Store doesn't have enough mule");
 		return false;
 	}
 	
