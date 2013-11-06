@@ -31,6 +31,7 @@ public class Game {
 	private Thread time;
 	private Town town;
 	
+	private boolean playerInTown = false;
 	
 	/**
 	 * This is the constructor for Game class
@@ -200,6 +201,7 @@ public class Game {
 		//town= new Town(this);
 		getDirection();
 		changeDisplay(map, town);
+		playerInTown = true;
 	}
 	
 	/**
@@ -207,6 +209,7 @@ public class Game {
 	 */
 	public void playerLeaveTown(){
 		changeDisplay(town, map);
+		playerInTown = false;
 	}
 	
 	/**
@@ -255,8 +258,7 @@ public class Game {
 			public void run() {
 				// TODO Auto-generated method stub
 				while(gState == GameState.PlayerTurns){
-					getCurrentPlayer().resetMapLocation();
-					map.repaint();
+					displayReset();
 					map.setFocusable(true);
 
 					turnTime = playerTime();
@@ -276,6 +278,14 @@ public class Game {
 			}
 		});
 		time.start();
+	}
+	
+	private void displayReset(){
+		getCurrentPlayer().resetMapLocation();
+		map.repaint();
+		if(playerInTown){
+			changeDisplay(town, map);
+		}
 	}
 	
 	/**
