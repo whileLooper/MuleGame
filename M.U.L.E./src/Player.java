@@ -163,7 +163,7 @@ public class Player implements Comparable{
 	 */
 	public boolean buyMule(String m, int price){
 		if(money >= price){
-			if(currentMule != null){
+			if(currentMule == null){
 				money -= price;
 				currentMule = new Mule(m, this);
 				mules.add(currentMule);
