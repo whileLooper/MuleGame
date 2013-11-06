@@ -133,6 +133,16 @@ public class Store extends JPanel {
 		JButton btnNewButton = new JButton("Crystite Mule");
 		btnNewButton.setBounds(157, 208, 119, 23);
 		add(btnNewButton);
+		
+		JButton btnPreviousPage = new JButton("Previous Page");
+		btnPreviousPage.setBounds(31, 23, 119, 23);
+		btnPreviousPage.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e){
+			window1();
+			}
+		});
+		add(btnPreviousPage);
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -328,6 +338,8 @@ public class Store extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				removeAll();
+				window1();
+				town.playerOutStore();
 				validate();
 				repaint();
 			}
@@ -490,5 +502,7 @@ public class Store extends JPanel {
 	public void playerEnterTown(Player p) {
 		this.p = p;
 	}
-
+	public void reset(){
+	 window1();
+	}
 }
