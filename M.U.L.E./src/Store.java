@@ -39,6 +39,8 @@ public class Store extends JPanel {
 	 */
 	
 	public Store(String difficulty, Town t) {
+		setPreferredSize(new Dimension(500, 300));
+		setVisible(true);
 		town = t;
 		if (difficulty == "Beginner") {
 			Food = 16;
