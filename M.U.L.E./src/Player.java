@@ -161,10 +161,10 @@ public class Player implements Comparable{
 	 * @param price is the mule's price
 	 * @return whether the transition is successful
 	 */
-	public boolean buyMule(Mule m, int price){
+	public boolean buyMule(String m, int price){
 		if(money >= price){
 			money -= price;
-			currentMule = m;
+			currentMule = new Mule(m, this);
 			mules.add(currentMule);
 			return true;
 		}else{
