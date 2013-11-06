@@ -25,7 +25,7 @@ public class Mule {
 	/*
 	 * 
 	 */
-	public Mule(String type){
+	public Mule(String type, Player player){
 		muleType = type;
 	}
 	
@@ -104,13 +104,6 @@ public class Mule {
 
 	}
 	
-	/*
-	 * determine the right tile to set down
-	 */
-	public boolean aviliableSet(Tile tile){
-		if(tile.getName() == owner) return true;
-		return false;
-	}
 	
 	/**
 	 * this method return the owner of mule
@@ -132,8 +125,13 @@ public class Mule {
 	/*
 	 * doing the run away action for mule 
 	 */
-	public void runAway(){
-		
+	public void runAway(Tile tile, Graphics g){
+		if(tile.isOwned()){
+			System.out.println("no owner land.");
+		}
+		else if(!tile.isEmpty()){
+			System.out.println("this is not a empty land, the mule ran away...");
+		}
 	}	
 	
 }
