@@ -76,6 +76,11 @@ public class Map extends JPanel{
 						x -= 10;
 						break;
 					}
+					case KeyEvent.VK_SPACE:{
+						Tile tile = (Tile) getComponentAt(new Point(x, y));
+						player.setMule(tile);
+						repaint();
+					}
 					default:
 					}
 					
@@ -180,6 +185,14 @@ public class Map extends JPanel{
         super.paintChildren(g);
         if(game.isPlayerTurn()){
         	game.getCurrentPlayer().drawOnMap(g);
+        	for(int i = 0; i < 5; i++){
+        		for(int j = 0; j < 9; j++){
+        			Tile tile = tiles[i][j];
+        			if(! tile.isEmpty()){
+        				tile.getMule().drawOnMap(g);
+        			}
+        		}
+        	}
         }
     } 
 }
