@@ -166,7 +166,6 @@ public class Player implements Comparable{
 			if(currentMule == null){
 				money -= price;
 				currentMule = new Mule(m, this);
-				mules.add(currentMule);
 				System.out.println(name + " buys a " + m + " costing " + price
 						+ " with left " + money);
 				return true;
@@ -178,6 +177,21 @@ public class Player implements Comparable{
 		}else{
 			System.out.println("Transition failed, since you don't have enought money");
 			return false;
+		}
+	}
+	
+	public void setMule(Tile tile){
+		if(lands.contains(tile)){
+			if(currentMule.setDownMule(tile)){
+				mules.add(currentMule);
+				currentMule = null;
+			}else{
+				currentMule = null;
+				System.out.println("Mule set failed, so your mule run away!");
+			}
+		}else{
+			currentMule= null;
+			System.out.println("This land is not owned by you, so your mule run away!");
 		}
 	}
 	
@@ -302,6 +316,14 @@ public class Player implements Comparable{
 	}
 	
 	/**
+	 * This method used to get current mule on player
+	 * @return player's mule
+	 */
+	public Mule getMule(){
+		return currentMule;
+	}
+	
+	/**
 	 * This method sets player's location on the town
 	 * @param p is player's new location on the town
 	 */
@@ -347,5 +369,14 @@ public class Player implements Comparable{
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
 		return money - ((Player)o).getMoney();
+	}
+	
+	/**
+	 * This method will be called every time the player's turn ends
+	 */
+	public void turnEnd(){
+		if(currentMule != null){
+			currentMule.runAway();
+		}
 	}
 }
