@@ -271,6 +271,7 @@ public class Game {
 							e.printStackTrace();
 						}
 					}
+					getCurrentPlayer().turnEnd();
 					nextPlayer();
 				}
 				
