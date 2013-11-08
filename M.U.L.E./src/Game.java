@@ -316,17 +316,75 @@ public class Game {
 		}
 	}
 	
-	public boolean randomEvent() {
+	/**
+	 * 
+ 	 * @param round the current round the game is at
+ 	 * Random an int from 1 to 100, 27% chance of event occuring.
+ 	 * If any event occur, 1/7 chance for any event to occur.
+	 */
+	public void randomEvent(int round) {
+		Player p = getCurrentPlayer();
 		boolean event;
+		int factor;
+		
+		switch (round) {
+		case 1: factor = 25; break;
+		case 2: factor = 25; break;
+		case 3: factor = 25; break;
+		case 4: factor = 50; break;
+		case 5: factor = 50; break;
+		case 6: factor = 50; break;
+		case 7: factor = 50; break;
+		case 8: factor = 75; break;
+		case 9: factor = 75; break;
+		case 10: factor = 75; break;
+		case 11: factor = 75; break;
+		case 12: factor = 100; break;
+		default: factor = 0;
+		}
+		String[] events = {"YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.",
+				"A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING TWO BARS OF ORE.",
+				"THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $ " + 8*factor + ".",
+				"YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $ " +2*factor+".",
+				"FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $ "+ 4*factor+".",
+				"MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.",
+				"YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $ "+6*factor+" TO CLEAN IT UP."
+		};
 		Random gen = new Random(99);
+		Random gen1 = new Random(6);
 		int rand = gen.nextInt()+1;
+		int eventSelection = gen1.nextInt()+1;
 		if (rand >= 1 && rand <= 27) {
 			event = true;
 		}
 		else {
 			event = false;
 		}
-		return event;
+		if (event) {
+			System.out.println(events[eventSelection]);
+			if (eventSelection == 1) {
+				p.addFood(3);
+				p.addEnergy(2);
+			}
+			else if (eventSelection == 2) {
+				p.addOre(2);
+			}
+			else if (eventSelection == 3) {
+				p.addMoney(8*factor);
+			}
+			else if (eventSelection == 4) {
+				p.addMoney(2*factor);
+			}
+			else if (eventSelection == 5) {
+				p.addMoney(-4*factor);
+			}
+			else if (eventSelection == 6) {
+				p.addFood(p.getFood()/2*-1);
+			}
+			else if (eventSelection == 7) {
+				p.addMoney(-6*factor);
+			}
+		}
 	}
 	
 }
