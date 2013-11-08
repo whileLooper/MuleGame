@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-
+/**
+ * The object of player, with all players information
+ * image, name, color, resource info.
+ * @author Team OneE
+ *
+ */
 public class Player implements Comparable{
 	
 	/**
@@ -133,6 +138,38 @@ public class Player implements Comparable{
 		money += m;
 	}
 
+	/**
+	 * add food to the current food
+	 * @param amount of food need to be added
+	 */
+	public void addFood(int amount){
+		food = food + amount;
+	}
+	
+	/**
+	 * add energy to the current energy
+	 * @param amount of energy need to be added
+	 */
+	public void addEnergy(int amount){
+		energy = energy + amount;
+	}
+	
+	/**
+	 * add ore to the current ore
+	 * @param amount of ore need to be added
+	 */
+	public void addOre(int amount){
+		ore = ore + amount;
+	}
+	
+	
+	/**
+	 * add crystal to the current crystal
+	 * @param amount
+	 */
+	public void addCrystal(int amount){
+		crystal = crystal + amount;
+	}
 	/**
 	 * This method is for players to buy lands, first it checks whether player have enough money, and check whether the land 
 	 * is purchasable, if so, then the deal is done, and at last it will return a boolean value to indicate whether the deal
