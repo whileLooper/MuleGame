@@ -17,7 +17,6 @@ public class Game {
 	private TurnState tState;
 	private InfoPanel info; 
 	private String difficulty;
-	private int round = 1;
 	
 	private int currentPlayer;
 	private int numOfTurn;
