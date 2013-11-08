@@ -12,11 +12,12 @@ public class Game {
 	private JFrame drive;
 	private Start start;
 	private Map map;
-	private Player[] players;
+	private Player[] playersList;
 	private GameState gState;
 	private TurnState tState;
 	private InfoPanel info; 
 	private String difficulty;
+	private int round = 1;
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -64,11 +65,11 @@ public class Game {
 	 */
 	public void setUpMap(){
 		String mapType = start.getMapType();
-		players = start.getPlayers();
+		playersList = start.getPlayers();
 		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
 		town = new Town(this);
-		info = new InfoPanel(players, town.getStore());
+		info = new InfoPanel(playersList, town.getStore());
 		changeDisplay(start, map);
 		currentPlayer = 0;
 		numOfTurn = 0;
@@ -80,7 +81,7 @@ public class Game {
 	 * @return the player in current turn
 	 */
 	public Player getCurrentPlayer(){
-		return players[currentPlayer];
+		return playersList[currentPlayer];
 	}
 	
 	public String getDifficulty(){
@@ -129,7 +130,7 @@ public class Game {
 	 */
 	private void nextPlayer(){
 		currentPlayer ++;
-		if(currentPlayer == players.length){
+		if(currentPlayer == playersList.length){
 			currentPlayer = 0;
 			nextTurn();
 		}else{
@@ -143,6 +144,7 @@ public class Game {
 	 * This method will be called, after all players finish their turns in a round, and process to next round
 	 */
 	private void nextTurn(){
+		
 		numOfTurn ++;
 		if(gState == GameState.LandGrant){
 			if(numOfTurn == 2) nextGameState();
@@ -153,20 +155,23 @@ public class Game {
 			if(numOfTurn == 12){
 				// end of game!
 			}else{
-				System.out.println("Next Turn");
 				sortPlayer();
+				System.out.println("Next Turn");
+				System.out.println("Round number: " + numOfTurn);
+				randomEvent(numOfTurn);
 				//timerReduce(turnTime);
 				
 			}
 		}
+
 	}
 	
 	/**
 	 * This method sort the player according to player's money, player with least money start the turn
 	 */
 	private void sortPlayer(){
-		Arrays.sort(players);
-		for(Player p : players){
+		Arrays.sort(playersList);
+		for(Player p : playersList){
 			System.out.println(p.getName()+p.getMoney());
 		}
 	}
@@ -278,6 +283,7 @@ public class Game {
 			}
 		});
 		time.start();
+		randomEvent(numOfTurn);
 	}
 	
 	private void displayReset(){
@@ -323,6 +329,7 @@ public class Game {
  	 * If any event occur, 1/7 chance for any event to occur.
 	 */
 	public void randomEvent(int round) {
+		System.out.println("randomEvent method");
 		Player p = getCurrentPlayer();
 		boolean event;
 		int factor;
@@ -350,10 +357,9 @@ public class Game {
 				"MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.",
 				"YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $ "+6*factor+" TO CLEAN IT UP."
 		};
-		Random gen = new Random(99);
-		Random gen1 = new Random(6);
-		int rand = gen.nextInt()+1;
-		int eventSelection = gen1.nextInt()+1;
+		Random gen = new Random();
+		int rand = gen.nextInt(100);
+		
 		if (rand >= 1 && rand <= 27) {
 			event = true;
 		}
@@ -361,7 +367,9 @@ public class Game {
 			event = false;
 		}
 		if (event) {
+			int eventSelection = gen.nextInt(7);
 			System.out.println(events[eventSelection]);
+			System.out.println("eventSelection: " + eventSelection);
 			if (eventSelection == 1) {
 				p.addFood(3);
 				p.addEnergy(2);
@@ -375,16 +383,22 @@ public class Game {
 			else if (eventSelection == 4) {
 				p.addMoney(2*factor);
 			}
-			else if (eventSelection == 5) {
-				p.addMoney(-4*factor);
+			
+			else if (eventSelection >= 5 && eventSelection <= 7 && !p.equals(playersList[playersList.length-1])){
+				if (eventSelection == 5) {
+					p.addMoney(-4*factor);
+				}
+				else if (eventSelection == 6) {
+					p.addFood(p.getFood()/2*-1);
+				}
+				else if (eventSelection == 7) {
+					p.addMoney(-6*factor);
+				}
 			}
-			else if (eventSelection == 6) {
-				p.addFood(p.getFood()/2*-1);
-			}
-			else if (eventSelection == 7) {
-				p.addMoney(-6*factor);
-			}
+			
 		}
+		System.out.println("Rand: " + rand);
+		
 	}
 	
 }
