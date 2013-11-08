@@ -316,4 +316,17 @@ public class Game {
 		}
 	}
 	
+	public boolean randomEvent() {
+		boolean event;
+		Random gen = new Random(99);
+		int rand = gen.nextInt()+1;
+		if (rand >= 1 && rand <= 27) {
+			event = true;
+		}
+		else {
+			event = false;
+		}
+		return event;
+	}
+	
 }
