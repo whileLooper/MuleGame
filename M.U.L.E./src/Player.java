@@ -20,8 +20,8 @@ public class Player implements Comparable{
 	private String name;
 	private Color color;
 	private String race;
-	private Image image1 = (new ImageIcon("player1.png")).getImage();
-	private Image image2 = (new ImageIcon("player2.png")).getImage();
+	private Image image1;
+	private Image image2;
 	private int imgMove = 0;
 	private ArrayList<Tile> lands = new ArrayList<Tile>();
 	
@@ -59,7 +59,10 @@ public class Player implements Comparable{
 		case "Human": money = 600; break;
 		case "Flapper": money = 1600; break;
 		case "Others": money = 1000; break;
+		case "Pandarian": money = 800; break;
+		case "MonkeyKing": money = 800; break;
 		default:;
+		
 		}
 		switch(gameD){
 		case "Beginner":{
@@ -73,6 +76,33 @@ public class Player implements Comparable{
 		}
 		default:;
 		}
+		
+		//setting the images of each players.
+		switch(race){
+			case "Flapper": {
+				System.out.println("here");
+				image1 = (new ImageIcon("player1.png")).getImage();
+				image2 = (new ImageIcon("player2.png")).getImage();
+				break;
+			}
+			case "Human": {
+				image1 = (new ImageIcon("player1.png")).getImage();
+				image2 = (new ImageIcon("player2.png")).getImage();
+				break;
+			}
+			case "Pandarian": {
+				image1 = (new ImageIcon("panda1.png")).getImage();
+				image2 = (new ImageIcon("panda2.png")).getImage();
+				break;
+			}
+			case "MonkeyKing": {
+				image1 = (new ImageIcon("monkey1.png")).getImage();
+				image2 = (new ImageIcon("monkey2.png")).getImage();
+				break;
+			}
+			
+		}
+
 	}
 	
 	/**
