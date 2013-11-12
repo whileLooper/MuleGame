@@ -1,9 +1,16 @@
 import java.awt.FlowLayout;
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.google.gson.Gson;
 
 public class Game{
 	
@@ -432,7 +439,27 @@ public class Game{
 		return infostore;
 	}
 	
-	public void loadLastGame(){
+	public boolean loadLastGame(){
+		String toload = null;
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("record.txt"));
+			toload = reader.readLine();
+			reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(toload != null){
+			Gson gson = new Gson();
+			InfoStore infostore = gson.fromJson(toload, InfoStore.class);
+			return true;
+		}else{
+			System.out.println("Oops, no record");
+			return false;
+		}
 		
 	}
 	
