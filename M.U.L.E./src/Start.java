@@ -344,24 +344,24 @@ public class Start extends JPanel implements ActionListener{
 			if (moveAction) {
 				
 				if (moveAction2) {
-					page.drawImage(ImageIO.read(new File("donkeyRun1right.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun1right.png")),
 							xCoor - 150, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("monkeyRun1right.png")),
+							ImageIO.read(new File("Image/startAnimate/monkeyRun1right.png")),
 							xCoor - 250, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("pandaRun1right.png")),
+							ImageIO.read(new File("Image/startAnimate/pandaRun1right.png")),
 							xCoor - 350, 300, null);	
 				
 					moveAction2 = false;
 				} else {
-					page.drawImage(ImageIO.read(new File("donkeyRun2right.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun2right.png")),
 							xCoor - 150, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("monkeyRun2right.png")),
+							ImageIO.read(new File("Image/startAnimate/monkeyRun2right.png")),
 							xCoor - 250, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("pandaRun2right.png")),
+							ImageIO.read(new File("Image/startAnimate/pandaRun2right.png")),
 							xCoor - 350, 300, null);
 					moveAction2 = true;
 				}
@@ -370,23 +370,23 @@ public class Start extends JPanel implements ActionListener{
 		
 				
 				if (moveAction2) {
-					page.drawImage(ImageIO.read(new File("donkeyRun1left.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun1left.png")),
 							xCoor - 250, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("monkeyRun1left.png")),
+							ImageIO.read(new File("Image/startAnimate/monkeyRun1left.png")),
 							xCoor - 150, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("pandaRun1left.png")),
+							ImageIO.read(new File("Image/startAnimate/pandaRun1left.png")),
 							xCoor - 50, 300, null);
 					moveAction2 = false;
 				} else {
-					page.drawImage(ImageIO.read(new File("donkeyRun2left.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun2left.png")),
 							xCoor - 250, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("monkeyRun2left.png")),
+							ImageIO.read(new File("Image/startAnimate/monkeyRun2left.png")),
 							xCoor - 150, 300, null);
 					page.drawImage(
-							ImageIO.read(new File("pandaRun2left.png")),
+							ImageIO.read(new File("Image/startAnimate/pandaRun2left.png")),
 							xCoor - 50, 300, null);
 					moveAction2 = true;
 				}
@@ -395,13 +395,13 @@ public class Start extends JPanel implements ActionListener{
 			if (showRace) {
 				String s = (String) comboBox.getSelectedItem();
 				if (s.equals("MonkeyKing")) {
-					page.drawImage(ImageIO.read(new File("monkeyfront.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/monkeyfront.png")),
 							92, 66, 92 + 80, 66 + 115, 0, 0, 80, 115,
 							Color.WHITE, null);
 					validate();
 
 				} else if (s.equalsIgnoreCase("Pandarian")) {
-					page.drawImage(ImageIO.read(new File("pandaFront.png")),
+					page.drawImage(ImageIO.read(new File("Image/startAnimate/pandaFront.png")),
 							92, 66, 92 + 80, 66 + 110, 0, 0, 80, 105,
 							Color.WHITE, null);
 				}
