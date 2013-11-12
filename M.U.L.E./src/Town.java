@@ -96,6 +96,10 @@ public class Town extends JPanel{
 		repaint();
 		playerInStore = false;
 	}
+	
+	public boolean isPlayerInStore(){
+		return playerInStore;
+	}
 	/**
 	 * This method used to get store object in Town class
 	 * @return
