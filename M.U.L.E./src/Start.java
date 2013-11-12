@@ -53,7 +53,10 @@ public class Start extends JPanel implements ActionListener{
 	private int xCoor = 40;
 	private boolean moveAction = true;
 	private boolean moveAction2 =true;
+
+	private JComboBox comboBox;
 	private int speed = 10;
+	private boolean showRace = false;
 	/**
 	 * Setting the game start option.
 	 */
@@ -69,7 +72,7 @@ public class Start extends JPanel implements ActionListener{
 		t.start();
 		
 		
-		//playerSetting();
+	//playerSetting();
 		//validate();
 		//repaint();
 	}
@@ -126,6 +129,7 @@ public class Start extends JPanel implements ActionListener{
 		players = new Player[numOfPlayers];
 		currentPlayer = 0;
 		playerSetting();
+		showRace= true;
 	}
 	
 	/**
@@ -216,18 +220,18 @@ public class Start extends JPanel implements ActionListener{
 		JLabel lblColor = new JLabel("Color");
 		lblColor.setBounds(334, 131, 61, 14);
 		add(lblColor);
-		
-		textField = new JTextField();
-		textField.setBounds(92, 66, 137, 188);
-		add(textField);
-		textField.setColumns(10);
+//		
+//		textField = new JTextField();
+//		textField.setBounds(92, 66, 137, 188);
+//		add(textField);
+//		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(425, 45, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		final JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Human","Flapper", "Pandarian", "MonkeyKing"}));
 		comboBox.setBounds(426, 85, 86, 20);
 		add(comboBox);
@@ -336,16 +340,7 @@ public class Start extends JPanel implements ActionListener{
          try {
 
 			page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
-//			if (moveAction) {
-//				page.drawImage(ImageIO.read(new File("mule1.png")), xCoor, 350,
-//						null);
-//				moveAction = false;
-//			}
-//			else{
-//				page.drawImage(ImageIO.read(new File("mule2.png")), xCoor, 350,
-//						null);
-//				moveAction = true;
-//                    }
+			
 			if (moveAction) {
 				
 				if (moveAction2) {
@@ -357,7 +352,7 @@ public class Start extends JPanel implements ActionListener{
 					page.drawImage(
 							ImageIO.read(new File("pandaRun1right.png")),
 							xCoor - 350, 300, null);	
-
+				
 					moveAction2 = false;
 				} else {
 					page.drawImage(ImageIO.read(new File("donkeyRun2right.png")),
@@ -370,6 +365,7 @@ public class Start extends JPanel implements ActionListener{
 							xCoor - 350, 300, null);
 					moveAction2 = true;
 				}
+				
 			} else {
 		
 				
@@ -393,6 +389,21 @@ public class Start extends JPanel implements ActionListener{
 							ImageIO.read(new File("pandaRun2left.png")),
 							xCoor - 50, 300, null);
 					moveAction2 = true;
+				}
+		
+			}
+			if (showRace) {
+				String s = (String) comboBox.getSelectedItem();
+				if (s.equals("MonkeyKing")) {
+					page.drawImage(ImageIO.read(new File("monkeyfront.png")),
+							92, 66, 92 + 80, 66 + 115, 0, 0, 80, 115,
+							Color.WHITE, null);
+					validate();
+
+				} else if (s.equalsIgnoreCase("Pandarian")) {
+					page.drawImage(ImageIO.read(new File("pandaFront.png")),
+							92, 66, 92 + 80, 66 + 110, 0, 0, 80, 105,
+							Color.WHITE, null);
 				}
 			}
 		} catch (IOException e) {
