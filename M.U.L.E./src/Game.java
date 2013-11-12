@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -37,6 +38,7 @@ public class Game{
 	private Town town;
 	
 	private boolean playerInTown = false;
+	private boolean isReload = false;
 	
 	
 	/**
@@ -294,9 +296,11 @@ public class Game{
 			public void run() {
 				// TODO Auto-generated method stub
 				while(gState == GameState.PlayerTurns){
-					displayReset();
+					if(!isReload){
+						displayReset();
+					}
+					isReload = false;
 					map.setFocusable(true);
-
 					turnTime = playerTime();
 					while (turnTime > 0) {
 						System.out.println(turnTime + "s left");
@@ -455,12 +459,57 @@ public class Game{
 		if(toload != null){
 			Gson gson = new Gson();
 			InfoStore infostore = gson.fromJson(toload, InfoStore.class);
+			Restore(infostore);
 			return true;
 		}else{
 			System.out.println("Oops, no record");
 			return false;
 		}
 		
+	}
+	
+	private void Restore(InfoStore infostore){
+		isReload = true;
+		gState = GameState.PlayerTurns;
+		map = new Map(this, "Standard"); // change later for the random map
+		difficulty = infostore.getDifficulty();
+		currentPlayer = infostore.getCurrentPlayer();
+		numOfTurn = infostore.getCurrentTurn();
+		turnTime = infostore.getTurnTime();
+		playerInTown = infostore.isPlayerInTown();
+		playersList = infostore.getPlayers();
+		Tile[][] tilemap = map.getMap();
+		ArrayList<ArrayList<Point>> tileList = infostore.getPlayerTiles();
+		//ArrayList<ArrayList<Mule>> muleList = infostore.getPlayerMules();
+		for(int n = 0; n < playersList.length; n++){
+			Player player = playersList[n];
+			ArrayList<Point> playertile = tileList.get(n); 
+			ArrayList<Tile> toAdd = new ArrayList<Tile>();
+			for(Point p : playertile){
+				int x = p.x;
+				int y = p.y;
+				Tile tile = tilemap[x][y];
+				tile.Restore(player);
+				toAdd.add(tile);
+			}
+			ArrayList<Mule> mulelist = player.Restore(toAdd);
+			for(Mule mule : mulelist){
+				Point toSet = mule.Restore(player);
+				int x = toSet.x;
+				int y = toSet.y;
+				tilemap[x][y].setMule(mule);
+			}
+		}
+		Player player = getCurrentPlayer();
+		map.repaint();
+		town = new Town(this);
+		town.getStore().Restore(infostore.getFood(), infostore.getEnergy(), infostore.getSmithore(), infostore.getCrystite(), infostore.getMule());
+		town.setPlayerInStore(infostore.isPlayerInStore());
+		changeDisplay(start, map);
+		if(playerInTown){
+			changeDisplay(map, town);
+		}
+		GameStart();
 	}
 	
 }
