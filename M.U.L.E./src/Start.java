@@ -336,6 +336,8 @@ public class Start extends JPanel implements ActionListener{
 	/**
 	 * in charge of painting and animations
 	 */
+	
+		    
 	 public void paintComponent(Graphics page)
      {
 		  
