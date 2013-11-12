@@ -2,11 +2,11 @@ import java.awt.FlowLayout;
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.Random;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Game {
+public class Game{
+	
 
 	private JFrame drive;
 	private Start start;
@@ -14,7 +14,7 @@ public class Game {
 	private Player[] playersList;
 	private GameState gState;
 	private TurnState tState;
-	private InfoPanel info; 
+	//private InfoPanel info; 
 	private String difficulty;
 	
 	private int currentPlayer;
@@ -26,11 +26,11 @@ public class Game {
 	private boolean passLandPurchase = true;
 	
 	private int turnTime ;
-	private final int requireFood = 10;
 	private Thread time;
 	private Town town;
 	
 	private boolean playerInTown = false;
+	
 	
 	/**
 	 * This is the constructor for Game class
@@ -67,7 +67,7 @@ public class Game {
 		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
 		town = new Town(this);
-		info = new InfoPanel(playersList, town.getStore());
+		//info = new InfoPanel(playersList, town.getStore());
 		changeDisplay(start, map);
 		currentPlayer = 0;
 		numOfTurn = 0;
@@ -272,6 +272,7 @@ public class Game {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+
 					}
 					getCurrentPlayer().turnEnd();
 					nextPlayer();
@@ -395,6 +396,10 @@ public class Game {
 			
 		}
 		System.out.println("Rand: " + rand);
+		
+	}
+	
+	public void stop(){
 		
 	}
 	
