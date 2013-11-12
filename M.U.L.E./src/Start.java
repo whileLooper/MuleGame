@@ -1,41 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
-import java.awt.Button;
-
-import javax.swing.JTable;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
-
-import java.awt.FlowLayout;
-
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.SwingConstants;
-import javax.swing.JMenu;
-
-import java.awt.GridLayout;
-
-//import net.miginfocom.swing.MigLayout;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.swing.SpringLayout;
 
 import java.awt.Color;
@@ -46,6 +11,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Insets;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JList;
@@ -63,8 +30,12 @@ import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.UIManager;
+import javax.swing.Timer;
 
-public class Start extends JPanel{
+
+
+public class Start extends JPanel implements ActionListener{
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -78,7 +49,11 @@ public class Start extends JPanel{
 	private Game game;
 	private JTextField textField;
 	private JTextField textField_1;
-	
+	private Timer t;
+	private int xCoor = 40;
+	private boolean moveAction = true;
+	private boolean moveAction2 =true;
+	private int speed = 10;
 	/**
 	 * Setting the game start option.
 	 */
@@ -89,10 +64,39 @@ public class Start extends JPanel{
 		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		gameSetting();
+		t = new Timer(100,this);
+		t.setInitialDelay(1500);
+		t.start();
 		
+		
+		//playerSetting();
 		//validate();
 		//repaint();
 	}
+	/** 
+	 * 
+	 *
+	 * 
+	 **/
+	public void actionPerformed(ActionEvent e) {
+		
+        if (xCoor >1300) {
+        	xCoor = 1200;
+        	speed = -10;
+      //  	t.stop();
+        //	t.start();
+        	moveAction =false;
+        }
+        if(xCoor < 0){
+        	xCoor = 0;
+        	speed =  10;
+        	moveAction = true;
+        	
+        }
+        xCoor  =  xCoor + speed;
+        repaint();
+	}
+
 	
 	/**
 	 * @return return the difficulty level.
@@ -131,37 +135,41 @@ public class Start extends JPanel{
 	private void gameSetting(){
 		setLayout(null);
 		
+		
 		JLabel lblDifficulty = new JLabel("Difficulty");
-		lblDifficulty.setBounds(100, 60, 83, 14);
+		lblDifficulty.setBounds(220, 39, 83, 14);
 		add(lblDifficulty);
 		
 		JLabel lblMap = new JLabel("Map");
-		lblMap.setBounds(263, 60, 69, 14);
+		lblMap.setBounds(220, 88, 69, 14);
 		add(lblMap);
 		
 		JLabel lblOfPlayers = new JLabel("# of Players");
-		lblOfPlayers.setBounds(412, 60, 83, 14);
+		lblOfPlayers.setBounds(220, 130, 83, 14);
 		add(lblOfPlayers);
 		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(100, 94, 83, 36);
+		comboBox.setBackground(Color.WHITE);
+		comboBox.setBounds(295, 34, 101, 25);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Beginner", "Standard", "Tournament"}));
 		add(comboBox);
 				
 				final JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setBounds(263, 94, 69, 36);
+				comboBox_1.setBounds(295, 83, 101, 25);
 				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
 				add(comboBox_1);
 		
 				
 				final JComboBox comboBox_2 = new JComboBox();
-				comboBox_2.setBounds(420, 94, 59, 36);
+				comboBox_2.setBounds(295, 125, 101, 25);
 				comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
 				add(comboBox_2);
 		
 		JButton btnNext = new JButton("Next\u2192");
-		btnNext.setBounds(597, 94, 83, 36);
+		btnNext.setBounds(415, 181, 91, 31);
 		add(btnNext);
+		
+	
 		btnNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -172,9 +180,13 @@ public class Start extends JPanel{
 				playerInput();
 			}
 		});
+		
+
 	}
 
 	
+	
+	  
 	/**
 	 * Setting player name, player numbers panels.
 	 */
@@ -194,39 +206,39 @@ public class Start extends JPanel{
 		add(lblPlayer);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(280, 88, 86, 14);
+		lblName.setBounds(334, 48, 86, 14);
 		add(lblName);
 		
 		JLabel lblRace = new JLabel("Race");
-		lblRace.setBounds(429, 88, 67, 14);
+		lblRace.setBounds(334, 88, 67, 14);
 		add(lblRace);
 
 		JLabel lblColor = new JLabel("Color");
-		lblColor.setBounds(569, 88, 61, 14);
+		lblColor.setBounds(334, 131, 61, 14);
 		add(lblColor);
 		
 		textField = new JTextField();
-		textField.setBounds(90, 85, 137, 188);
+		textField.setBounds(92, 66, 137, 188);
 		add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(280, 110, 86, 20);
+		textField_1.setBounds(425, 45, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Human","Flapper", "Pandarian","MonkeyKing"}));
-		comboBox.setBounds(429, 110, 67, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Human","Flapper", "Pandarian", "MonkeyKing"}));
+		comboBox.setBounds(426, 85, 86, 20);
 		add(comboBox);
 		
 		final JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Red", "Yellow", "Green", "Blue"}));
-		comboBox_1.setBounds(569, 110, 61, 20);
+		comboBox_1.setBounds(425, 128, 86, 17);
 		add(comboBox_1);
 		
 		JButton btnNewButton = new JButton("NEXT\u2192");
-		btnNewButton.setBounds(687, 109, 83, 36);
+		btnNewButton.setBounds(539, 180, 75, 30);
 
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -283,6 +295,8 @@ public class Start extends JPanel{
 		for(int n = 0; n < currentPlayer; n++){
 			if(players[n].getColor() == c){
 				System.out.println("Oops! The color has been chosen...");
+				JOptionPane.showMessageDialog(null, "Oops! The color has been chosen...","color Conflict", 0);
+
 				return true;
 			}
 		}
@@ -300,21 +314,92 @@ public class Start extends JPanel{
 		for (int i = 0; i < currentPlayer; i++) {
 			if(players[i].getName() == name) {
 				System.out.println("Oops! The name has been chosen...");
+				JOptionPane.showMessageDialog(null, "Oops! The name has been chosen...", "Name Conflict", 0);
 
 				return true;
 			}
 		}
 		return false;
 	}
+
+	
+	
+		    
 	 public void paintComponent(Graphics page)
      {
+		  
+		 
+		 
          super.paintComponent(page);
          BufferedImage img = null;
+        
          try {
-                     page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
-             } catch (IOException e) {
-                     // TODO Auto-generated catch block
-                     e.printStackTrace();
-             }
-     }
+
+			page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
+//			if (moveAction) {
+//				page.drawImage(ImageIO.read(new File("mule1.png")), xCoor, 350,
+//						null);
+//				moveAction = false;
+//			}
+//			else{
+//				page.drawImage(ImageIO.read(new File("mule2.png")), xCoor, 350,
+//						null);
+//				moveAction = true;
+//                    }
+			if (moveAction) {
+				
+				if (moveAction2) {
+					page.drawImage(ImageIO.read(new File("donkeyRun1right.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun1right.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun1right.png")),
+							xCoor - 350, 300, null);	
+
+					moveAction2 = false;
+				} else {
+					page.drawImage(ImageIO.read(new File("donkeyRun2right.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun2right.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun2right.png")),
+							xCoor - 350, 300, null);
+					moveAction2 = true;
+				}
+			} else {
+		
+				
+				if (moveAction2) {
+					page.drawImage(ImageIO.read(new File("donkeyRun1left.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun1left.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun1left.png")),
+							xCoor - 50, 300, null);
+					moveAction2 = false;
+				} else {
+					page.drawImage(ImageIO.read(new File("donkeyRun2left.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun2left.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun2left.png")),
+							xCoor - 50, 300, null);
+					moveAction2 = true;
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
 }
