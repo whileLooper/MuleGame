@@ -328,8 +328,6 @@ public class Start extends JPanel implements ActionListener{
 	}
 
 	
-	
-		    
 	 public void paintComponent(Graphics page)
      {
 		  
