@@ -177,6 +177,10 @@ public class Map extends JPanel{
 		
 	}
 	
+	public Tile[][] getMap(){
+		return tiles;
+	}
+	
 	@Override
 	/**
 	 * This method overrides the one in superclass to draw player
