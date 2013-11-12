@@ -30,12 +30,13 @@ public class Tile extends JLabel{
      * @param o is the amount of ore the tile products
      * @param c is the amount of crystal the tile products 
      */
-	public Tile(ImageIcon i, int f, int e, int o, int c){
+	public Tile(ImageIcon i, int f, int e, int o, int c,Point newPoint){
 		image = i;
 		food = f;
 		energy = e;
 		ore = o;
 		crystite = c;
+		p = newPoint;
 		setIcon(i);
 	}
 	

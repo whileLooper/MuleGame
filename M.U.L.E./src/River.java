@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
@@ -11,7 +12,7 @@ public class River extends Tile {
 	/**
 	 * This is the constructor of the River Class
 	 */
-	public River(){
-		super(new ImageIcon("River.png"), 4, 2, 0, new Random().nextInt(4));
+	public River(Point newPoint){
+		super(new ImageIcon("Image/tileImages/River.png"), 4, 2, 0, new Random().nextInt(4), newPoint);
 	}
 }

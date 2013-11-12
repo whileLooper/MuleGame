@@ -1,3 +1,5 @@
+import java.awt.Point;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
@@ -11,8 +13,8 @@ public class TownT extends Tile{
 	/**
 	 * This is the constructor of the TownT Class
 	 */
-	public TownT(){
-		super(new ImageIcon("Town.png"), 0, 0, 0, 0);
+	public TownT(Point newPoint){
+		super(new ImageIcon("Image/tileImages/Town.png"), 0, 0, 0, 0, newPoint);
 	}
 	
 	@Override

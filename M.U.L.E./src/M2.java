@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
@@ -11,7 +12,7 @@ public class M2 extends Tile {
 	/**
 	 * This is the constructor for M2 Class
 	 */
-	public M2(){
-		super(new ImageIcon("M2.png"), 1, 1, 3, new Random().nextInt(4));
+	public M2(Point newPoint){
+		super(new ImageIcon("Image/tileImages/M2.png"), 1, 1, 3, new Random().nextInt(4), newPoint);
 	}
 }

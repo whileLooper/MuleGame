@@ -137,27 +137,27 @@ public class Map extends JPanel{
 				Tile tile;
 				switch(tileS){
 					case "P":{
-						tile = new Plain();
+						tile = new Plain(new Point(i,j));
 						break;
 					}
 					case "R":{
-						tile = new River();
+						tile = new River(new Point(i,j));
 						break;
 					}
 					case "M1":{
-						tile = new M1();
+						tile = new M1(new Point(i,j));
 						break;
 					}
 					case "M2":{
-						tile = new M2();
+						tile = new M2(new Point(i,j));
 						break;
 					}
 					case "M3":{
-						tile = new M3();
+						tile = new M3(new Point(i,j));
 						break;
 					}
 					case "Town":{
-						tile = new TownT();
+						tile = new TownT(new Point(i,j));
 						break;
 					}
 					default:{
