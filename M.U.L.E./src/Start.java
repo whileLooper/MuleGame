@@ -53,6 +53,7 @@ public class Start extends JPanel implements ActionListener{
 	private int xCoor = 40;
 	private boolean moveAction = true;
 	private boolean moveAction2 =true;
+	private int moveAction3 =0;
 
 	private JComboBox comboBox;
 	private int speed = 10;
@@ -393,20 +394,112 @@ public class Start extends JPanel implements ActionListener{
 		
 			}
 			if (showRace) {
+				page.setColor(Color.WHITE);
+				page.fillRect(92,66,85,120);
 				String s = (String) comboBox.getSelectedItem();
+				
 				if (s.equals("MonkeyKing")) {
-					page.drawImage(ImageIO.read(new File("Image/startAnimate/monkeyfront.png")),
+					
+					if(moveAction3==0)
+						{
+						page.drawImage(ImageIO.read(new File("Image/startAnimate/monkeyfront.png")),
 							92, 66, 92 + 80, 66 + 115, 0, 0, 80, 115,
 							Color.WHITE, null);
-					validate();
-
+						validate();
+						moveAction3=1;
+						}else if(moveAction3 ==1){
+							page.drawImage(ImageIO.read(new File("Image/startAnimate/monkeyfront.png")),
+									92, 66, 92 + 80, 66 + 115, 150, 0, 148 +80, 0+115,
+									Color.WHITE, null);
+							moveAction3= 2;
+						}else if(moveAction3 ==2){
+							page.drawImage(ImageIO.read(new File("Image/startAnimate/monkeyfront.png")),
+									92, 66, 92 + 80, 66 + 115, 300, 4, 298 +80, 4+115,
+									Color.WHITE, null);
+							moveAction3 = 0;
+						}
+					
+					
 				} else if (s.equalsIgnoreCase("Pandarian")) {
-					page.drawImage(ImageIO.read(new File("Image/startAnimate/pandaFront.png")),
-							92, 66, 92 + 80, 66 + 110, 0, 0, 80, 105,
-							Color.WHITE, null);
+					
+					if (moveAction3 == 0) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/pandaFront.png")), 92, 66,
+								92 + 80, 66 + 110, 0, 0, 80, 105, Color.WHITE,
+								null);
+						moveAction3 = 1;
+					} else if (moveAction3 == 1) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/pandaFront.png")), 92, 66,
+								92 + 80, 66 + 110, 0, 105, 88, 211, Color.WHITE,
+								null);
+
+						moveAction3 = 2;
+					} else if (moveAction3 == 2) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/pandaFront.png")), 92, 66,
+								92 + 80, 66 + 110, 256, 0, 340, 100, Color.WHITE,
+								null);
+						moveAction3 = 0;
+					}
+				} else if (s.equalsIgnoreCase("Human")) {
+
+					if (moveAction3 == 0) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/humanFront.png")), 102, 67,
+								102 + 52, 67 + 110, 308, 0, 362, 110,
+								Color.WHITE, null);
+						moveAction3 = 1;
+					} else if (moveAction3 == 1) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/humanFront.png")), 101, 67,
+								101 + 52, 67 + 110, 255, 0, 307, 110,
+								Color.WHITE,
+
+								null);
+
+						moveAction3 = 2;
+					} else if (moveAction3 == 2) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/humanFront.png")), 106, 67,
+								105 + 50, 67 + 110, 207, 0, 207+49, 110,
+								Color.WHITE, null);
+						moveAction3 = 0;
+					}
+				}
+
+				else if (s.equalsIgnoreCase("Flapper")) {
+
+		
+					
+					
+					if (moveAction3 == 0) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/flapperFront.png")), 92,
+								66, 92 + 80, 66 + 115, 115, 0, 115 + 80, 115,
+								Color.WHITE, null);
+						moveAction3 = 1;
+					} else if (moveAction3 == 1) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/flapperFront.png")), 92,
+								66, 92 + 80, 66 + 115, 13, 0, 13 + 80, 115,
+								Color.WHITE,
+
+								null);
+
+						moveAction3 = 2;
+					} else if (moveAction3 == 2) {
+						page.drawImage(ImageIO.read(new File(
+								"Image/startAnimate/flapperFront.png")), 92,
+								66, 92 + 80, 66 + 115, 322, 0, 322 + 80, 115,
+								Color.WHITE, null);
+						moveAction3 = 0;
+					}
+
 				}
 			}
-		} catch (IOException e) {
+			
+		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
