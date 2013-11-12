@@ -15,10 +15,13 @@ public class InfoStore {
 	private Player[] Players;
 	private ArrayList<ArrayList<Point>> PlayerTiles = new ArrayList<ArrayList<Point>>();
 	private ArrayList<ArrayList<Mule>> PlayerMules = new ArrayList<ArrayList<Mule>>();
+	private int Food, Energy, Smithore, Crystite, Mule; 
+	private boolean PlayerInStore = false;
 	
 	public InfoStore(Game g){
 		collectGameInfo(g);
 		collectPlayerInfo(g);
+		collectStoreTownInfo(g);
 	}
 	
 	private void collectGameInfo(Game g){
@@ -44,9 +47,19 @@ public class InfoStore {
 			}
 			PlayerTiles.add(tile);
 			PlayerMules.add(mule);
-			
 		}
-		
-		
+	}
+	
+	private void collectStoreTownInfo(Game g){
+		Town town = g.getTown();
+		if(PlayerInTown){
+			PlayerInStore = town.isPlayerInStore();
+		}
+		Store store = town.getStore();
+		Food = store.getFood();
+		Energy = store.getEnergy();
+		Smithore = store.getSmithore();
+		Crystite = store.getCrystite();
+		Mule = store.getMule();
 	}
 }
