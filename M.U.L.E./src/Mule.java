@@ -17,9 +17,9 @@ public class Mule {
 	private Point townLocation = new Point(445, 140);
 	private String owner;
 	private Player player;
-	private Image image1 = (new ImageIcon("mule1.png")).getImage();
-	private Image image2 = (new ImageIcon("mule2.png")).getImage();
-	private Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
+	private Image image1 = (new ImageIcon("Image/muleImages/mule1.png")).getImage();
+	private Image image2 = (new ImageIcon("Image/muleImages/mule2.png")).getImage();
+	private Image setDownImg = (new ImageIcon("Image/muleImages/muleSetDown.png")).getImage();
 	private int imgMove = 0;
 	private boolean isSet = false;
 
