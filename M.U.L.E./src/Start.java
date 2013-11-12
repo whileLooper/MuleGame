@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JList;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultComboB
+oxModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -148,7 +149,11 @@ public class Start extends JPanel implements ActionListener{
 		btnLoad.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				game.loadLastGame();
+				boolean loadGame = game.loadLastGame();
+				if(!loadGame){
+					JOptionPane.showMessageDialog(null, "No Record Found","Load failed", 0);
+
+				}
 			}
 		});
 		
@@ -361,7 +366,11 @@ public class Start extends JPanel implements ActionListener{
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun1right.png")),
 							xCoor - 350, 300, null);	
-				
+					page.drawImage(
+							ImageIO.read(new File("Image/startAnimate/humanRun1right.png")),
+							xCoor - 450, 300, null);	
+					
+					
 					moveAction2 = false;
 				} else {
 					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun2right.png")),
@@ -372,6 +381,9 @@ public class Start extends JPanel implements ActionListener{
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun2right.png")),
 							xCoor - 350, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("Image/startAnimate/humanRun2right.png")),
+							xCoor - 450, 300, null);	
 					moveAction2 = true;
 				}
 				
@@ -387,6 +399,9 @@ public class Start extends JPanel implements ActionListener{
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun1left.png")),
 							xCoor - 50, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("Image/startAnimate/humanRun1left.png")),
+							xCoor  + 50, 300, null);
 					moveAction2 = false;
 				} else {
 					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun2left.png")),
@@ -397,6 +412,9 @@ public class Start extends JPanel implements ActionListener{
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun2left.png")),
 							xCoor - 50, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("Image/startAnimate/humanRun2left.png")),
+							xCoor +50, 300, null);
 					moveAction2 = true;
 				}
 		
