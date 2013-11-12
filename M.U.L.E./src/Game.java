@@ -58,6 +58,30 @@ public class Game{
 		drive.repaint();
 	}
 	
+	public GameState getGameState(){
+		return gState;
+	}
+	
+	public int getCurrentPlayerInd(){
+		return currentPlayer;
+	}
+	
+	public int getCurrentTurn(){
+		return numOfTurn;
+	}
+	
+	public int getTurnTime(){
+		return turnTime;
+	}
+	
+	public boolean isPlayerInTown(){
+		return playerInTown;
+	}
+	
+	public Player[] getPlayers(){
+		return playersList;
+	}
+	
 	/**
 	 * This method sets up the map
 	 */
@@ -399,8 +423,9 @@ public class Game{
 		
 	}
 	
-	public void stop(){
-		
+	public InfoStore stop(){
+		InfoStore infostore = new InfoStore(this);
+		return infostore;
 	}
 	
 }
