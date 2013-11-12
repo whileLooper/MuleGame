@@ -82,6 +82,10 @@ public class Game{
 		return playersList;
 	}
 	
+	public Town getTown(){
+		return town;
+	}
+	
 	/**
 	 * This method sets up the map
 	 */
