@@ -86,8 +86,8 @@ public class Start extends JPanel implements ActionListener{
 	 **/
 	public void actionPerformed(ActionEvent e) {
 		
-        if (xCoor >1300) {
-        	xCoor = 1200;
+        if (xCoor >1400) {
+        	xCoor = 1400;
         	speed = -10;
       //  	t.stop();
         //	t.start();
@@ -391,29 +391,29 @@ public class Start extends JPanel implements ActionListener{
 				
 				if (moveAction2) {
 					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun1left.png")),
-							xCoor - 250, 300, null);
+							xCoor - 350, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/monkeyRun1left.png")),
-							xCoor - 150, 300, null);
+							xCoor - 250, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun1left.png")),
-							xCoor - 50, 300, null);
+							xCoor - 150, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/humanRun1left.png")),
-							xCoor  + 50, 300, null);
+							xCoor   - 50, 300, null);
 					moveAction2 = false;
 				} else {
 					page.drawImage(ImageIO.read(new File("Image/startAnimate/donkeyRun2left.png")),
-							xCoor - 250, 300, null);
+							xCoor - 350, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/monkeyRun2left.png")),
-							xCoor - 150, 300, null);
+							xCoor - 250, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/pandaRun2left.png")),
-							xCoor - 50, 300, null);
+							xCoor - 150, 300, null);
 					page.drawImage(
 							ImageIO.read(new File("Image/startAnimate/humanRun2left.png")),
-							xCoor +50, 300, null);
+							xCoor -50, 300, null);
 					moveAction2 = true;
 				}
 		
