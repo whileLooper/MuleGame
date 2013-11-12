@@ -86,8 +86,8 @@ public class Player implements Comparable{
 				break;
 			}
 			case "Human": {
-				image1 = (new ImageIcon("Image/playerImages/human1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/human2.png")).getImage();
+				image1 = (new ImageIcon("Image/playerImages/player1.png")).getImage();
+				image2 = (new ImageIcon("Image/playerImages/player2.png")).getImage();
 				break;
 			}
 			case "Pandarian": {
