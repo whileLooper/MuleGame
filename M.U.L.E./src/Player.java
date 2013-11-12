@@ -31,8 +31,8 @@ public class Player implements Comparable{
 	private int ore = 0 ;
 	private int crystal = 0;
 	
-	private transient Point mapLocation = new Point(425, 375);
-	private transient Point townLocation;
+	private  Point mapLocation = new Point(425, 375);
+	private  Point townLocation;
 	
 	private transient Mule currentMule = null;
 	private transient ArrayList<Mule> mules = new ArrayList<Mule>();
