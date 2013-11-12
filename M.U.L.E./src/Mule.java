@@ -17,9 +17,9 @@ public class Mule {
 	private transient Point townLocation = new Point(445, 140);
 	private transient String owner;
 	private transient Player player;
-	private transient Image image1 = (new ImageIcon("mule1.png")).getImage();
-	private transient Image image2 = (new ImageIcon("mule2.png")).getImage();
-	private transient Image setDownImg = (new ImageIcon("muleSetDown.png")).getImage();
+	private transient Image image1 = (new ImageIcon("Image/muleImages/mule1.png")).getImage();
+	private transient Image image2 = (new ImageIcon("Image/muleImages/mule2.png")).getImage();
+	private transient Image setDownImg = (new ImageIcon("Image/muleImages/muleSetDown.png")).getImage();
 	private transient int imgMove = 0;
 	private boolean isSet = false;
 
