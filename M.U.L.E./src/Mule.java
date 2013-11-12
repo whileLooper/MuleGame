@@ -23,13 +23,17 @@ public class Mule {
 	private transient int imgMove = 0;
 	private boolean isSet = false;
 
-	/*
+	/**
 	 * 
 	 */
 	public Mule(String type, Player player) {
 		muleType = type;
 		owner = player.getName();
 		this.player = player;
+	}
+	
+	public Mule(){
+		
 	}
 
 	/**
