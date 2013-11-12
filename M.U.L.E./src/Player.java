@@ -79,15 +79,15 @@ public class Player implements Comparable{
 		
 		//setting the images of each players.
 		switch(race){
-			case "Flapper": {
+			case "Human": {
 				System.out.println("here");
 				image1 = (new ImageIcon("Image/playerImages/player1.png")).getImage();
 				image2 = (new ImageIcon("Image/playerImages/player2.png")).getImage();
 				break;
 			}
-			case "Human": {
-				image1 = (new ImageIcon("Image/playerImages/player1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/player2.png")).getImage();
+			case "Flapper": {
+				image1 = (new ImageIcon("Image/playerImages/flapper1.png")).getImage();
+				image2 = (new ImageIcon("Image/playerImages/flapper2.png")).getImage();
 				break;
 			}
 			case "Pandarian": {
