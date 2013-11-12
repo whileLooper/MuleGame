@@ -244,7 +244,6 @@ public class Game {
 		System.out.println("It's " + numOfTurn + ", and there are " + turnTime + " s left, so player gets " + money 
 				+ " through gambling.");
 		getCurrentPlayer().addMoney(money);
-		nextPlayer();
 	}
 	
 	
