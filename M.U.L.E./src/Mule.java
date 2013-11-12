@@ -13,14 +13,15 @@ import javax.swing.ImageIcon;
 public class Mule {
 
 	private String muleType;
+	private Point setLocation;
 	private Point mapLocation = new Point(425, 375);
-	private transient Point townLocation = new Point(445, 140);
+	private Point townLocation = new Point(445, 140);
 	private transient String owner;
 	private transient Player player;
 	private transient Image image1 = (new ImageIcon("Image/muleImages/mule1.png")).getImage();
 	private transient Image image2 = (new ImageIcon("Image/muleImages/mule2.png")).getImage();
 	private transient Image setDownImg = (new ImageIcon("Image/muleImages/muleSetDown.png")).getImage();
-	private transient int imgMove = 0;
+	private int imgMove = 0;
 	private boolean isSet = false;
 
 	/**
@@ -55,12 +56,6 @@ public class Mule {
 		mapLocation = p;
 	}
 
-	/**
-	 * This method resets player's location
-	 */
-	public void resetMapLocation() {
-		mapLocation = new Point(425, 370);
-	}
 
 	/**
 	 * This method returns player's location on the down
@@ -89,7 +84,7 @@ public class Mule {
 	 */
 	public void drawOnMap(Graphics g) {
 		if(isSet){
-			g.drawImage(setDownImg, mapLocation.x, mapLocation.y, 50, 50, null);
+			g.drawImage(setDownImg, setLocation.x * 100, setLocation.y * 100, 50, 50, null);
 		}else{
 			followPlayer(player.getMapLocation(), g);
 		}
@@ -127,7 +122,8 @@ public class Mule {
 		if(tile.isEmpty()){
 			tile.setMule(this);
 			isSet = true;
-			setMapLocation(player.getMapLocation());
+			Point locat = player.getMapLocation();
+			setLocation = new Point(locat.y / 100, locat.x / 100);
 			return true;
 		}
 		runAway();
@@ -151,6 +147,21 @@ public class Mule {
 
 		
 
+	}
+	
+	public Point Restore(Player p){
+		if(isSet){
+			setDownImg = (new ImageIcon("Image/muleImages/muleSetDown.png"))
+					.getImage();
+			return setLocation;
+		}
+		else{
+			player = p;
+			image1 = (new ImageIcon("Image/muleImages/mule1.png")).getImage();
+			image2 = (new ImageIcon("Image/muleImages/mule2.png")).getImage();
+			return null;
+		}
+		
 	}
 
 }
