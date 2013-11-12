@@ -41,18 +41,21 @@ public class Drive extends JFrame{
 	private class WindowClosed extends WindowAdapter{
 		@Override
 		public void windowClosing(WindowEvent e){
-			Gson gson = new Gson();
-			InfoStore store = game.stop();
-			String tostore = gson.toJson(store);
-			FileWriter writer;
-			try {
-				writer = new FileWriter("record.txt");
-				writer.write(tostore);
-			    writer.close();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(game.getGameState() == Game.GameState.PlayerTurns){
+				Gson gson = new Gson();
+				InfoStore store = game.stop();
+				String tostore = gson.toJson(store);
+				FileWriter writer;
+				try {
+					writer = new FileWriter("record.txt");
+					writer.write(tostore);
+					writer.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
+			
 			
 		}
 	}
