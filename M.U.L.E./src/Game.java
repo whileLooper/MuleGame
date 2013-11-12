@@ -432,4 +432,8 @@ public class Game{
 		return infostore;
 	}
 	
+	public void loadLastGame(){
+		
+	}
+	
 }
