@@ -1,42 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
-import java.awt.Button;
-
-import javax.swing.JTable;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
-
-import java.awt.FlowLayout;
-
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.SwingConstants;
-import javax.swing.JMenu;
-
-import java.awt.GridLayout;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-//import net.miginfocom.swing.MigLayout;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.swing.SpringLayout;
 
 import java.awt.Color;
@@ -47,6 +11,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JList;
@@ -63,8 +28,8 @@ import java.util.ArrayList;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.UIManager;
 
+import javax.swing.UIManager;
 import javax.swing.Timer;
 
 
@@ -86,7 +51,8 @@ public class Start extends JPanel implements ActionListener{
 	private Timer t;
 	private int xCoor = 40;
 	private boolean moveAction = true;
-	private int speed = 5;
+	private boolean moveAction2 =true;
+	private int speed = 10;
 	/**
 	 * Setting the game start option.
 	 */
@@ -98,6 +64,7 @@ public class Start extends JPanel implements ActionListener{
 		setVisible(true);
 		gameSetting();
 		t = new Timer(100,this);
+		t.setInitialDelay(1500);
 		t.start();
 		
 		
@@ -105,16 +72,25 @@ public class Start extends JPanel implements ActionListener{
 		//validate();
 		//repaint();
 	}
+	/** 
+	 * 
+	 *
+	 * 
+	 **/
 	public void actionPerformed(ActionEvent e) {
 		
-        if (xCoor >200) {
-        	xCoor = 200;
-        	speed = -5;
-        	
+        if (xCoor >1300) {
+        	xCoor = 1200;
+        	speed = -10;
+      //  	t.stop();
+        //	t.start();
+        	moveAction =false;
         }
-        if(xCoor < 40){
-        	xCoor = 40;
-        	speed =  5;
+        if(xCoor < 0){
+        	xCoor = 0;
+        	speed =  10;
+        	moveAction = true;
+        	
         }
         xCoor  =  xCoor + speed;
         repaint();
@@ -356,21 +332,70 @@ public class Start extends JPanel implements ActionListener{
          try {
 
 			page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
+//			if (moveAction) {
+//				page.drawImage(ImageIO.read(new File("mule1.png")), xCoor, 350,
+//						null);
+//				moveAction = false;
+//			}
+//			else{
+//				page.drawImage(ImageIO.read(new File("mule2.png")), xCoor, 350,
+//						null);
+//				moveAction = true;
+//                    }
 			if (moveAction) {
-				page.drawImage(ImageIO.read(new File("mule1.png")), xCoor, 350,
-						null);
-				moveAction = false;
+				
+				if (moveAction2) {
+					page.drawImage(ImageIO.read(new File("donkeyRun1right.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun1right.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun1right.png")),
+							xCoor - 350, 300, null);	
+
+					moveAction2 = false;
+				} else {
+					page.drawImage(ImageIO.read(new File("donkeyRun2right.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun2right.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun2right.png")),
+							xCoor - 350, 300, null);
+					moveAction2 = true;
+				}
+			} else {
+		
+				
+				if (moveAction2) {
+					page.drawImage(ImageIO.read(new File("donkeyRun1left.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun1left.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun1left.png")),
+							xCoor - 50, 300, null);
+					moveAction2 = false;
+				} else {
+					page.drawImage(ImageIO.read(new File("donkeyRun2left.png")),
+							xCoor - 250, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("monkeyRun2left.png")),
+							xCoor - 150, 300, null);
+					page.drawImage(
+							ImageIO.read(new File("pandaRun2left.png")),
+							xCoor - 50, 300, null);
+					moveAction2 = true;
+				}
 			}
-			else{
-				page.drawImage(ImageIO.read(new File("mule2.png")), xCoor, 350,
-						null);
-				moveAction = true;
-                    }
-         } catch (IOException e) {
-                     // TODO Auto-generated catch block
-                     e.printStackTrace();
-             }
-     }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 
 }
