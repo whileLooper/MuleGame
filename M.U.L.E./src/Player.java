@@ -3,7 +3,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 
 /**
@@ -31,11 +30,11 @@ public class Player implements Comparable{
 	private int ore = 0 ;
 	private int crystal = 0;
 	
-	private  Point mapLocation = new Point(425, 375);
-	private  Point townLocation;
+	private Point mapLocation = new Point(425, 375);
+	private Point townLocation;
 	
-	private transient Mule currentMule = null;
-	private transient ArrayList<Mule> mules = new ArrayList<Mule>();
+	private Mule currentMule = null;
+	private ArrayList<Mule> mules = new ArrayList<Mule>();
 	
 	
 	/**
@@ -81,32 +80,41 @@ public class Player implements Comparable{
 		default:;
 		}
 		
-		//setting the images of each players.
-		switch(race){
-			case "Human": {
-				System.out.println("here");
-				image1 = (new ImageIcon("Image/playerImages/human1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/human2.png")).getImage();
-				break;
-			}
-			case "Flapper": {
-				image1 = (new ImageIcon("Image/playerImages/flapper1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/flapper2.png")).getImage();
-				break;
-			}
-			case "Pandarian": {
-				image1 = (new ImageIcon("Image/playerImages/panda1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/panda2.png")).getImage();
-				break;
-			}
-			case "MonkeyKing": {
-				image1 = (new ImageIcon("Image/playerImages/monkey1.png")).getImage();
-				image2 = (new ImageIcon("Image/playerImages/monkey2.png")).getImage();
-				break;
-			}
-			
+		choseImage();
+	}
+	
+	private void choseImage(){
+		switch (race) {
+		case "Human": {
+			System.out.println("here");
+			image1 = (new ImageIcon("Image/playerImages/human1.png"))
+					.getImage();
+			image2 = (new ImageIcon("Image/playerImages/human2.png"))
+					.getImage();
+			break;
 		}
-
+		case "Flapper": {
+			image1 = (new ImageIcon("Image/playerImages/flapper1.png"))
+					.getImage();
+			image2 = (new ImageIcon("Image/playerImages/flapper2.png"))
+					.getImage();
+			break;
+		}
+		case "Pandarian": {
+			image1 = (new ImageIcon("Image/playerImages/panda1.png"))
+					.getImage();
+			image2 = (new ImageIcon("Image/playerImages/panda2.png"))
+					.getImage();
+			break;
+		}
+		case "MonkeyKing": {
+			image1 = (new ImageIcon("Image/playerImages/monkey1.png"))
+					.getImage();
+			image2 = (new ImageIcon("Image/playerImages/monkey2.png"))
+					.getImage();
+			break;
+		}
+		}
 	}
 	
 	/**
@@ -453,6 +461,17 @@ public class Player implements Comparable{
 	public void turnEnd(){
 		if(currentMule != null){
 			currentMule.runAway();
+			currentMule = null;
 		}
+	}
+	
+	public ArrayList<Mule> Restore(ArrayList<Tile> tiles){
+		choseImage();
+		imgMove = 0;
+		lands = tiles;
+		if(currentMule != null){
+			currentMule.Restore(this);
+		}
+		return mules;
 	}
 }
