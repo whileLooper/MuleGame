@@ -69,6 +69,8 @@ public class Start extends JPanel implements ActionListener{
 		setVisible(true);
 		gameSetting();
 		t = new Timer(100,this);
+		
+		
 		t.setInitialDelay(1500);
 		t.start();
 		
@@ -140,38 +142,47 @@ public class Start extends JPanel implements ActionListener{
 	private void gameSetting(){
 		setLayout(null);
 		
+		JButton btnLoad = new JButton("Load Game");
+		btnLoad.setBounds(82, 62, 130, 36);
+		add(btnLoad);
+		btnLoad.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				game.loadLastGame();
+			}
+		});
 		
 		JLabel lblDifficulty = new JLabel("Difficulty");
-		lblDifficulty.setBounds(220, 39, 83, 14);
+		lblDifficulty.setBounds(314, 50, 83, 14);
 		add(lblDifficulty);
 		
 		JLabel lblMap = new JLabel("Map");
-		lblMap.setBounds(220, 88, 69, 14);
+		lblMap.setBounds(314, 99, 69, 14);
 		add(lblMap);
 		
 		JLabel lblOfPlayers = new JLabel("# of Players");
-		lblOfPlayers.setBounds(220, 130, 83, 14);
+		lblOfPlayers.setBounds(314, 141, 83, 14);
 		add(lblOfPlayers);
 		
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setBackground(Color.WHITE);
-		comboBox.setBounds(295, 34, 101, 25);
+		comboBox.setBounds(389, 45, 101, 25);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Beginner", "Standard", "Tournament"}));
 		add(comboBox);
 				
 				final JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setBounds(295, 83, 101, 25);
+				comboBox_1.setBounds(389, 94, 101, 25);
 				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
 				add(comboBox_1);
 		
 				
 				final JComboBox comboBox_2 = new JComboBox();
-				comboBox_2.setBounds(295, 125, 101, 25);
+				comboBox_2.setBounds(389, 136, 101, 25);
 				comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
 				add(comboBox_2);
 		
 		JButton btnNext = new JButton("Next\u2192");
-		btnNext.setBounds(415, 181, 91, 31);
+		btnNext.setBounds(509, 192, 91, 31);
 		add(btnNext);
 		
 	
@@ -196,11 +207,6 @@ public class Start extends JPanel implements ActionListener{
 	 * Setting player name, player numbers panels.
 	 */
 
-
-	
-//	 /**
-//	  * @wbp.parser.entryPoint
-//	  */
 	private void playerSetting(){
 		removeAll();
 		setLayout(null);
@@ -243,7 +249,7 @@ public class Start extends JPanel implements ActionListener{
 		add(comboBox_1);
 		
 		JButton btnNewButton = new JButton("NEXT\u2192");
-		btnNewButton.setBounds(539, 180, 75, 30);
+		btnNewButton.setBounds(539, 180, 86, 30);
 
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -327,7 +333,9 @@ public class Start extends JPanel implements ActionListener{
 		return false;
 	}
 
-	
+	/**
+	 * in charge of painting and animations
+	 */
 	 public void paintComponent(Graphics page)
      {
 		  
