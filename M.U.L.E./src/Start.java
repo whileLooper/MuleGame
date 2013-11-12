@@ -18,7 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenu;
 
 import java.awt.GridLayout;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 //import net.miginfocom.swing.MigLayout;
 
 
@@ -62,9 +63,13 @@ import java.util.ArrayList;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.UIManager;
+
+import javax.swing.Timer;
 
 
-public class Start extends JPanel{
+
+public class Start extends JPanel implements ActionListener{
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -78,7 +83,10 @@ public class Start extends JPanel{
 	private Game game;
 	private JTextField textField;
 	private JTextField textField_1;
-	
+	private Timer t;
+	private int xCoor = 40;
+	private boolean moveAction = true;
+	private int speed = 5;
 	/**
 	 * Setting the game start option.
 	 */
@@ -89,10 +97,29 @@ public class Start extends JPanel{
 		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		gameSetting();
+		t = new Timer(100,this);
+		t.start();
 		
+		
+		//playerSetting();
 		//validate();
 		//repaint();
 	}
+	public void actionPerformed(ActionEvent e) {
+		
+        if (xCoor >200) {
+        	xCoor = 200;
+        	speed = -5;
+        	
+        }
+        if(xCoor < 40){
+        	xCoor = 40;
+        	speed =  5;
+        }
+        xCoor  =  xCoor + speed;
+        repaint();
+	}
+
 	
 	/**
 	 * @return return the difficulty level.
@@ -131,37 +158,41 @@ public class Start extends JPanel{
 	private void gameSetting(){
 		setLayout(null);
 		
+		
 		JLabel lblDifficulty = new JLabel("Difficulty");
-		lblDifficulty.setBounds(100, 60, 83, 14);
+		lblDifficulty.setBounds(220, 39, 83, 14);
 		add(lblDifficulty);
 		
 		JLabel lblMap = new JLabel("Map");
-		lblMap.setBounds(263, 60, 69, 14);
+		lblMap.setBounds(220, 88, 69, 14);
 		add(lblMap);
 		
 		JLabel lblOfPlayers = new JLabel("# of Players");
-		lblOfPlayers.setBounds(412, 60, 83, 14);
+		lblOfPlayers.setBounds(220, 130, 83, 14);
 		add(lblOfPlayers);
 		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(100, 94, 83, 36);
+		comboBox.setBackground(Color.WHITE);
+		comboBox.setBounds(295, 34, 101, 25);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Beginner", "Standard", "Tournament"}));
 		add(comboBox);
 				
 				final JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setBounds(263, 94, 69, 36);
+				comboBox_1.setBounds(295, 83, 101, 25);
 				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Standard", "Random"}));
 				add(comboBox_1);
 		
 				
 				final JComboBox comboBox_2 = new JComboBox();
-				comboBox_2.setBounds(420, 94, 59, 36);
+				comboBox_2.setBounds(295, 125, 101, 25);
 				comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] {2, 3, 4}));
 				add(comboBox_2);
 		
 		JButton btnNext = new JButton("Next\u2192");
-		btnNext.setBounds(597, 94, 83, 36);
+		btnNext.setBounds(415, 181, 91, 31);
 		add(btnNext);
+		
+	
 		btnNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -172,9 +203,13 @@ public class Start extends JPanel{
 				playerInput();
 			}
 		});
+		
+
 	}
 
 	
+	
+	  
 	/**
 	 * Setting player name, player numbers panels.
 	 */
@@ -194,39 +229,39 @@ public class Start extends JPanel{
 		add(lblPlayer);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(280, 88, 86, 14);
+		lblName.setBounds(334, 48, 86, 14);
 		add(lblName);
 		
 		JLabel lblRace = new JLabel("Race");
-		lblRace.setBounds(429, 88, 67, 14);
+		lblRace.setBounds(334, 88, 67, 14);
 		add(lblRace);
 
 		JLabel lblColor = new JLabel("Color");
-		lblColor.setBounds(569, 88, 61, 14);
+		lblColor.setBounds(334, 131, 61, 14);
 		add(lblColor);
 		
 		textField = new JTextField();
-		textField.setBounds(90, 85, 137, 188);
+		textField.setBounds(92, 66, 137, 188);
 		add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(280, 110, 86, 20);
+		textField_1.setBounds(425, 45, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Flapper", "Human", "Others"}));
-		comboBox.setBounds(429, 110, 67, 20);
+		comboBox.setBounds(426, 85, 86, 20);
 		add(comboBox);
 		
 		final JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Red", "Yellow", "Green", "Blue"}));
-		comboBox_1.setBounds(569, 110, 61, 20);
+		comboBox_1.setBounds(425, 128, 86, 17);
 		add(comboBox_1);
 		
 		JButton btnNewButton = new JButton("NEXT\u2192");
-		btnNewButton.setBounds(687, 109, 83, 36);
+		btnNewButton.setBounds(539, 180, 75, 30);
 
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -306,15 +341,36 @@ public class Start extends JPanel{
 		}
 		return false;
 	}
+
+	
+	
+		    
 	 public void paintComponent(Graphics page)
      {
+		  
+		 
+		 
          super.paintComponent(page);
          BufferedImage img = null;
+        
          try {
-                     page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
-             } catch (IOException e) {
+
+			page.drawImage(ImageIO.read(new File("start.png")), 0, 0, null);
+			if (moveAction) {
+				page.drawImage(ImageIO.read(new File("mule1.png")), xCoor, 350,
+						null);
+				moveAction = false;
+			}
+			else{
+				page.drawImage(ImageIO.read(new File("mule2.png")), xCoor, 350,
+						null);
+				moveAction = true;
+                    }
+         } catch (IOException e) {
                      // TODO Auto-generated catch block
                      e.printStackTrace();
              }
      }
+
+
 }
