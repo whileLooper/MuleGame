@@ -87,7 +87,7 @@ public class Town extends JPanel{
 		revalidate();
 		repaint();
 		playerInStore = true;
-		store.playerEnterTown(game.getCurrentPlayer());
+		store.playerEnterStore(game.getCurrentPlayer());
 	}
 	
 	public void playerOutStore(){
@@ -99,6 +99,13 @@ public class Town extends JPanel{
 	
 	public boolean isPlayerInStore(){
 		return playerInStore;
+	}
+	
+	public void setPlayerInStore(boolean pis){
+		playerInStore = pis;
+		if(playerInStore){
+			playerEnterStore();
+		}
 	}
 	/**
 	 * This method used to get store object in Town class
