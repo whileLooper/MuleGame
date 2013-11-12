@@ -17,6 +17,9 @@ public class InfoStore {
 	private ArrayList<ArrayList<Mule>> PlayerMules = new ArrayList<ArrayList<Mule>>();
 	private int Food, Energy, Smithore, Crystite, Mule; 
 	private boolean PlayerInStore = false;
+	private Point CurrentPlayerMapLocation;
+	private Point CurrentPlayerTownLocation = null;
+	private Mule CurrentPlayerMule = null;
 	
 	public InfoStore(Game g){
 		collectGameInfo(g);
@@ -36,6 +39,15 @@ public class InfoStore {
 	private void collectPlayerInfo(Game g){
 		Players = g.getPlayers();
 		for(Player player: Players){
+			if(player == g.getCurrentPlayer()){
+				CurrentPlayerMapLocation = player.getMapLocation();
+				if(PlayerInTown){
+					CurrentPlayerTownLocation = player.getTownLocation();
+				}
+				if(player.getMule() != null){
+					CurrentPlayerMule = player.getMule();
+				}
+			}
 			ArrayList<Tile> lands = player.getTiles();
 			ArrayList<Point> tile = new ArrayList<Point>();
 			ArrayList<Mule> mule = new ArrayList<Mule>();
