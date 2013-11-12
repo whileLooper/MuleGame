@@ -536,7 +536,7 @@ public class Store extends JPanel {
 	 * 
 	 * @param p player
 	 */
-	public void playerEnterTown(Player p) {
+	public void playerEnterStore(Player p) {
 		this.p = p;
 	}
 	/**
@@ -544,5 +544,13 @@ public class Store extends JPanel {
 	 */
 	public void reset(){
 	 window1();
+	}
+	
+	public void Restore(int f, int g, int s, int c, int m){
+		Food = f;
+		Energy = g;
+		Smithore = s;
+		Crystite = c;
+		Mule = m;
 	}
 }
