@@ -3,6 +3,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
@@ -43,9 +44,16 @@ public class Drive extends JFrame{
 			Gson gson = new Gson();
 			InfoStore store = game.stop();
 			String tostore = gson.toJson(store);
-			System.out.println(game == null);
-			System.out.println(tostore);
-			store = gson.fromJson(tostore, InfoStore.class);
+			FileWriter writer;
+			try {
+				writer = new FileWriter("record.txt");
+				writer.write(tostore);
+			    writer.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 	}
 }
