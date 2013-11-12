@@ -20,7 +20,8 @@ public class Tile extends JLabel{
 	protected final int ore;
 	protected final int crystite;
 	protected Player owner;
-	protected Boolean bought = false;
+	protected boolean bought = false;
+	protected boolean isOcuppied = false;
 	protected Mule mule = null;
 	
     /**
@@ -72,8 +73,8 @@ public class Tile extends JLabel{
 	 * @return	empty resource if true,
 	 */
 	public boolean isEmpty(){
-		if(mule == null) return true;
-		else return false;
+		if(isOcuppied) return false;
+		else return true;
 	}
 	/**
 	 * this method is getting the owner of tile
@@ -93,6 +94,7 @@ public class Tile extends JLabel{
 	 * @param m is the mule to put on the tile
 	 */
 	public void setMule(Mule m){
+		isOcuppied = true;
 		mule = m;
 	}
 	
@@ -106,5 +108,11 @@ public class Tile extends JLabel{
 	
 	public Point getPoint(){
 		return p;
+	}
+	
+	public void Restore(Player player){
+		bought = true;
+		owner = player;
+		setBorder(BorderFactory.createLineBorder(owner.getColor(), 5));
 	}
 }
