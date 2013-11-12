@@ -52,7 +52,7 @@ public class Tile extends JLabel{
 		}else{
 			bought = true;
 			owner = player;
-			setBorder(BorderFactory.createLineBorder(owner.getColor(), 10));
+			setBorder(BorderFactory.createLineBorder(owner.getColor(), 5));
 			return true;
 		}
 	}
