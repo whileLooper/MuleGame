@@ -20,10 +20,10 @@ public class Player implements Comparable{
 	private String name;
 	private Color color;
 	private String race;
-	private Image image1;
-	private Image image2;
-	private int imgMove = 0;
-	private ArrayList<Tile> lands = new ArrayList<Tile>();
+	private transient Image image1;
+	private transient Image image2;
+	private transient int imgMove = 0;
+	private transient ArrayList<Tile> lands = new ArrayList<Tile>();
 	
 	private int money;
 	private int food;
@@ -31,11 +31,11 @@ public class Player implements Comparable{
 	private int ore = 0 ;
 	private int crystal = 0;
 	
-	private Point mapLocation = new Point(425, 375);
-	private Point townLocation;
+	private transient Point mapLocation = new Point(425, 375);
+	private transient Point townLocation;
 	
-	private Mule currentMule = null;
-	private ArrayList<Mule> mules = new ArrayList<Mule>();
+	private transient Mule currentMule = null;
+	private transient ArrayList<Mule> mules = new ArrayList<Mule>();
 	
 	
 	/**
@@ -49,6 +49,10 @@ public class Player implements Comparable{
 		color = c;
 		race = r;
 		initiate(gameD);
+	}
+	
+	public Player(){
+		
 	}
 	
 	/**
@@ -160,6 +164,11 @@ public class Player implements Comparable{
 	public int getCrystal(){
 		return crystal;
 	}
+	
+	public ArrayList<Tile> getTiles(){
+		return lands;
+	}
+	
 	/**
 	 * This method adds player's money
 	 * @param m is the amount of money to add
