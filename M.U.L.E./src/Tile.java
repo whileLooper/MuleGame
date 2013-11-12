@@ -103,4 +103,8 @@ public class Tile extends JLabel{
 	public Mule getMule(){
 		return mule;
 	}
+	
+	public Point getPoint(){
+		return p;
+	}
 }
