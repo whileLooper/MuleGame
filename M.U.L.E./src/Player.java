@@ -173,8 +173,34 @@ public class Player implements Comparable{
 		return crystal;
 	}
 	
+	/**
+	 * This method used to get player-owned tiles 
+	 * @return tiles player owns
+	 */
 	public ArrayList<Tile> getTiles(){
 		return lands;
+	}
+	
+	/**
+	 * This method used to get mules owned by player
+	 * @return the mules list
+	 */
+	public ArrayList<Mule> getMules(){
+		return mules;
+	}
+	
+	/**
+	 * this method used to add resource
+	 * @param type is the resource's type
+	 * @param amount is the resource's amount 
+	 */
+	public void addResource(String type, int amount){
+		switch(type){
+		case "Food": addFood(amount); break;
+		case "Energy": addEnergy(amount); break;
+		case "Smithore": addOre(amount); break;
+		case "Crystite": addCrystal(amount); break;
+		}
 	}
 	
 	/**
@@ -209,7 +235,6 @@ public class Player implements Comparable{
 		ore = ore + amount;
 	}
 	
-	
 	/**
 	 * add crystal to the current crystal
 	 * @param amount
@@ -217,6 +242,38 @@ public class Player implements Comparable{
 	public void addCrystal(int amount){
 		crystal = crystal + amount;
 	}
+	
+	/**
+	 * This method used to deduce the money 
+	 * @param amount to deduce
+	 */
+	public void deduceMoney(int amount){
+		money -= amount;
+		if(money < 0){
+			money = 0;
+		}
+	}
+	
+	/**
+	 * This method used to consume food and energy every turn
+	 * @param amount of food player consume 
+	 */
+	public void consumeFoodNEnergy(int amount){
+		food -= amount;
+		if(food < 0){
+			food = 0;
+		}
+		for(Mule mule : mules){
+			String type = mule.getMuleType();
+			if(!type.equals("Energy")){
+				energy --;
+			}
+		}
+		if(energy < 0){
+			energy = 0;
+		}
+	}
+	
 	/**
 	 * This method is for players to buy lands, first it checks whether player have enough money, and check whether the land 
 	 * is purchasable, if so, then the deal is done, and at last it will return a boolean value to indicate whether the deal
