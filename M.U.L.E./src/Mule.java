@@ -55,7 +55,14 @@ public class Mule {
 	public void setMapLocation(Point p) {
 		mapLocation = p;
 	}
-
+	
+	/**
+	 * This method used to get mule's final location on the map
+	 * @return mule's final location
+	 */
+	public Point getSetLocation(){
+		return setLocation;
+	}
 
 	/**
 	 * This method returns player's location on the down
@@ -64,6 +71,20 @@ public class Mule {
 	 */
 	public Point getTownLocation() {
 		return townLocation;
+	}
+	
+	/**
+	 * This method used to get the mule's type
+	 * @return the mule's type
+	 */
+	public String getMuleType(){
+		switch(muleType){
+		case "Food Mule": return "Food";
+		case "Energy Mule": return "Energy";
+		case "Smithore Mule": return "Smithore";
+		case "Crystite Mule": return "Crystite";
+		default: return null;
+		}
 	}
 
 	/**
@@ -84,7 +105,7 @@ public class Mule {
 	 */
 	public void drawOnMap(Graphics g) {
 		if(isSet){
-			g.drawImage(setDownImg, setLocation.x * 100, setLocation.y * 100, 50, 50, null);
+			g.drawImage(setDownImg, setLocation.y * 100, setLocation.x * 100, 50, 50, null);
 		}else{
 			followPlayer(player.getMapLocation(), g);
 		}
