@@ -190,15 +190,25 @@ public class Game{
 			if(numOfTurn == 12){
 				// end of game!
 			}else{
+				resourceConsume();
 				sortPlayer();
 				System.out.println("Next Turn");
 				System.out.println("Round number: " + numOfTurn);
-				randomEvent(numOfTurn);
+				harvest();
 				//timerReduce(turnTime);
 				
 			}
 		}
 
+	}
+	
+	/**
+	 * This method used to deduce players' food and energy every turn they need
+	 */
+	private void resourceConsume(){
+		for(Player p: playersList){
+			p.consumeFoodNEnergy(foodNeeded());
+		}
 	}
 	
 	/**
@@ -208,6 +218,27 @@ public class Game{
 		Arrays.sort(playersList);
 		for(Player p : playersList){
 			System.out.println(p.getName()+p.getMoney());
+		}
+	}
+	
+	/**
+	 * This method used to collect players' mule production
+	 */
+	private void harvest(){
+		Tile[][] tilemap = map.getMap();
+		for(Player player : playersList){
+			int energy = player.getEnergy();
+			ArrayList<Mule> mules = player.getMules();
+			for(int n = 0; n < mules.size(); n++){
+				if(n == energy){
+					break;
+				}
+				Mule mule = mules.get(n);
+				String type = mule.getMuleType();
+				Point loc = mule.getSetLocation();
+				int amount = tilemap[loc.x][loc.y].products(type);
+				player.addResource(type, amount);
+			}
 		}
 	}
 	
@@ -298,6 +329,7 @@ public class Game{
 				while(gState == GameState.PlayerTurns){
 					if(!isReload){
 						displayReset();
+						randomEvent(numOfTurn);
 					}
 					isReload = false;
 					map.setFocusable(true);
@@ -320,7 +352,6 @@ public class Game{
 			}
 		});
 		time.start();
-		randomEvent(numOfTurn);
 	}
 	
 	private void displayReset(){
@@ -404,7 +435,12 @@ public class Game{
 			event = false;
 		}
 		if (event) {
-			int eventSelection = gen.nextInt(7);
+			int eventSelection;
+			if(currentPlayer == 0){
+				eventSelection = gen.nextInt(4);
+			}else{
+				eventSelection = gen.nextInt(7);
+			}
 			System.out.println(events[eventSelection]);
 			System.out.println("eventSelection: " + eventSelection);
 			if (eventSelection == 1) {
@@ -421,15 +457,15 @@ public class Game{
 				p.addMoney(2*factor);
 			}
 			
-			else if (eventSelection >= 5 && eventSelection <= 7 && !p.equals(playersList[playersList.length-1])){
+			else if (eventSelection >= 5 && eventSelection <= 7){
 				if (eventSelection == 5) {
-					p.addMoney(-4*factor);
+					p.deduceMoney(4*factor);
 				}
 				else if (eventSelection == 6) {
 					p.addFood(p.getFood()/2*-1);
 				}
 				else if (eventSelection == 7) {
-					p.addMoney(-6*factor);
+					p.deduceMoney(6*factor);
 				}
 			}
 			
