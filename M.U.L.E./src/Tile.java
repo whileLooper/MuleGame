@@ -99,6 +99,21 @@ public class Tile extends JLabel{
 	}
 	
 	/**
+	 * This method used to get the resource the mule can product on the tile
+	 * @param resource is the kind of resource to product
+	 * @return the number of units of the resource can be produced
+	 */
+	public int products(String resource){
+		switch(resource){
+		case "Food": return food;
+		case "Energy": return energy;
+		case "Ore": return ore;
+		case "Crystite": return crystite;
+		default: return 0;
+		}
+	}
+	
+	/**
 	 * This method used to get the mule on the tile
 	 * @return the mule on the tile
 	 */
