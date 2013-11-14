@@ -17,9 +17,6 @@ import javax.swing.JPanel;
  * @author Team: oneE
  */
 public class Store extends JPanel {
-	/**
-	 * This is the Store Class
-	 */
 	
 	private final int FOOD_PRICE = 30, ENERGY_PRICE = 25;
 	private final int SMITHORE_PRICE = 50, CRYSTITE_PRICE = 100;
@@ -90,6 +87,9 @@ public class Store extends JPanel {
 		validate();
 		repaint();
 	}
+	/**
+	 * draw the window2
+	 */
 	private void window2(){
 		removeAll();
 		setLayout(null);
