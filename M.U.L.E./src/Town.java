@@ -8,7 +8,12 @@ import javax.swing.JPanel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-
+/**
+ * town class. contains all the events happen in the town,
+ * including all the information relate to town.
+ * @author Team: oneE
+ *
+ */
 public class Town extends JPanel{
 	
 	private Game game;
