@@ -34,7 +34,13 @@ import javax.swing.UIManager;
 import javax.swing.Timer;
 
 
-
+/**
+ * start class, the starting user interface class,
+ * let players to choose different game difficult, race, numbers
+ * player, and color. all the element to set up a game.
+ * @author Team: oneE
+ *
+ */
 public class Start extends JPanel implements ActionListener{
 	
 	/**
@@ -58,6 +64,7 @@ public class Start extends JPanel implements ActionListener{
 	private JComboBox comboBox;
 	private int speed = 10;
 	private boolean showRace = false;
+	
 	/**
 	 * Setting the game start option.
 	 */
@@ -68,29 +75,21 @@ public class Start extends JPanel implements ActionListener{
 		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		gameSetting();
-		t = new Timer(100,this);
-		
+		t = new Timer(100,this);		
 		
 		t.setInitialDelay(1500);
 		t.start();
 		
-		
-	//playerSetting();
-		//validate();
-		//repaint();
 	}
 	/** 
-	 * 
-	 *
-	 * 
+	 * actionPerformed class set up the animation in the 
+	 * starting page.
 	 **/
 	public void actionPerformed(ActionEvent e) {
 		
         if (xCoor >1400) {
         	xCoor = 1400;
         	speed = -10;
-      //  	t.stop();
-        //	t.start();
         	moveAction =false;
         }
         if(xCoor < 0){
