@@ -5,8 +5,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- * 
- * @author Qian, Bo, 
+ * Tile class, the super class of all tiles on the map
+ * and all events happen on the tile.
+ * @author Team: oneE 
  *
  */
 @SuppressWarnings("serial")
