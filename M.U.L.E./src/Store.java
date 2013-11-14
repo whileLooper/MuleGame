@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 
 /**
  * Author: One-E
- * Last update: 1/11/2013
  * Store class that is in-charge of everything that is related to store.
+ * @author Team: oneE
  */
 public class Store extends JPanel {
 	/**
