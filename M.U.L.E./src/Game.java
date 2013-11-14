@@ -119,6 +119,10 @@ public class Game{
 		return playersList[currentPlayer];
 	}
 	
+	/**
+	 * get the difficulty level
+	 * @return difficulty level
+	 */
 	public String getDifficulty(){
 		return difficulty;
 	}
@@ -137,6 +141,12 @@ public class Game{
 		return currentPlayer.buyLand(landprice, land);
 	}
 	
+	/**
+	 * checking the player is able to buy resource or not
+	 * @param type 
+	 * @param price
+	 * @return true if current player is able to buy resource
+	 */
 	public boolean playerBuyResourcec(String type, int price){
 		return getCurrentPlayer().buyResource(type, price);
 	}
@@ -354,6 +364,9 @@ public class Game{
 		time.start();
 	}
 	
+	/**
+	 * resetting all the display on map
+	 */
 	private void displayReset(){
 		getCurrentPlayer().resetMapLocation();
 		map.repaint();
@@ -474,11 +487,20 @@ public class Game{
 		
 	}
 	
+	/**
+	 * when game stop to store the information from game
+	 * @return
+	 */
 	public InfoStore stop(){
 		InfoStore infostore = new InfoStore(this);
 		return infostore;
 	}
 	
+	/**
+	 * the method to determine is it possible to load game
+	 * from the saved memory
+	 * @return true if be able to load last game record
+	 */
 	public boolean loadLastGame(){
 		String toload = null;
 		try {
@@ -504,6 +526,10 @@ public class Game{
 		
 	}
 	
+	/**
+	 * this method is handling all the reloading game actions	 * 
+	 * @param infostore
+	 */
 	private void Restore(InfoStore infostore){
 		isReload = true;
 		gState = GameState.PlayerTurns;
