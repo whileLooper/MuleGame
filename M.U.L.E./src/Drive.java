@@ -13,8 +13,19 @@ import com.google.gson.Gson;
 
 
 @SuppressWarnings("serial")
+/**
+ * 
+ * @author One-E
+ * 
+ * Driver for the whole game. Creates the frame and get the game going.
+ *
+ */
 public class Drive extends JFrame{
 
+	/**
+	 * Main method for the game.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Drive drive = new Drive();
@@ -26,6 +37,9 @@ public class Drive extends JFrame{
 	private int y = 688;
 	private Game game;
 	
+	/**
+	 * Constructor for the drive class. Creates the frame and add the window listener.
+	 */
 	public Drive(){
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
@@ -37,7 +51,13 @@ public class Drive extends JFrame{
 	    addWindowListener(new WindowClosed());
 	}
 	
-	
+	/**
+	 * 
+	 * @author One-E
+	 * 
+	 * Allows the window to be closed with empty record (No information saved.)
+	 *
+	 */
 	private class WindowClosed extends WindowAdapter{
 		@Override
 		public void windowClosing(WindowEvent e){

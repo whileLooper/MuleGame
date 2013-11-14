@@ -50,10 +50,6 @@ public class Player implements Comparable{
 		initiate(gameD);
 	}
 	
-	public Player(){
-		
-	}
-	
 	/**
 	 * This method gives a initial value to player's money and other resources according to player's race and game difficulty
 	 */
@@ -83,6 +79,9 @@ public class Player implements Comparable{
 		choseImage();
 	}
 	
+	/**
+	 * Choose the image that is related to the race of the player.
+	 */
 	private void choseImage(){
 		switch (race) {
 		case "Human": {
@@ -321,6 +320,10 @@ public class Player implements Comparable{
 		}
 	}
 	
+	/**
+	 * Set the mule on the tile, runs away if failed.
+	 * @param tile the mule is set on.
+	 */
 	public void setMule(Tile tile){
 		if(lands.contains(tile)){
 			if(currentMule.setDownMule(tile)){
@@ -507,6 +510,9 @@ public class Player implements Comparable{
 	}
 
 	@Override
+	/**
+	 * Compare the Player o with the current player and checks who have more money.
+	 */
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
 		return money - ((Player)o).getMoney();
@@ -522,6 +528,11 @@ public class Player implements Comparable{
 		}
 	}
 	
+	/**
+	 * Arraylist of mules that have been set down by the player.
+	 * @param tiles
+	 * @return
+	 */
 	public ArrayList<Mule> Restore(ArrayList<Tile> tiles){
 		choseImage();
 		imgMove = 0;

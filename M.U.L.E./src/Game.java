@@ -54,7 +54,7 @@ public class Game{
 	}
 	
 	/**
-	 * This method used to change display
+	 * This method used to change display, and allows changing of state from one location to another, eg. from map to town.
 	 * @param toremove is the panel to remove from frame
 	 * @param toadd is the panel to add to frame
 	 */
@@ -67,30 +67,53 @@ public class Game{
 		drive.repaint();
 	}
 	
+	/**
+	 * Return the state of the game, whether it is landpurchase, landgrant, or playerturns.
+	 */
 	public GameState getGameState(){
 		return gState;
 	}
 	
+	/**
+	 * @return the current player that is playing this turn.
+	 */
 	public int getCurrentPlayerInd(){
 		return currentPlayer;
 	}
 	
+	/**
+	 * @return the current turn
+	 */
 	public int getCurrentTurn(){
 		return numOfTurn;
 	}
 	
+	/**
+	 * 
+	 * @return the turn time.
+	 */
 	public int getTurnTime(){
 		return turnTime;
 	}
 	
+	/**
+	 * @return true if player is in town. false if player is not in town.
+	 */
 	public boolean isPlayerInTown(){
 		return playerInTown;
 	}
 	
+	/**
+	 * @return the list of players that are currently in the game.
+	 */
 	public Player[] getPlayers(){
 		return playersList;
 	}
 	
+	/**
+	 * 
+	 * @return the town of the game.
+	 */
 	public Town getTown(){
 		return town;
 	}
@@ -329,9 +352,6 @@ public class Game{
 	 * This method mainly control the game process, every player takes an turn to do their things;
 	 */
 	private void GameStart(){
-		
-		
-		
 		time = new Thread(new Runnable(){
 			@Override
 			public void run() {

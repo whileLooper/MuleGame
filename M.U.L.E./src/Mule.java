@@ -25,16 +25,12 @@ public class Mule {
 	private boolean isSet = false;
 
 	/**
-	 * 
+	 * Constructor for the Mule object. Takes in the type of mule and the player that is buying it.
 	 */
 	public Mule(String type, Player player) {
 		muleType = type;
 		owner = player.getName();
 		this.player = player;
-	}
-	
-	public Mule(){
-		
 	}
 
 	/**
@@ -123,7 +119,7 @@ public class Mule {
 	}
 
 	/**
-	 * 
+	 * 	Allows the mule to follow the player.
 	 */
 	private void followPlayer(Point Location, Graphics g) {
 		// TODO Auto-generated method stub
@@ -170,6 +166,11 @@ public class Mule {
 
 	}
 	
+	/**
+	 * Puts the mule onto the point where the player brings it.
+	 * @param p the player the mule belongs to
+	 * @return the location of the location
+	 */
 	public Point Restore(Player p){
 		if(isSet){
 			setDownImg = (new ImageIcon("Image/muleImages/muleSetDown.png"))

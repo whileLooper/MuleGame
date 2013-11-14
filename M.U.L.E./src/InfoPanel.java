@@ -12,14 +12,23 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 
-
+/**
+ * @author One-E
+ * 
+ * The information panel of the game that displays every player's information and town's information.
+ * 
+ */
 public class InfoPanel extends JPanel {
 	
 	JPanel TimerPanel = new JPanel();
 	JPanel PlayerInfoPanel = new JPanel();
 	JProgressBar pbar = new JProgressBar();;
 
-
+	/**
+	 * Constructor for the info panel
+	 * @param playerList the list of players that are currently in the game.
+	 * @param s the store of the game which holds the information such as number of food left in the shop.
+	 */
 	public InfoPanel(Player[] playerList, Store s){
 		System.out.println(playerList.length);
 		if (playerList.length == 2) {
@@ -307,6 +316,10 @@ public class InfoPanel extends JPanel {
 		    }
 	}
 	
+	/**
+	 * A testing method for info panel.
+	 * @param args
+	 */
 	  public static void main(String args[]) {
 		  	Player p1 = new Player("bobo1", Color.RED, "human", "gameD");
 		  	Player p2 = new Player("bobo2", Color.GREEN, "human", "gameD");
