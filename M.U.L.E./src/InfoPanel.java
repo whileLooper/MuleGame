@@ -30,7 +30,7 @@ public class InfoPanel extends JPanel {
 	 * @param s the store of the game which holds the information such as number of food left in the shop.
 	 */
 	public InfoPanel(Player[] playerList, Store s){
-		System.out.println(playerList.length);
+		//System.out.println(playerList.length);
 		if (playerList.length == 2) {
 			Player[] tmp = {playerList[0], playerList[1], null, null};
 			playerList = tmp;
@@ -320,7 +320,7 @@ public class InfoPanel extends JPanel {
 	 * A testing method for info panel.
 	 * @param args
 	 */
-	  public static void main(String args[]) {
+	 /* public static void main(String args[]) {
 		  	Player p1 = new Player("bobo1", Color.RED, "human", "gameD");
 		  	Player p2 = new Player("bobo2", Color.GREEN, "human", "gameD");
 		  	Player p3 = new Player("bobo3", Color.YELLOW, "human", "gameD");
@@ -335,5 +335,5 @@ public class InfoPanel extends JPanel {
 		    frame.setVisible(true);
 		    it.countDown(20, 0);
 
-		  }
+		  }*/
 }
