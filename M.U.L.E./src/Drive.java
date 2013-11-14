@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import javax.swing.JFrame;
+import javax.swing.SpringLayout;
 
 import com.google.gson.Gson;
 
@@ -43,12 +44,13 @@ public class Drive extends JFrame{
 	public Drive(){
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
+		setLayout(null);
 		game = new Game(this);
 		setSize(910,688);
 	    setVisible(true);
 	    setResizable(false);
 	    addWindowListener(new WindowClosed());
+	    
 	}
 	
 	/**
