@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ public class Game{
 	private Player[] playersList;
 	private GameState gState;
 	private TurnState tState;
-	//private InfoPanel info; 
+	private InfoPanel info; 
 	private String difficulty;
 	
 	private int currentPlayer;
@@ -47,10 +48,11 @@ public class Game{
 	 */
 	public Game(JFrame d){
 		drive = d;
-		drive.setLayout(new FlowLayout());
+		//drive.setLayout(new FlowLayout());
 		start = new Start(this);
-		d.getContentPane().add(start);
-		//d.getContentPane().add(info);
+		start.setBounds(0, 0, 900, 500);
+		drive.add(start);
+
 	}
 	
 	/**
@@ -59,6 +61,7 @@ public class Game{
 	 * @param toadd is the panel to add to frame
 	 */
 	public void changeDisplay(JPanel toremove, JPanel toadd){
+		toadd.setBounds(0, 0, 900, 500);
 		drive.remove(toremove);
 		//drive.remove(info);
 		drive.add(toadd);
@@ -128,10 +131,15 @@ public class Game{
 		map = new Map(this, mapType);
 		town = new Town(this);
 		//info = new InfoPanel(playersList, town.getStore());
-		changeDisplay(start, map);
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
+		
+		InfoPanel info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
+		info.setBounds(0,500, 900, 160);
+		drive.add(info);
+		changeDisplay(start, map);
+
 	}
 	
 	/**
@@ -232,6 +240,7 @@ public class Game{
 				
 			}
 		}
+		
 
 	}
 	
@@ -360,7 +369,6 @@ public class Game{
 				while(gState == GameState.PlayerTurns){
 					if(!isReload){
 						displayReset();
-						randomEvent(numOfTurn);
 					}
 					isReload = false;
 					map.setFocusable(true);
