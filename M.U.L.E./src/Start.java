@@ -70,15 +70,13 @@ public class Start extends JPanel implements ActionListener{
 	 */
 	public Start(Game g){
 		game = g;
-		//playerSetting();
-		
+		//playerSetting();		
 		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		gameSetting();
-		t = new Timer(100,this);		
-		
+		t = new Timer(100,this);			
 		t.setInitialDelay(1500);
-		t.start();
+		t.start();		
 		
 	}
 	/** 
@@ -142,7 +140,7 @@ public class Start extends JPanel implements ActionListener{
 		setLayout(null);
 		
 		JButton btnLoad = new JButton("Load Game");
-		btnLoad.setBounds(82, 62, 130, 36);
+		btnLoad.setBounds(79, 50, 132, 36);
 		add(btnLoad);
 		btnLoad.addMouseListener(new MouseAdapter() {
 			@Override
