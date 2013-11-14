@@ -4,6 +4,12 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
 
+/**
+ * the town tile class, sub class of tile, handling creat town tile method
+ * and town image.
+ * @author Team:oneE
+ *
+ */
 public class TownT extends Tile{
 
 	/**
