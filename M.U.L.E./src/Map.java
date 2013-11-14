@@ -47,7 +47,7 @@ public class Map extends JPanel{
 			}
 		});
 		
-		this.requestFocus(true);
+		this.requestFocusInWindow(true);
 		
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -177,6 +177,10 @@ public class Map extends JPanel{
 		
 	}
 	
+	/**
+	 * to get the 2d array map
+	 * @return the map
+	 */
 	public Tile[][] getMap(){
 		return tiles;
 	}
