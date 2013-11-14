@@ -285,6 +285,7 @@ public class Game{
 			gState = GameState.PlayerTurns;
 			sortPlayer();
 			//timerReduce(turnTime);
+			
 			GameStart();
 		}
 	}
@@ -516,6 +517,7 @@ public class Game{
 		return infostore;
 	}
 	
+
 	/**
 	 * the method to determine is it possible to load game
 	 * from the saved memory
@@ -546,9 +548,10 @@ public class Game{
 		
 	}
 	
+
 	/**
-	 * this method is handling all the reloading game actions	 * 
-	 * @param infostore
+	 * Restore the game
+	 * @param infostore is the information library
 	 */
 	private void Restore(InfoStore infostore){
 		isReload = true;
