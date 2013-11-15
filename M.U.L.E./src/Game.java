@@ -369,6 +369,7 @@ public class Game{
 				while(gState == GameState.PlayerTurns){
 					if(!isReload){
 						displayReset();
+						playersList[currentPlayer] = RandomEvent.randomEvent(numOfTurn, getCurrentPlayer(), currentPlayer);
 					}
 					isReload = false;
 					map.setFocusable(true);
