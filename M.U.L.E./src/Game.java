@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import com.google.gson.Gson;
 
@@ -24,6 +26,7 @@ public class Game{
 	private GameState gState;
 	private TurnState tState;
 	private InfoPanel info; 
+	private TimerBar timerBar;
 	private String difficulty;
 	
 	private int currentPlayer;
@@ -50,7 +53,7 @@ public class Game{
 		drive = d;
 		//drive.setLayout(new FlowLayout());
 		start = new Start(this);
-		start.setBounds(0, 0, 900, 500);
+		start.setBounds(0, 0, 900, 688);
 		drive.add(start);
 
 	}
@@ -130,16 +133,80 @@ public class Game{
 		difficulty = start.getDifficulty();
 		map = new Map(this, mapType);
 		town = new Town(this);
-		//info = new InfoPanel(playersList, town.getStore());
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
 		
-		InfoPanel info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
-		info.setBounds(0,500, 900, 160);
-		drive.add(info);
+		info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
+		timerBar = new TimerBar();
+		timerBar.setBounds(0, 501, 900, 30);
+		info.setBounds(0,531, 900, 160);
+		drive.add(timerBar);
+		drive.add(info);		
 		changeDisplay(start, map);
+		refresh();
+	}
+	
+	public void refresh() {
+		Thread time2 = new Thread(new Runnable(){
+		   @Override
+		   public void run(){
+				  while(true){
+				      try {
+					        SwingUtilities.invokeLater(new Runnable() {
+					          public void run() {
+					        	  	drive.remove(info);
+									info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
+									info.setBounds(0,531, 900, 130);
+									info.repaint();
+									drive.add(info);
+					          }
+					        });
+					        java.lang.Thread.sleep(100);
+					      } catch (InterruptedException e) {
+					        ;
+					      }
+				  }
+		   }
+	   });
+		time2.start();
+		
+	}
 
+	
+	/**
+	 * this class draw a progress bar to showing the timing for turns.
+	 * @param max the max value for the progress bar
+	 * @param min the min value for the progress bar
+	 */
+	public void countDown(final int max, final int min){
+		timerBar.pbar.removeAll();
+		timerBar.add(timerBar.pbar);
+		timerBar.pbar.setBackground(new Color(50, 205, 50));	
+		timerBar.pbar.setMinimum(min);
+		timerBar.pbar.setMaximum(max);
+		
+	    time = new Thread(new Runnable(){
+		   public void run(){
+			   for (int i = min; i <= max; i++) {
+				      final int percent = i;
+				      if(i > (max - 10)) timerBar.pbar.setBackground(new  Color(220,20,60));
+				      
+				      try {
+				        SwingUtilities.invokeLater(new Runnable() {
+				          public void run() {
+				        	  timerBar.pbar.setValue(percent);
+				        	  timerBar.repaint();
+				          }
+				        });
+				        java.lang.Thread.sleep(1000);
+				      } catch (InterruptedException e) {
+				        ;
+				      }
+				    }
+		   }
+	   });
+	   time.start();
 	}
 	
 	/**
@@ -194,8 +261,10 @@ public class Game{
 			if(playerBuyLand(land)){
 				passLandPurchase = false;
 				nextPlayer();
+
 			}else if(land.getClass() == TownT.class){
 				nextPlayer();
+
 			}
 		}
 	}
@@ -205,15 +274,19 @@ public class Game{
 	 * This method will be called, when one player finishes his turn, and process to next player
 	 */
 	private void nextPlayer(){
+		
 		currentPlayer ++;
 		if(currentPlayer == playersList.length){
 			currentPlayer = 0;
 			nextTurn();
+
 		}else{
 			if(isPlayerTurn()){
 				System.out.println("Next Player");
 			}
 		}
+		System.out.println("nextPlayer"+playerTime());
+
 	}
 	
 	/**
@@ -236,7 +309,6 @@ public class Game{
 				System.out.println("Next Turn");
 				System.out.println("Round number: " + numOfTurn);
 				harvest();
-				//timerReduce(turnTime);
 				
 			}
 		}
@@ -312,7 +384,6 @@ public class Game{
 	 * This method will be called, when player touches town tile, and player will enter town, the town panel will be display
 	 */
 	public void playerEnterTown(){
-		//town= new Town(this);
 		getDirection();
 		changeDisplay(map, town);
 		playerInTown = true;
@@ -379,6 +450,7 @@ public class Game{
 					isReload = false;
 					map.setFocusable(true);
 					turnTime = playerTime();
+					countDown(turnTime, 0);
 					while (turnTime > 0) {
 						//System.out.println(turnTime + "s left");
 						turnTime -= 1;
