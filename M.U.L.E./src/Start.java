@@ -212,7 +212,6 @@ public class Start extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnStandard.isSelected()){
 					map="Standard";
-					System.out.println("sss");
 				}
 			}
 			
@@ -229,7 +228,6 @@ public class Start extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnRandom.isSelected()){
 					map = "Random";
-					System.out.println("rrrr");
 				}
 			}
 			
