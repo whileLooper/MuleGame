@@ -15,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Random;
 
 
 public class Map extends JPanel{
@@ -174,7 +175,31 @@ public class Map extends JPanel{
 	 * This method initiates a random map
 	 */
 	private void randomMap(){
-		
+		Random gen = new Random();
+		for(int i = 0; i < 5; i ++){
+			for(int j = 0; j < 9; j++){
+			if (i == 2 && j == 4) {
+				add(new TownT(new Point(i,j)));
+			}
+			else {
+				if (gen.nextInt(5) == 1) {
+					add(new Plain(new Point(i,j)));
+				}
+				else if (gen.nextInt(5) == 2) {
+					add(new M1(new Point(i, j)));
+				}
+				else if (gen.nextInt(5) == 3) {
+					add(new M2(new Point(i, j)));
+				}
+				else if (gen.nextInt(5) == 4) {
+					add(new M3(new Point(i, j)));
+				}
+				else if (gen.nextInt(5) == 5) {
+					add(new River(new Point(i, j)));
+				}
+			}
+			}
+		}
 	}
 	
 	/**
