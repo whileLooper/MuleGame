@@ -380,7 +380,7 @@ public class Game{
 					map.setFocusable(true);
 					turnTime = playerTime();
 					while (turnTime > 0) {
-						System.out.println(turnTime + "s left");
+						//System.out.println(turnTime + "s left");
 						turnTime -= 1;
 						try {
 							Thread.sleep(1000);
