@@ -46,7 +46,7 @@ public class Start extends JPanel implements ActionListener {
 	 * @wbp.parser.entryPoint
 	 */
 	private String difficulty;
-	private String map = "Standard";
+	private String map;
 	private int numOfPlayers;
 	private int currentPlayer;
 	private Player[] players;
@@ -202,7 +202,7 @@ public class Start extends JPanel implements ActionListener {
 //		});
 
 		
-		JRadioButton rdbtnStandard = new JRadioButton("Standard");
+		final JRadioButton rdbtnStandard = new JRadioButton("Standard");
 		rdbtnStandard.setOpaque(false);
 		rdbtnStandard.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		rdbtnStandard.setBounds(238, 358, 109, 23);
@@ -210,22 +210,27 @@ public class Start extends JPanel implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				map = "Standard";
+				if (rdbtnStandard.isSelected()){
+					map="Standard";
+					System.out.println("sss");
+				}
 			}
 			
 		} );
 		add(rdbtnStandard);
 		
-		JRadioButton rdbtnRandom = new JRadioButton("Random");
+		final JRadioButton rdbtnRandom = new JRadioButton("Random");
 		rdbtnRandom.setOpaque(false);
 		rdbtnRandom.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		rdbtnRandom.setBounds(571, 358, 109, 23);
-		rdbtnStandard.addActionListener(new ActionListener(){
+		rdbtnRandom.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				map = "Random";
-			
+				if (rdbtnRandom.isSelected()){
+					map = "Random";
+					System.out.println("rrrr");
+				}
 			}
 			
 		} );
