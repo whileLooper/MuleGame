@@ -176,27 +176,39 @@ public class Map extends JPanel{
 	 */
 	private void randomMap(){
 		Random gen = new Random();
+		int M1Count = 0;
+		int M2Count = 0;
+		int M3Count = 0;
+		int River = 0;
+		int Plain = 0;
 		for(int i = 0; i < 5; i ++){
 			for(int j = 0; j < 9; j++){
+				int rand = gen.nextInt(5);
 			if (i == 2 && j == 4) {
 				add(new TownT(new Point(i,j)));
 			}
 			else {
-				if (gen.nextInt(5) == 1) {
+				if (rand == 1) {
 					add(new Plain(new Point(i,j)));
+					Plain+=1;
 				}
-				else if (gen.nextInt(5) == 2) {
+				else if (rand == 2) {
 					add(new M1(new Point(i, j)));
+					M1Count+=1;
 				}
-				else if (gen.nextInt(5) == 3) {
+				else if (rand == 3) {
 					add(new M2(new Point(i, j)));
+					M2Count+=1;
 				}
-				else if (gen.nextInt(5) == 4) {
+				else if (rand == 4) {
 					add(new M3(new Point(i, j)));
+					M3Count+=1;
 				}
-				else if (gen.nextInt(5) == 0) {
+				else if (rand == 0) {
 					add(new River(new Point(i, j)));
+					River+=1;
 				}
+				System.out.println(Plain + " " + M1Count + " " + M2Count + " " + M3Count + " " + River);
 			}
 			}
 		}
