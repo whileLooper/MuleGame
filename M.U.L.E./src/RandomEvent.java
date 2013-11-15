@@ -41,9 +41,11 @@ public class RandomEvent {
 		
 		if (rand >= 1 && rand <= 27) {
 			event = true;
+			System.out.println("Event true" + rand);
 		}
 		else {
 			event = false;
+			System.out.println("Event true");
 		}
 		if (event) {
 			int eventSelection;
