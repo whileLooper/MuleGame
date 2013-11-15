@@ -115,7 +115,7 @@ public class Map extends JPanel{
 			standardMap();
 			break;
 		}
-		case "Ramdon":{
+		case "Randon":{
 			randomMap();
 			break;
 		}
