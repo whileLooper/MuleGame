@@ -369,7 +369,12 @@ public class Game{
 				while(gState == GameState.PlayerTurns){
 					if(!isReload){
 						displayReset();
+						System.out.println("CurrentData: Food: " + playersList[currentPlayer].getFood() + " Money: " + playersList[currentPlayer].getMoney() +
+								"Ore: " + playersList[currentPlayer].getOre() + "Crystal: " + playersList[currentPlayer].getCrystal() + " Energy: " + playersList[currentPlayer].getEnergy());
 						playersList[currentPlayer] = RandomEvent.randomEvent(numOfTurn, getCurrentPlayer(), currentPlayer);
+						System.out.println("CurrentData: Food: " + playersList[currentPlayer].getFood() + " Money: " + playersList[currentPlayer].getMoney() +
+								"Ore: " + playersList[currentPlayer].getOre() + "Crystal: " + playersList[currentPlayer].getCrystal() + " Energy: " + playersList[currentPlayer].getEnergy());
+						
 					}
 					isReload = false;
 					map.setFocusable(true);
