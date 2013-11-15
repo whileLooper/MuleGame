@@ -9,6 +9,7 @@ public class RandomEvent {
  	 * If any event occur, 1/7 chance for any event to occur.
 	 */
 	public static Player randomEvent(int round, Player p, int currentPlayer) {
+		round+=1;
 		System.out.println("randomEvent method");
 		boolean event;
 		int factor;
@@ -38,14 +39,15 @@ public class RandomEvent {
 		};
 		Random gen = new Random();
 		int rand = gen.nextInt(100);
-		
+		System.out.println("The random number is: " + rand);
 		if (rand >= 1 && rand <= 27) {
+			
 			event = true;
 			System.out.println("Event true" + rand);
 		}
 		else {
 			event = false;
-			System.out.println("Event true");
+			System.out.println("Event false");
 		}
 		if (event) {
 			int eventSelection;
@@ -83,7 +85,6 @@ public class RandomEvent {
 			}
 			
 		}
-		System.out.println("Rand: " + rand);
 		return p;
 	}
 }
