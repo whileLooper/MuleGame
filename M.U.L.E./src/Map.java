@@ -194,7 +194,7 @@ public class Map extends JPanel{
 				else if (gen.nextInt(5) == 4) {
 					add(new M3(new Point(i, j)));
 				}
-				else if (gen.nextInt(5) == 5) {
+				else if (gen.nextInt(5) == 0) {
 					add(new River(new Point(i, j)));
 				}
 			}
