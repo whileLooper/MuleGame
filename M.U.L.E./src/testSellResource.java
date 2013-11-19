@@ -30,14 +30,6 @@ public class testSellResource {
 		System.out.println("**********************************************");
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	/**
 	 * test the player class initialization first
 	 */
