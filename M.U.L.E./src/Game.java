@@ -40,6 +40,7 @@ public class Game{
 	
 	private int turnTime ;
 	private Thread time;
+	private Thread time2;
 	private Town town;
 	
 	private boolean playerInTown = false;
@@ -145,10 +146,13 @@ public class Game{
 		drive.add(timerBar);
 		drive.add(info);		
 		changeDisplay(start, map);
-		refresh();
+		refreshInfo();
 	}
 	
-	public void refresh() {
+	/**
+	 * keep updating the information panel
+	 */
+	public void refreshInfo() {
 		Thread time2 = new Thread(new Runnable(){
 		   @Override
 		   public void run(){
@@ -181,37 +185,45 @@ public class Game{
 	 * @param min the min value for the progress bar
 	 */
 	public void countDown(final int max, final int min){
-		timerBar.remove(timerBar.pbar);
-		timerBar.pbar = new JProgressBar();
-		timerBar.add(new JProgressBar());
+		//drive.remove(timerBar);
+		//timerBar = new TimerBar();
+		//timerBar.setBounds(0, 501, 900, 30);
+		//drive.add(timerBar);
+		//timerBar.pbar = new JProgressBar();
+		//timerBar.add(new JProgressBar());
+		time2 = null;
+
 		timerBar.pbar.setBackground(new Color(50, 205, 50));
 		timerBar.pbar.setMinimum(min);
 		timerBar.pbar.setMaximum(max);
-
 		
-	    time = new Thread(new Runnable(){
+		
+	    time2 = new Thread(new Runnable(){
 		   public void run(){
-			   for (int i = min; i <= max; i++) {
-				      final int percent = i;
-				      if(i > (max - 10)) timerBar.pbar.setBackground(new  Color(220,20,60));
-				      
-				      try {
-				        SwingUtilities.invokeLater(new Runnable() {
-				          public void run() {
-				        	  timerBar.pbar.setValue(percent);
-				        	  timerBar.repaint();
-				          }
-				        });
-				        java.lang.Thread.sleep(1000);
-				      } catch (InterruptedException e) {
-				        ;
-				      }
-				    }
-		   }
+			   time2 = Thread.currentThread();			   
+				   
+				   for (int i = min; i <= max; i++) {
+					      final int percent = i;
+					      final int timeLeft = max -i;
+					      try {
+					        SwingUtilities.invokeLater(new Runnable() {
+					          public void run() {
+					        	  timerBar.pbar.setValue(percent);
+					        	  timerBar.pbar.setString(timeLeft + " Seconds Left In Round " +( numOfTurn + 1));
+					        	  timerBar.repaint();					        	  
+					          }
+					        });
+					        java.lang.Thread.sleep(1000);
+					      } catch (InterruptedException e) {
+					        ;
+					      }
+					    }
+			   }
+		   
 	   });
-	   time.start();
+	   time2.start();
 	}
-	
+
 	/**
 	 * This method return current player
 	 * @return the player in current turn
