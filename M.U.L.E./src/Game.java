@@ -12,6 +12,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 
 import com.google.gson.Gson;
@@ -180,11 +181,13 @@ public class Game{
 	 * @param min the min value for the progress bar
 	 */
 	public void countDown(final int max, final int min){
-		timerBar.pbar.removeAll();
-		timerBar.add(timerBar.pbar);
-		timerBar.pbar.setBackground(new Color(50, 205, 50));	
+		timerBar.remove(timerBar.pbar);
+		timerBar.pbar = new JProgressBar();
+		timerBar.add(new JProgressBar());
+		timerBar.pbar.setBackground(new Color(50, 205, 50));
 		timerBar.pbar.setMinimum(min);
 		timerBar.pbar.setMaximum(max);
+
 		
 	    time = new Thread(new Runnable(){
 		   public void run(){
