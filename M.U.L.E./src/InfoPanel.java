@@ -30,7 +30,6 @@ public class InfoPanel extends JPanel {
 	 */
 	public InfoPanel(Player[] playerList, Store s){
 
-		//System.out.println(playerList.length);
 		if (playerList.length == 2) {
 			Player[] tmp = {playerList[0], playerList[1], null, null};
 			playerList = tmp;
@@ -41,10 +40,10 @@ public class InfoPanel extends JPanel {
 		}
 		
 		setBackground(Color.GRAY);
-		setPreferredSize(new Dimension(900, 160));
+		setPreferredSize(new Dimension(900, 130));
 		setLayout(null);
 		
-		PlayerInfoPanel.setBounds(0, 30, 900, 130);
+		PlayerInfoPanel.setBounds(0, 0, 900, 130);
 		add(PlayerInfoPanel);
 		PlayerInfoPanel.setLayout(new GridLayout(0, 5, 0, 0));
 		
@@ -57,7 +56,6 @@ public class InfoPanel extends JPanel {
 		lblPlayname.setBounds(10, 11, 170, 14);
 		Player_1.add(lblPlayname);
 		
-		System.out.println("player one money:" + playerList[0].getMoney());
 		JLabel lblMoney_1 = new JLabel("Money: " + playerList[0].getMoney());
 		lblMoney_1.setBounds(10, 36, 170, 14);
 		Player_1.add(lblMoney_1);
@@ -78,7 +76,6 @@ public class InfoPanel extends JPanel {
 		Player_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_2);
 		
-		System.out.println("player two money:" + playerList[1].getMoney());
 		JLabel lblMoney = new JLabel("Player_2: " + playerList[1].getName());
 		lblMoney.setBounds(10, 11, 170, 14);
 		Player_2.add(lblMoney);
