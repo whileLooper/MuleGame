@@ -3,13 +3,12 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 
 
 public class TimerBar extends JPanel {
 	
-	JProgressBar pbar = new JProgressBar();
+	 JProgressBar pbar = new JProgressBar();
 	
 	public TimerBar(){
 		setLayout(null);
@@ -17,6 +16,7 @@ public class TimerBar extends JPanel {
 		setBounds(0, 0, 900, 30);
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		setBackground(Color.GRAY);
+		pbar.setStringPainted(true);
 		
 		pbar.setBounds(0, 0, 900, 30);
 		pbar.setBackground(new Color(50, 205, 50));
