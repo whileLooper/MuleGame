@@ -85,7 +85,6 @@ public class Player implements Comparable{
 	private void choseImage(){
 		switch (race) {
 		case "Human": {
-			System.out.println("here");
 			image1 = (new ImageIcon("Image/playerImages/human1.png"))
 					.getImage();
 			image2 = (new ImageIcon("Image/playerImages/human2.png"))
@@ -132,6 +131,13 @@ public class Player implements Comparable{
 		return name;
 	}
 	
+	/**
+	 * this method returns player's race
+	 * @return race of player
+	 */
+	public String getRace(){
+		return race;
+	}
 	/**
 	 * This method return player's money
 	 * @return player's money
@@ -382,6 +388,7 @@ public class Player implements Comparable{
 	 * @return whether this transition is successful
 	 */
 	public boolean sellResource(String type, int price){
+
 		switch(type){
 		case "Food":{
 			if(food > 0){
@@ -399,9 +406,10 @@ public class Player implements Comparable{
 				money += price;
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
 				return true;
-			}
+			} 
 			System.out.println("Transition failed, since you don't have enought resource");
-			return false;
+			return false;			
+		
 		}
 		case "Smithore":{
 			if(ore > 0){
@@ -414,7 +422,7 @@ public class Player implements Comparable{
 			return false;
 		}
 		case "Crystite":{
-			if(crystal > 0){
+			if(crystal > 0){	
 				crystal --;
 				money += price;
 				System.out.println(name + " sells 1 " + type + " and get " + price + " with " + money + " totally");
