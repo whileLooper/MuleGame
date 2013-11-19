@@ -7,6 +7,8 @@ import javax.swing.SwingUtilities;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+
 import javax.swing.JLayeredPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
@@ -19,10 +21,7 @@ import javax.swing.JLabel;
  * 
  */
 public class InfoPanel extends JPanel {
-	
-	JPanel TimerPanel = new JPanel();
-	JPanel PlayerInfoPanel = new JPanel();
-	JProgressBar pbar = new JProgressBar();;
+	JPanel PlayerInfoPanel = new JPanel();;
 
 	/**
 	 * Constructor for the info panel
@@ -30,6 +29,7 @@ public class InfoPanel extends JPanel {
 	 * @param s the store of the game which holds the information such as number of food left in the shop.
 	 */
 	public InfoPanel(Player[] playerList, Store s){
+
 		//System.out.println(playerList.length);
 		if (playerList.length == 2) {
 			Player[] tmp = {playerList[0], playerList[1], null, null};
@@ -44,11 +44,6 @@ public class InfoPanel extends JPanel {
 		setPreferredSize(new Dimension(900, 160));
 		setLayout(null);
 		
-		TimerPanel.setBounds(0, 0, 900, 30);
-		TimerPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		TimerPanel.setBackground(Color.GRAY);
-		add(TimerPanel);
-		
 		PlayerInfoPanel.setBounds(0, 30, 900, 130);
 		add(PlayerInfoPanel);
 		PlayerInfoPanel.setLayout(new GridLayout(0, 5, 0, 0));
@@ -57,10 +52,12 @@ public class InfoPanel extends JPanel {
 		Player_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_1);
 		
+		
 		JLabel lblPlayname = new JLabel("Player_1: " + playerList[0].getName());
 		lblPlayname.setBounds(10, 11, 170, 14);
 		Player_1.add(lblPlayname);
 		
+		System.out.println("player one money:" + playerList[0].getMoney());
 		JLabel lblMoney_1 = new JLabel("Money: " + playerList[0].getMoney());
 		lblMoney_1.setBounds(10, 36, 170, 14);
 		Player_1.add(lblMoney_1);
@@ -81,6 +78,7 @@ public class InfoPanel extends JPanel {
 		Player_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PlayerInfoPanel.add(Player_2);
 		
+		System.out.println("player two money:" + playerList[1].getMoney());
 		JLabel lblMoney = new JLabel("Player_2: " + playerList[1].getName());
 		lblMoney.setBounds(10, 11, 170, 14);
 		Player_2.add(lblMoney);
@@ -275,16 +273,6 @@ public class InfoPanel extends JPanel {
 		label_14.setBounds(10, 105, 170, 14);
 		Town.add(label_14);
 		this.setVisible(true);
-
-
-		TimerPanel.setLayout(null);
-		pbar.setBounds(0, 0, 900, 30);
-		pbar.setBackground(new Color(50, 205, 50));
-		pbar.setForeground(Color.LIGHT_GRAY);
-		
-		TimerPanel.add(pbar);
-
-
 	}
 
 
@@ -294,28 +282,38 @@ public class InfoPanel extends JPanel {
 	 * @param max the max value for the progress bar
 	 * @param min the min value for the progress bar
 	 */
-	public void countDown(int max, int min){		
+	/*public void countDown(final int max, final int min){		
 		pbar.setMinimum(min);
 		pbar.setMaximum(max);
 
-	    for (int i = min; i <= max; i++) {
-		      final int percent = i;
-		      if(i > (max - 10)) pbar.setBackground(new  Color(220,20,60));
-		      
-		      try {
-		        SwingUtilities.invokeLater(new Runnable() {
-		          public void run() {
-						pbar.setValue(percent);
-						TimerPanel.repaint();
-		          }
-		        });
-		        java.lang.Thread.sleep(1000);
-		      } catch (InterruptedException e) {
-		        ;
-		      }
-		    }
-	}
+
+	   Thread time = new Thread(new Runnable(){
+		   public void run(){
+			   for (int i = min; i <= max; i++) {
+				      final int percent = i;
+				      if(i > (max - 10)) pbar.setBackground(new  Color(220,20,60));
+				      
+				      try {
+				        SwingUtilities.invokeLater(new Runnable() {
+				          public void run() {
+								pbar.setValue(percent);
+								TimerPanel.repaint();
+				          }
+				        });
+				        java.lang.Thread.sleep(1000);
+				      } catch (InterruptedException e) {
+				        ;
+				      }
+				    }
+		   }
+	   });
+	   time.start();
+	}*/
 	
+
+
+	        
+	      
 	/**
 	 * A testing method for info panel.
 	 * @param args
