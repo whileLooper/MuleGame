@@ -46,7 +46,7 @@ public class Tile extends JLabel{
 	 * This method is used for land purchase, it will return a boolean value to tell player whether this land is purchasable
 	 * or not, and if it can be bought, then the land will be marked player's color.
 	 * @param player
-	 * @return true if land bought, false if the land already has an owner.
+	 * @return
 	 */
 	public boolean beBought(){
 		if(bought){
