@@ -43,8 +43,7 @@ public class testStoreBuy {
 	}
 	
 	@Test
-	public void testBuy2(){
-		
+	public void testBuy2(){		
 		newStore.Restore(0, 0, 0, 0, 0);
 		assertFalse(newStore.buy("Food"));
 		assertFalse(newStore.buy("Energy"));
