@@ -288,7 +288,8 @@ public class Player implements Comparable{
 	 */
 	public boolean buyLand(int price, Tile land){
 		if(money > price){
-			if(land.beBought(this)){
+			if(land.beBought()){
+				land.buyLand(this);
 				money -= price;
 				lands.add(land);
 				System.out.println(name + " has just buy a land costing $" + price);
