@@ -5,10 +5,11 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 /**
- * The mule class to handle the mule unit in the game.
+ * Mule.java
+ * Version 254. Copyright One-E
+ * @author One-E
  * 
- * @author Bo
- * 
+ * The mule class for the game. Contains information for the mule.
  */
 public class Mule {
 
@@ -26,6 +27,8 @@ public class Mule {
 
 	/**
 	 * Constructor for the Mule object. Takes in the type of mule and the player that is buying it.
+	 * @param type the type of mule
+	 * @param player the player that is buying it.
 	 */
 	public Mule(String type, Player player) {
 		muleType = type;
@@ -34,7 +37,7 @@ public class Mule {
 	}
 
 	/**
-	 * This method returns player's location on the map
+	 * Getter for the player's location
 	 * 
 	 * @return player's location on map
 	 */
@@ -43,17 +46,16 @@ public class Mule {
 	}
 
 	/**
-	 * This method sets mule's location on the map
+	 * Setter for the map location to point p
 	 * 
-	 * @param p
-	 *            is player's new location on map
+	 * @param p is player's new location on map
 	 */
 	public void setMapLocation(Point p) {
 		mapLocation = p;
 	}
 	
 	/**
-	 * This method used to get mule's final location on the map
+	 * Getter for the final location of the mule
 	 * @return mule's final location
 	 */
 	public Point getSetLocation(){
@@ -61,9 +63,9 @@ public class Mule {
 	}
 
 	/**
-	 * This method returns player's location on the down
+	 * Getter for the player's location on the town
 	 * 
-	 * @return player's location on the map
+	 * @return player's location on the town
 	 */
 	public Point getTownLocation() {
 		return townLocation;
@@ -86,8 +88,7 @@ public class Mule {
 	/**
 	 * This method sets player's location on the town
 	 * 
-	 * @param p
-	 *            is player's new location on the town
+	 * @param p is player's new location on the town
 	 */
 	public void setTownLocation(Point p) {
 		townLocation = p;
@@ -96,8 +97,7 @@ public class Mule {
 	/**
 	 * This method is used to draw player on town
 	 * 
-	 * @param g
-	 *            is the graphics
+	 * @param g is the graphics
 	 */
 	public void drawOnMap(Graphics g) {
 		if(isSet){
@@ -111,15 +111,16 @@ public class Mule {
 	/**
 	 * This method is used to draw player on town
 	 * 
-	 * @param g
-	 *            is the graphics
+	 * @param g is the graphics
 	 */
 	public void drawOnTown(Graphics g) {
 		followPlayer(player.getTownLocation(), g);
 	}
 
 	/**
-	 * 	Allows the mule to follow the player.
+	 * Allows the mule to follow the player.
+	 * @param Location the location
+	 * @param g the graphics
 	 */
 	private void followPlayer(Point Location, Graphics g) {
 		// TODO Auto-generated method stub
@@ -134,6 +135,7 @@ public class Mule {
 
 	/**
 	 * setting the mule on the land
+	 * @param tile is the tile the mule land on
 	 */
 	public boolean setDownMule(Tile tile) {
 		if(tile.isEmpty()){
@@ -149,7 +151,7 @@ public class Mule {
 	}
 
 	/**
-	 * get the owner name of mule
+	 * Getter for the owner of mule
 	 * 
 	 * @return owner of mule
 	 */

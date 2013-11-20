@@ -17,9 +17,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Random;
 
-
+/**
+ * Map.java
+ * Version 279. Copyright One-E
+ * @author One-E
+ *
+ */
 public class Map extends JPanel{
-
 	
 	private Tile[][] tiles = new Tile[5][9];
 	private Game game;
@@ -27,6 +31,7 @@ public class Map extends JPanel{
 	/**
 	 * This is constructor of the Map class
 	 * @param mapType is the type of map to initiate
+	 * @param g the current game.
 	 */
 	public Map(Game g, String mapType){
 		game = g;
@@ -215,7 +220,7 @@ public class Map extends JPanel{
 	}
 	
 	/**
-	 * to get the 2d array map
+	 * Getter of a 2d array of the map
 	 * @return the map
 	 */
 	public Tile[][] getMap(){

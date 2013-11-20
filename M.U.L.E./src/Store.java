@@ -12,9 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Author: One-E
+ * Store.java
+ * Version 252. Copyright One-E
  * Store class that is in-charge of everything that is related to store.
- * @author Team: oneE
+ * @author One-E
+ * 
+ * 
  */
 public class Store extends JPanel {
 	
@@ -546,6 +549,14 @@ public class Store extends JPanel {
 	 window1();
 	}
 	
+	/**
+	 * Load from saved file
+	 * @param f the food in saved file
+	 * @param g the energy in saved file
+	 * @param s the smithore in saved file
+	 * @param c the crystite in saved file
+	 * @param m the mule in saved file
+	 */
 	public void Restore(int f, int g, int s, int c, int m){
 		Food = f;
 		Energy = g;

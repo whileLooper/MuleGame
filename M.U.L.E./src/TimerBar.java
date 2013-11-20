@@ -5,11 +5,21 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.EtchedBorder;
 
+/**
+ * TimerBar.java
+ * Version 291. Copyright One-E
+ * @author One-E
+ *
+ * The timer bar that calculates the time for the player.
+ */
 
 public class TimerBar extends JPanel {
 	
 	 JProgressBar pbar = new JProgressBar();
 	
+	 /**
+	  * Constructor for the TimerBar.
+	  */
 	public TimerBar(){
 		setLayout(null);
 		this.setSize(900, 30);

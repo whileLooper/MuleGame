@@ -5,6 +5,8 @@ import javax.swing.ImageIcon;
 
 
 /**
+ * TownT.java
+ * Version 297. Copyright One-E
  * the town tile class, sub class of tile, handling creat town tile method
  * and town image.
  * @author Team:oneE
@@ -12,10 +14,6 @@ import javax.swing.ImageIcon;
  */
 public class TownT extends Tile{
 
-	/**
-	 * This is a subclass of Tile, TownT, which represents Town on the map
-	 */
-	
 	/**
 	 * This is the constructor of the TownT Class
 	 */

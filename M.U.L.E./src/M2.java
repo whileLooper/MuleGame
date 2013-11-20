@@ -2,7 +2,12 @@ import java.awt.Point;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
-
+/**
+ * M2.java
+ * Version 254. Copyright One-E
+ * @author One-E
+ *
+ */
 public class M2 extends Tile {
 
 	/**

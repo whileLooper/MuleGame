@@ -6,16 +6,15 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
+ * Player.java
+ * Version 293. Copyright One-E.
+ *
+ * @author Team One-E
  * The object of player, with all players information
  * image, name, color, resource info.
- * @author Team OneE
- *
  */
 public class Player implements Comparable{
 	
-	/**
-	 * This is the Player class, used to store player's information
-	 */
 	private String name;
 	private Color color;
 	private String race;
@@ -42,6 +41,7 @@ public class Player implements Comparable{
 	 * @param n is the player's name
 	 * @param c is the player's color
 	 * @param r is the player's race
+	 * @param gameD is the game difficulty.
 	 */
 	public Player(String n, Color c, String r, String gameD){
 		name = n;
@@ -52,6 +52,7 @@ public class Player implements Comparable{
 	
 	/**
 	 * This method gives a initial value to player's money and other resources according to player's race and game difficulty
+	 * @param gameD is the game difficulty.
 	 */
 	private void initiate(String gameD){
 		switch(race){
@@ -250,7 +251,7 @@ public class Player implements Comparable{
 	
 	/**
 	 * This method used to deduce the money 
-	 * @param amount to deduce
+	 * @param amount to deduce, remains 0 if money is below 0.
 	 */
 	public void deduceMoney(int amount){
 		money -= amount;
@@ -285,6 +286,7 @@ public class Player implements Comparable{
 	 * is successful or not
 	 * @param price is the price for the tile
 	 * @param land is the tile to buy
+	 * @return true if success, false if unsuccessful.
 	 */
 	public boolean buyLand(int price, Tile land){
 		if(money > price){
@@ -540,7 +542,7 @@ public class Player implements Comparable{
 	/**
 	 * Arraylist of mules that have been set down by the player.
 	 * @param tiles
-	 * @return
+	 * @return the list of mules by the players.
 	 */
 	public ArrayList<Mule> Restore(ArrayList<Tile> tiles){
 		choseImage();

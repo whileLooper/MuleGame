@@ -5,6 +5,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
+ * Tile.java
+ * Version 296. Copyright One-E
  * Tile class, the super class of all tiles on the map
  * and all events happen on the tile.
  * @author Team: oneE 
@@ -46,7 +48,7 @@ public class Tile extends JLabel{
 	 * This method is used for land purchase, it will return a boolean value to tell player whether this land is purchasable
 	 * or not, and if it can be bought, then the land will be marked player's color.
 	 * @param player
-	 * @return
+	 * @return true if bought successfully.
 	 */
 	public boolean beBought(){
 		if(bought){
@@ -58,6 +60,10 @@ public class Tile extends JLabel{
 		}
 	}
 	
+	/**
+	 * Allows the player to buy the land
+	 * @param player that is buying the land.
+	 */
 	public void buyLand(Player player) {
 		bought = true;
 		owner = player;
@@ -125,10 +131,18 @@ public class Tile extends JLabel{
 		return mule;
 	}
 	
+	/**
+	 * This method returns the point of the tile.
+	 * @return p the point of the tile.
+	 */
 	public Point getPoint(){
 		return p;
 	}
 	
+	/**
+	 * Loads from saved file that this player owns this tile.
+	 * @param player the player that owns this tile.
+	 */
 	public void Restore(Player player){
 		bought = true;
 		owner = player;

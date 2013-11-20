@@ -15,6 +15,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 
 /**
+ * InfoPanel.java
+ * Version 284. Copyright One-E
  * @author One-E
  * 
  * The information panel of the game that displays every player's information and town's information.
@@ -272,8 +274,6 @@ public class InfoPanel extends JPanel {
 		this.setVisible(true);
 	}
 
-
-	
 	/**
 	 * this class draw a progress bar to showing the timing for turns.
 	 * @param max the max value for the progress bar

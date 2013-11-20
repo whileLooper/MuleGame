@@ -2,13 +2,14 @@ import java.awt.Point;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
-
+/**
+ * River.java
+ * Version 183. Copyright One-E
+ * @author One-E
+ *
+ */
 public class River extends Tile {
 
-	/**
-	 * This is a subclass of Tile, River, which represents River on the map
-	 */
-	
 	/**
 	 * This is the constructor of the River Class
 	 */

@@ -3,7 +3,12 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-
+/**
+ * M1.java
+ * Version 254. Copyright One-E
+ * @author One-E
+ *
+ */
 public class M1 extends Tile{
 
 	/**

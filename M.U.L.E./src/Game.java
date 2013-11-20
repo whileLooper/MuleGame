@@ -17,6 +17,14 @@ import javax.swing.SwingUtilities;
 
 import com.google.gson.Gson;
 
+/**
+ * Game.java
+ * Version 290. Copyright One-E
+ * @author One-E
+ *
+ * The game class controls states of the game.
+ *
+ */
 public class Game{
 	
 
@@ -76,13 +84,17 @@ public class Game{
 	}
 	
 	/**
-	 * Return the state of the game, whether it is landpurchase, landgrant, or playerturns.
+	 * Getter for GameState
+	 * 
+	 * @return The state of the game, whether it is landpurchase, landgrant, or playerturns.
 	 */
 	public GameState getGameState(){
 		return gState;
 	}
 	
 	/**
+	 * Getter for currentPlayer
+	 * 
 	 * @return the current player that is playing this turn.
 	 */
 	public int getCurrentPlayerInd(){
@@ -90,6 +102,8 @@ public class Game{
 	}
 	
 	/**
+	 * Getter for current turn
+	 * 
 	 * @return the current turn
 	 */
 	public int getCurrentTurn(){
@@ -97,6 +111,7 @@ public class Game{
 	}
 	
 	/**
+	 * Getter for turn time.
 	 * 
 	 * @return the turn time.
 	 */
@@ -105,6 +120,8 @@ public class Game{
 	}
 	
 	/**
+	 * Check if player is in town.
+	 * 
 	 * @return true if player is in town. false if player is not in town.
 	 */
 	public boolean isPlayerInTown(){
@@ -112,6 +129,8 @@ public class Game{
 	}
 	
 	/**
+	 * Getter for the list of players.
+	 * 
 	 * @return the list of players that are currently in the game.
 	 */
 	public Player[] getPlayers(){
@@ -119,6 +138,7 @@ public class Game{
 	}
 	
 	/**
+	 * Getter for town.
 	 * 
 	 * @return the town of the game.
 	 */
@@ -127,7 +147,8 @@ public class Game{
 	}
 	
 	/**
-	 * This method sets up the map
+	 * This method sets up the map. The maptype, playersList and difficulty are gotten from start and the map, town, infopanel are created.
+	 * The timerBar is also created here. The display is then changed to the map panel.
 	 */
 	public void setUpMap(){
 		String mapType = start.getMapType();
@@ -150,7 +171,7 @@ public class Game{
 	}
 	
 	/**
-	 * keep updating the information panel
+	 * Keep updating the information panel every 0.1 second.
 	 */
 	public void refreshInfo() {
 		Thread time2 = new Thread(new Runnable(){
@@ -225,7 +246,8 @@ public class Game{
 	}
 
 	/**
-	 * This method return current player
+	 * Getter for the current player in the current turn.
+	 * 
 	 * @return the player in current turn
 	 */
 	public Player getCurrentPlayer(){
@@ -233,7 +255,8 @@ public class Game{
 	}
 	
 	/**
-	 * get the difficulty level
+	 * Getter for the current difficulty.
+	 * 
 	 * @return difficulty level
 	 */
 	public String getDifficulty(){
@@ -245,6 +268,7 @@ public class Game{
 	 * 300 for land purchase period, and during players' turns, which means that player buy land from land office, the price
 	 * of the land is decided by game turn, and at last it will return a boolean value to indicate whether the deal is successful
 	 * @param land is the tile selected by player;
+	 * @return current player trying to buy the land.
 	 */
 	public boolean playerBuyLand(Tile land){
 		Player currentPlayer = getCurrentPlayer();
@@ -255,9 +279,9 @@ public class Game{
 	}
 	
 	/**
-	 * checking the player is able to buy resource or not
-	 * @param type 
-	 * @param price
+	 * Check if the player is able to buy the resource.
+	 * @param type The type of resource that the player is buying
+	 * @param price The price for that particular resource
 	 * @return true if current player is able to buy resource
 	 */
 	public boolean playerBuyResourcec(String type, int price){
@@ -413,7 +437,7 @@ public class Game{
 	}
 	
 	/**
-	 * This method determines the direction player enter town
+	 * This method determines the direction player enter town, then set the player's location in town.
 	 */
 	private void getDirection(){
 		Player player = getCurrentPlayer();
@@ -513,7 +537,7 @@ public class Game{
 	
 	/**
 	 * This method decides how much of food player needs to get through the turn
-	 * @return the amount of food need
+	 * @return the amount of food need depending on the number of turn.
 	 */
 	private int foodNeeded(){
 		if(numOfTurn >= 1 && numOfTurn < 5){
@@ -529,7 +553,7 @@ public class Game{
 	
 	/**
 	 * when game stop to store the information from game
-	 * @return
+	 * @return the stored info.
 	 */
 	public InfoStore stop(){
 		InfoStore infostore = new InfoStore(this);
@@ -538,8 +562,7 @@ public class Game{
 	
 
 	/**
-	 * the method to determine is it possible to load game
-	 * from the saved memory
+	 * the method to determine is it possible to load game from the saved memory
 	 * @return true if be able to load last game record
 	 */
 	public boolean loadLastGame(){
@@ -570,7 +593,7 @@ public class Game{
 
 	/**
 	 * Restore the game
-	 * @param infostore is the information library
+	 * @param infostore is the information library and start the game.
 	 */
 	private void Restore(InfoStore infostore){
 		isReload = true;

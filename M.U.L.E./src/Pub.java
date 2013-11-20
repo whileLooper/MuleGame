@@ -1,19 +1,13 @@
 import java.util.Random;
 
+/**
+ * Pub.java
+ * Version 85. Copyright One-E
+ * @author One-E
+ */
 
 public class Pub {
 
-	/**
-	 * This is the Pub Class
-	 */
-	
-	/**
-	 * This is the constructor for Pub Class
-	 */
-	public Pub(){
-		
-	}
-	
 	/**
 	 * This is a static method used to calculate the money bonus player earns through gambling
 	 * @param round is the current number of round

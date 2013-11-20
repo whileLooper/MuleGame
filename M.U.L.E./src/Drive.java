@@ -15,16 +15,18 @@ import com.google.gson.Gson;
 
 @SuppressWarnings("serial")
 /**
- * 
+ * Drive.java
+ * Version 264, Copyright One-E
  * @author One-E
  * 
- * Driver for the whole game. Creates the frame and get the game going.
- *
+ * The driver for the game.
+ * 
  */
 public class Drive extends JFrame{
 
 	/**
-	 * Main method for the game.
+	 * This method is the main method of the game and starts the game.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -77,8 +79,6 @@ public class Drive extends JFrame{
 					e1.printStackTrace();
 				}
 			}
-			
-			
 		}
 	}
 }

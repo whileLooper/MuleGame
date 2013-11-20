@@ -2,7 +2,14 @@ import java.awt.Point;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Plain.java
+ * Version 183. Copyright One-E
+ * @author One-E
+ * 
+ * The Plain class that extends the Tile class for the game.
+ *
+ */
 public class Plain extends Tile {
 
 	/**

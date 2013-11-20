@@ -9,9 +9,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
+ * Town.java
+ * Version 249. Copyright One-E
  * town class. contains all the events happen in the town,
  * including all the information relate to town.
- * @author Team: oneE
+ * @author Team: One-E
  *
  */
 public class Town extends JPanel{
@@ -77,6 +79,9 @@ public class Town extends JPanel{
 		store = new Store(game.getDifficulty(), this);
 	}
 	
+	/**
+	 * Brings the player out of the store if he is in the store.
+	 */
 	public void reset(){
 		if(playerInStore){
 			playerOutStore();
@@ -95,6 +100,9 @@ public class Town extends JPanel{
 		store.playerEnterStore(game.getCurrentPlayer());
 	}
 	
+	/**
+	 * Moves the player out of the store.
+	 */
 	public void playerOutStore(){
 		remove(store);
 		revalidate();
@@ -102,10 +110,17 @@ public class Town extends JPanel{
 		playerInStore = false;
 	}
 	
+	/**
+	 * Checks if the player is in the store.
+	 */
 	public boolean isPlayerInStore(){
 		return playerInStore;
 	}
 	
+	/**
+	 * Brings the player into store.
+	 * @param pis true if the player wants to get into the store.
+	 */
 	public void setPlayerInStore(boolean pis){
 		playerInStore = pis;
 		if(playerInStore){

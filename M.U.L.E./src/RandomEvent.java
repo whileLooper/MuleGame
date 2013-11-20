@@ -5,8 +5,11 @@ public class RandomEvent {
 	/**
 	 * 
  	 * @param round the current round the game is at
+ 	 * @param p the player that is going to get a randomEvent
+ 	 * @param currentPlayer the player's rank
  	 * Random an int from 1 to 100, 27% chance of event occuring.
  	 * If any event occur, 1/7 chance for any event to occur.
+ 	 * @return p the new player with new stats.
 	 */
 	public static Player randomEvent(int round, Player p, int currentPlayer) {
 		round+=1;

@@ -41,6 +41,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 
 public class Start extends JPanel implements ActionListener {
+	/**
+	 * Start.java
+	 * Version 278. Copyright One-E
+	 * @author One-E
+	 * 
+	 * The start panel that takes in input from the user regarding the settings of the game such as difficulty and mapType.
+	 */
 
 	/**
 	 * @wbp.parser.entryPoint
@@ -67,6 +74,7 @@ public class Start extends JPanel implements ActionListener {
 
 	/**
 	 * Setting the game start option.
+	 * @param g the Game itself
 	 */
 	public Start(Game g) {
 		game = g;
@@ -87,8 +95,7 @@ public class Start extends JPanel implements ActionListener {
 	}
 
 	/** 
-	 * 
-	 *
+	 * @param e the action performed.
 	 * 
 	 **/
 	public void actionPerformed(ActionEvent e) {
@@ -119,21 +126,22 @@ public class Start extends JPanel implements ActionListener {
 
 	/**
 	 * @return return map panel.
-	 * */
+	 *
+	 **/
 	public String getMapType() {
 		return map;
 	}
 
 	/**
 	 * @return return the array of players
-	 * */
+	 **/
 	public Player[] getPlayers() {
 		return players;
 	}
 
 	/**
 	 * Setting the numbers of players.
-	 * */
+	 **/
 	private void playerInput() {
 		players = new Player[numOfPlayers];
 		currentPlayer = 0;
@@ -184,6 +192,9 @@ public class Start extends JPanel implements ActionListener {
 
 	}
 
+	/**
+	 * Set the game settings of the game.
+	 */
 	private void gameSetting() {
 		showMap = 1;
 		removeAll();
@@ -437,6 +448,8 @@ public class Start extends JPanel implements ActionListener {
 	/**
 	 * Check if color is in player list. Return true if there is, return false
 	 * if there isn't.
+	 * @param c color of the player
+	 * @return return true if color is same, false if not.
 	 */
 	public boolean sameColor(Color c) {
 		for (int n = 0; n < currentPlayer; n++) {
@@ -455,6 +468,8 @@ public class Start extends JPanel implements ActionListener {
 	/**
 	 * Check if name is in player list. Return true if there is, return false if
 	 * there isn't.
+	 * @param name the name of the new player
+	 * @return true if the players have same name.
 	 */
 	public boolean sameName(String name) {
 		if (name.equals("")) {
@@ -477,6 +492,7 @@ public class Start extends JPanel implements ActionListener {
 
 	/**
 	 * in charge of painting and animations
+	 * @param page Graphics page
 	 */
 
 	public void paintComponent(Graphics page) {

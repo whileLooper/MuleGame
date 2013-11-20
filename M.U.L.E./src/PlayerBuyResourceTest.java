@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * 
  * Test BuyResource method in Player class
  * @author Qian Shao
  *
