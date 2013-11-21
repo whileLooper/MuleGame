@@ -13,8 +13,8 @@ public class testSellResource {
 
 	static Player newPlayer;
 	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	@Before
+	public  void setUpBeforeClass() throws Exception {
 		System.out.println("**********************************************");
 		System.out.println("  Player sell resource method test begins...");
 		System.out.println("**********************************************");
@@ -23,8 +23,8 @@ public class testSellResource {
 				"Human", "Beginner");
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@After
+	public  void tearDownAfterClass() throws Exception {
 		System.out.println("**********************************************");
 		System.out.println("    Junit Test is completed successfully...");
 		System.out.println("**********************************************");
@@ -47,9 +47,10 @@ public class testSellResource {
 	 */
 	@Test
 	public void testSellResource1(){
+		
 		assertTrue(newPlayer.sellResource("Food", 300));
-		assertTrue(newPlayer.sellResource("Energy", 2000000000));
-		assertTrue(newPlayer.sellResource("Smithore",  Integer.MAX_VALUE));
+		assertTrue(newPlayer.sellResource("Food", 2000000000));
+		assertTrue(newPlayer.sellResource("Food",  Integer.MAX_VALUE));
 		assertTrue(newPlayer.sellResource("Food", Integer.MIN_VALUE));	
 		System.out.println("testSellResource1 Done...");
 	}
