@@ -16,7 +16,7 @@ public class testStore {
 		t.bought = true;
 		p.addMoney(300);
 		assertFalse(p.buyLand(100, t));
-		assertEquals(300,p.getMoney());
+		assertEquals(900,p.getMoney());
 		assertEquals(t.owner,null);
 	}
 	
@@ -28,7 +28,7 @@ public class testStore {
 		t.bought = true;
 		p.addMoney(1);
 		assertFalse(p.buyLand(300, t));
-		assertEquals(1,p.getMoney());
+		assertEquals(601,p.getMoney());
 		assertEquals(t.owner,null);
 	}
 	
@@ -41,7 +41,7 @@ public class testStore {
 		p.addMoney(1000);
 		assertTrue(p.buyLand(100, t));
 		assertEquals(p, t.owner);
-		assertEquals(900, p.getMoney());
+		assertEquals(1500, p.getMoney());
 	}
 	
 	@Test(timeout = 300)
@@ -53,7 +53,7 @@ public class testStore {
 		p.addMoney(1);
 		assertFalse(p.buyLand(100, t));
 		assertEquals(null, t.owner);
-		assertEquals(1, p.getMoney());
+		assertEquals(1500, p.getMoney());
 	}
 	
 }
