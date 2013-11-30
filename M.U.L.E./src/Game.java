@@ -348,6 +348,7 @@ public class Game{
 				System.out.println("Next Turn");
 				System.out.println("Round number: " + numOfTurn);
 				harvest();
+				playersList = RandomEvent.randomWorldEvent(playersList);
 				
 			}
 		}
