@@ -43,7 +43,7 @@ public class RandomEvent {
 		Random gen = new Random();
 		int rand = gen.nextInt(100);
 		System.out.println("The random number is: " + rand);
-		if (rand >= 1 && rand <= 27) {
+		if (rand >= 0 && rand <= 27) {
 			
 			event = true;
 			System.out.println("Event true" + rand);
@@ -55,9 +55,9 @@ public class RandomEvent {
 		if (event) {
 			int eventSelection;
 			if(currentPlayer == 0){
-				eventSelection = gen.nextInt(4);
+				eventSelection = gen.nextInt(4)+1;
 			}else{
-				eventSelection = gen.nextInt(7);
+				eventSelection = gen.nextInt(7)+1;
 			}
 			System.out.println(events[eventSelection]);
 			System.out.println("eventSelection: " + eventSelection);
@@ -87,6 +87,54 @@ public class RandomEvent {
 				}
 			}
 			
+		}
+		return p;
+	}
+	
+	public static Player[] randomWorldEvent(Player[] p) {
+		String[] events = {"SPACE PIRATES ARRIVED IN TOWN. EVERYONE LOSES 20% OF THEIR MONEY.",
+				"SANTA CLAUS IS HERE AND GIVES EVERYONE 3 FOOD AND 200 MONEY.",
+				"SNOW IS COMING. ENERGY DECREASES BY 50% FOR EVERYONE.",
+				"FREE PIZZA BY PAPA HUTMINO PIZZA SHOP. EVERYONE GAIN 2 FOOD AND 3 ENERGY.",
+				"DIVIDENDS BY THE TOWN. EVERYONE GAINS 500 MONEY."};
+		
+		Random gen = new Random();
+		int rand = gen.nextInt(100);
+		if (rand >= 0 && rand <= 30) {
+			int rand2 = gen.nextInt(5)+1;
+			if (rand2 == 1) {
+				System.out.println(events[0]);
+				for (int i = 0; i < p.length; i++) {
+					p[i].deduceMoney((int)(p[i].getMoney()*0.2));
+				}
+			}
+			else if (rand2 == 2) {
+				System.out.println(events[1]);
+				for (int i = 0; i < p.length; i++) {
+					p[i].addMoney(200);
+					p[i].addFood(3);
+				}
+			}
+			else if (rand2 == 3) {
+				System.out.println(events[2]);
+				for (int i = 0; i < p.length; i++) {
+					p[i].addEnergy((int)(-p[i].getEnergy()*0.5));
+				}
+			}
+			else if (rand2 == 4) {
+				System.out.println(events[3]);
+				for (int i = 0; i < p.length; i++) {
+					p[i].addFood(2);
+					p[i].addEnergy(3);
+				}
+			}
+			else if (rand2 == 5) {
+				System.out.println(events[4]);
+				for (int i = 0; i < p.length; i++) {
+					p[i].addMoney(500);
+				}
+			}
+			else {System.out.println("THIS SHOULD NOT APPEAR. ERROR.");}
 		}
 		return p;
 	}
