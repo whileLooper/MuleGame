@@ -86,21 +86,18 @@ public class Map extends JPanel{
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.setMule(tile);
 						repaint();
-						break;
 					}
 					case KeyEvent.VK_C: {
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.crystiteMining(tile);
 						repaint();
-						break;
 					}
 					case KeyEvent.VK_F: {
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.riverFishing(tile);
 						repaint();
-						break;
 					}
-
+					default:
 					}
 
 					if(x + 50 > 400 && x < 500 && y + 50 > 200 && y < 300){
