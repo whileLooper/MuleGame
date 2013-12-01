@@ -28,6 +28,7 @@ public class M1 extends Tile{
 		mine = res;
 		if (mine) {
 			image = new ImageIcon("Image/tileImages/M1mining.png");
+			System.out.println("Image changed.");
 		}
 		else {
 			image = new ImageIcon("Image/tileImages/M1.png");
