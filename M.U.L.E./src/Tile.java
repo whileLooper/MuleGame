@@ -194,4 +194,8 @@ public class Tile extends JLabel{
 	public String getType(){
 		return "Tile";
 	}
+	
+	public void setImage(ImageIcon i) {
+		image = i;
+	}
 }
