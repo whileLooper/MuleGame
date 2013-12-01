@@ -140,11 +140,12 @@ public class RandomEvent {
 	}
 	
 	public static void randomCrystal(Map m) {
-		int rand = new Random().nextInt(100);
+		
 			Tile[][] p = m.getMap();
 			for(int i = 0; i < 5; i ++){
 				for(int j = 0; j < 9; j++){
 					if (p[i][j].getType() == "Mountain") {
+						int rand = new Random().nextInt(100);
 						if (rand >= 0 && rand <= 5) {
 							p[i][j].setCrystite(true);
 					}
