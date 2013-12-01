@@ -362,6 +362,17 @@ public class Player implements Comparable{
 	}
 	
 	/**
+	 * player mining crystite in the mountain
+	 */
+	public void crystiteMining(Tile tile) {
+		if(tile.isMine()){
+			addCrystal(10);
+			tile.setCrystite(false);
+			System.out.println("You got 10 crstites from this mine.");
+		}
+		else System.out.println("There is no any mines in this tile");
+	}
+	/**
 	 * This method used for player to buy recourse
 	 * @param type is the kind of recourse to buy
 	 * @param price is the price per recourse unit

@@ -25,6 +25,7 @@ public class Tile extends JLabel{
 	protected Player owner;
 	protected boolean bought = false;
 	protected boolean isOcuppied = false;
+	protected boolean mine = false;
 	protected Mule mule = null;
 	
     /**
@@ -147,5 +148,21 @@ public class Tile extends JLabel{
 		bought = true;
 		owner = player;
 		setBorder(BorderFactory.createLineBorder(owner.getColor(), 5));
+	}
+
+	/**
+	 * checking tile contains mine or not
+	 * @return false 
+	 */
+	public boolean isMine() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/**
+	 * set this mountain has crystite mine
+	 */
+	public void setCrystite(boolean res){
+		mine = res;
 	}
 }

@@ -6,18 +6,32 @@ import javax.swing.ImageIcon;
  * M3.java
  * Version 254. Copyright One-E
  * @author One-E
- *
+ * This is a subclass of tile, Mountain 3, represent the tile Mountain 3
  */
+@SuppressWarnings("serial")
 public class M3 extends Tile {
 
-	/**
-	 * This is a subclass of tile, Mountain 3, represent the tile Mountain 3
-	 */
-	
+	public boolean mine;
 	/**
 	 * This is the constructor for Mountain 3 Class
 	 */
 	public M3(Point newPoint){
+		
 		super(new ImageIcon("Image/tileImages/M3.png"), 1, 1, 4, new Random().nextInt(4), newPoint);
+	}
+	
+	/**
+	 * set this mountain has crystite mine
+	 */
+	public void setCrystite(boolean res){
+		mine = res;
+	}
+	
+	/**
+	 * check is the mountains has mine
+	 * @return
+	 */	
+	public boolean isMine(){
+		return mine;
 	}
 }
