@@ -58,43 +58,51 @@ public class Map extends JPanel{
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				//System.out.println("Key pressed");
-				if(game.isPlayerTurn()){
-					Player player= game.getCurrentPlayer();
+				// System.out.println("Key pressed");
+				if (game.isPlayerTurn()) {
+					Player player = game.getCurrentPlayer();
 					Point p = player.getMapLocation();
 					int x = p.x;
 					int y = p.y;
 					int key = e.getKeyCode();
-					switch(key){
-					case KeyEvent.VK_DOWN:{
+					switch (key) {
+					case KeyEvent.VK_DOWN: {
 						y += 10;
 						break;
 					}
-					case KeyEvent.VK_UP:{
+					case KeyEvent.VK_UP: {
 						y -= 10;
 						break;
 					}
-					case KeyEvent.VK_RIGHT:{
+					case KeyEvent.VK_RIGHT: {
 						x += 10;
 						break;
 					}
-					case KeyEvent.VK_LEFT:{
+					case KeyEvent.VK_LEFT: {
 						x -= 10;
 						break;
 					}
-					case KeyEvent.VK_SPACE:{
+					case KeyEvent.VK_SPACE: {
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.setMule(tile);
 						repaint();
+						break;
 					}
 					case KeyEvent.VK_C: {
-						Tile tile = (Tile) getComponentAt(new Point(x,y));
+						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.crystiteMining(tile);
 						repaint();
+						break;
 					}
-					default:
+					case KeyEvent.VK_F: {
+						Tile tile = (Tile) getComponentAt(new Point(x, y));
+						player.riverFishing(tile);
+						repaint();
+						break;
 					}
-					
+
+					}
+
 					if(x + 50 > 400 && x < 500 && y + 50 > 200 && y < 300){
 						System.out.println("enter town");
 						game.playerEnterTown();

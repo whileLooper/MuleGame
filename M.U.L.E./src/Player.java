@@ -375,9 +375,11 @@ public class Player implements Comparable{
 	
 	public void riverFishing(Tile riverTile){
 		if(riverTile.hasFish()){
-			
+			addFood(5);
+			riverTile.setFish(false);
+			System.out.println("You get 5 food after fishing.");
 		}
-		
+		else System.out.println("There is no any fishes in the river.");
 	}
 	/**
 	 * This method used for player to buy recourse

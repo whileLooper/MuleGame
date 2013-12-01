@@ -186,4 +186,12 @@ public class Tile extends JLabel{
 	public void setFish(boolean res) {
 		fish = res;
 	}
+	
+	/**
+	 * 
+	 * @return tile type
+	 */
+	public String getType(){
+		return "Tile";
+	}
 }

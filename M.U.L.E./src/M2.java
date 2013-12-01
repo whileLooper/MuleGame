@@ -40,4 +40,12 @@ public class M2 extends Tile {
 	public boolean hasMine(){
 		return mine;
 	}
+	
+	/**
+	 * return mountain type 2
+	 * @return tile type
+	 */
+	public String getType(){
+		return "Mountains";
+	}
 }

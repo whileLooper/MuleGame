@@ -33,4 +33,12 @@ public class River extends Tile {
 	public boolean hasFish(){
 		return fish;
 	}
+	
+	/**
+	 * return river type
+	 * @return tile type
+	 */
+	public String getType(){
+		return "River";
+	}
 }
