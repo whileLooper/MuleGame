@@ -87,6 +87,11 @@ public class Map extends JPanel{
 						player.setMule(tile);
 						repaint();
 					}
+					case KeyEvent.VK_C: {
+						Tile tile = (Tile) getComponentAt(new Point(x,y));
+						player.crystiteMining(tile);
+						repaint();
+					}
 					default:
 					}
 					

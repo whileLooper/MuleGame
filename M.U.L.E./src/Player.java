@@ -364,13 +364,20 @@ public class Player implements Comparable{
 	/**
 	 * player mining crystite in the mountain
 	 */
-	public void crystiteMining(Tile tile) {
-		if(tile.isMine()){
+	public void crystiteMining(Tile mountainTile) {
+		if(mountainTile.hasMine()){
 			addCrystal(10);
-			tile.setCrystite(false);
+			mountainTile.setCrystite(false);
 			System.out.println("You got 10 crstites from this mine.");
 		}
 		else System.out.println("There is no any mines in this tile");
+	}
+	
+	public void riverFishing(Tile riverTile){
+		if(riverTile.hasFish()){
+			
+		}
+		
 	}
 	/**
 	 * This method used for player to buy recourse

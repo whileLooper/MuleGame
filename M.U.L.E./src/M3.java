@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
 public class M3 extends Tile {
 
-	public boolean mine;
+	public boolean mine = false;
 	/**
 	 * This is the constructor for Mountain 3 Class
 	 */
@@ -38,7 +38,7 @@ public class M3 extends Tile {
 	 * check is the mountains has mine
 	 * @return
 	 */	
-	public boolean isMine(){
+	public boolean hasMine(){
 		return mine;
 	}
 }
