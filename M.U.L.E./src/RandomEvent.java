@@ -138,4 +138,11 @@ public class RandomEvent {
 		}
 		return p;
 	}
+	
+	public static void randomCrystal() {
+		int rand = new Random().nextInt(100);
+		if (rand >= 0 && rand <= 15) {
+			
+		}
+	}
 }
