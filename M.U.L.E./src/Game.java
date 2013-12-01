@@ -37,6 +37,7 @@ public class Game{
 	private InfoPanel info; 
 	private TimerBar timerBar;
 	private String difficulty;
+	private Store store;
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -159,8 +160,8 @@ public class Game{
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
-		
-		info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
+		store = new Store(getDifficulty(), getTown());
+		info = new InfoPanel(getPlayers(),store);
 		timerBar = new TimerBar();
 		timerBar.setBounds(0, 501, 900, 30);
 		info.setBounds(0,531, 900, 160);
@@ -182,7 +183,7 @@ public class Game{
 					        SwingUtilities.invokeLater(new Runnable() {
 					          public void run() {
 					        	  	drive.remove(info);
-									info = new InfoPanel(getPlayers(),new Store(getDifficulty(),getTown()));
+									info = new InfoPanel(getPlayers(),store);
 									info.setBounds(0,531, 900, 130);
 									info.repaint();
 									drive.add(info);

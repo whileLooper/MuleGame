@@ -225,12 +225,25 @@ public class Player implements Comparable{
 		food = food + amount;
 	}
 	
+	public void deductFood(int amount) {
+		food = food - amount;
+		if (food < 0) {
+			food = 0;
+		}
+	}
 	/**
 	 * add energy to the current energy
 	 * @param amount of energy need to be added
 	 */
 	public void addEnergy(int amount){
 		energy = energy + amount;
+	}
+	
+	public void deductEnergy(int amount) {
+		energy = energy - amount;
+		if (energy < 0) {
+			energy = 0;
+		}
 	}
 	
 	/**

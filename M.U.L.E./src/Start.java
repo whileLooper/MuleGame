@@ -276,8 +276,7 @@ public class Start extends JPanel implements ActionListener {
 		comboBox_2.setBackground(new Color(176, 224, 230));
 		comboBox_2.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		comboBox_2.setBounds(385, 417, 170, 38);
-		comboBox_2
-				.setModel(new DefaultComboBoxModel(new Integer[] { 2, 3, 4 }));
+		comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] { 2, 3, 4 }));
 		add(comboBox_2);
 		
 		JButton btnPrevious = new JButton("Previous");

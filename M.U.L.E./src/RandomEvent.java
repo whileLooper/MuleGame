@@ -80,7 +80,7 @@ public class RandomEvent {
 					p.deduceMoney(4*factor);
 				}
 				else if (eventSelection == 6) {
-					p.addFood(p.getFood()/2*-1);
+					p.deductFood(p.getFood()/2);
 				}
 				else if (eventSelection == 7) {
 					p.deduceMoney(6*factor);
@@ -118,7 +118,7 @@ public class RandomEvent {
 			else if (rand2 == 3) {
 				System.out.println(events[2]);
 				for (int i = 0; i < p.length; i++) {
-					p[i].addEnergy((int)(-p[i].getEnergy()*0.5));
+					p[i].deductEnergy((int)(p[i].getEnergy()*0.5));
 				}
 			}
 			else if (rand2 == 4) {
