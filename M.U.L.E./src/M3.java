@@ -26,6 +26,7 @@ public class M3 extends Tile {
 	public void setCrystite(boolean res){
 		mine = res;
 		if (mine) {
+			
 			image = new ImageIcon("Image/tileImages/M3mining.png");
 		}
 		else {
