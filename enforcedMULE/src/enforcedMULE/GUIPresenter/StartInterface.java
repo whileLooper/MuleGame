@@ -22,14 +22,27 @@ public interface StartInterface {
 	
 	/**
 	 * getting the game information from start memu
-	 * @return
+	 * @return	the starting game information
 	 */
 	public String[] getGameInfo();
 	
-	public void newPlayer(int playerNum);
+	/**
+	 * display second player start memu
+	 * @param playerNum number of players
+	 */
+	public void newPlayerMemu(int playerNum);
 	
-	public PlayerModel getPlayerInfo();
+	/**
+	 * getting the players information from view
+	 * such as player name, race, color
+	 * @return	player presenter information
+	 */
+	public PlayerPresenter getPlayerInfo();
 	
+	/**
+	 * adding a listner to handle all the events in GUI 
+	 * @param mouselistener
+	 */
 	public void addListener(MouseListener mouselistener);
 	
 }
