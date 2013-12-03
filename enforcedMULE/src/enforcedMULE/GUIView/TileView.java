@@ -1,9 +1,10 @@
-package enforecedMULE.GUIView;
+package enforcedMULE.GUIView;
 
 import java.awt.Color;
 import java.awt.event.MouseListener;
 import javax.swing.JComponent;
-import enforecedMULE.GUIPresenter.TileInterface;
+
+import enforcedMULE.GUIPresenter.TileInterface;
 
 public class TileView extends JComponent implements TileInterface{
 

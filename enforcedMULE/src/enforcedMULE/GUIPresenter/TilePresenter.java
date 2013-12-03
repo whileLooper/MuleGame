@@ -1,6 +1,6 @@
-package enforecedMULE.GUIPresenter;
+package enforcedMULE.GUIPresenter;
 
-import enforecedMULE.GUIModel.TileModel;
+import enforcedMULE.GUIModel.TileModel;
 
 public class TilePresenter {
 

@@ -1,4 +1,4 @@
-package enforecedMULE.GUIPresenter;
+package enforcedMULE.GUIPresenter;
 
 import java.awt.Color;
 import java.awt.event.MouseListener;

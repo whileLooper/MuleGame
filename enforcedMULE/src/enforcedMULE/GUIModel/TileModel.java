@@ -1,4 +1,4 @@
-package enforecedMULE.GUIModel;
+package enforcedMULE.GUIModel;
 
 public class TileModel {
 

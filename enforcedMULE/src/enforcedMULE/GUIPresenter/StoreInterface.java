@@ -1,4 +1,4 @@
-package enforecedMULE.GUIPresenter;
+package enforcedMULE.GUIPresenter;
 
 public interface StoreInterface {
 
