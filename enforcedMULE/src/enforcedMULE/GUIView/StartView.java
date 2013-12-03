@@ -21,7 +21,7 @@ public class StartView extends JPanel implements StartInterface{
 	}
 
 	@Override
-	public void newPlayer() {
+	public void newPlayer(int playerNum) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -43,5 +43,7 @@ public class StartView extends JPanel implements StartInterface{
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
