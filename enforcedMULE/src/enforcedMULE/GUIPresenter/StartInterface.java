@@ -1,6 +1,8 @@
 package enforcedMULE.GUIPresenter;
 
+import java.awt.Graphics;
 import java.awt.event.MouseListener;
+
 import enforcedMULE.GUIModel.PlayerModel;
 
 /**
@@ -16,21 +18,21 @@ public interface StartInterface {
 	public void start();
 	
 	/**
-	 * create a new game memu
+	 * create a new game menu
 	 */
 	public void newGame();
 	
 	/**
-	 * getting the game information from start memu
+	 * getting the game information from start menu
 	 * @return	the starting game information
 	 */
 	public String[] getGameInfo();
 	
 	/**
-	 * display second player start memu
+	 * display second player start menu
 	 * @param playerNum number of players
 	 */
-	public void newPlayerMemu(int playerNum);
+	public void newPlayerMenu(int playerNum);
 	
 	/**
 	 * getting the players information from view
@@ -40,9 +42,15 @@ public interface StartInterface {
 	public PlayerPresenter getPlayerInfo();
 	
 	/**
-	 * adding a listner to handle all the events in GUI 
+	 * adding a listener to handle all the events in GUI 
 	 * @param mouselistener
 	 */
 	public void addListener(MouseListener mouselistener);
 	
+	/**
+	 * paint component method for painting 
+	 * @param page the graphics
+	 */
+	public void paintComponent(Graphics page);
+
 }

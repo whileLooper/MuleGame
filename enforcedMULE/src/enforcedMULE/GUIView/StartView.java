@@ -3,36 +3,54 @@ package enforcedMULE.GUIView;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import enforcedMULE.GUIModel.PlayerModel;
 import enforcedMULE.GUIPresenter.PlayerPresenter;
 import enforcedMULE.GUIPresenter.StartInterface;
 
-public class StartView extends JPanel implements StartInterface{
+public class StartView extends JPanel implements StartInterface, ActionListener{
 
+	//variables that control the graph drawing and animation presenting.
 	private int showMap = 0;
 	private boolean showRace = false;
 	private boolean moveAction = true;
 	private boolean moveAction2 = true;
 	private int moveAction3 = 0;
+	private Timer t;
+	private int speed = 10;
+	private int xCoor = 40;
+	
+	
+	private JComboBox raceBox;
+	private JComboBox colorBox;
 	
 	public StartView(){
 		setPreferredSize(new Dimension(910, 688));
 		setVisible(true);
 		newGame();
-		start();
+		//newPlayerMemu(2);
+		t = new Timer(100, this);
+		t.setInitialDelay(1500);
+		t.start();
+		
+		
 		
 	}
 	
 	
 	@Override
 	public void newGame() {
-		// TODO Auto-generated method stub
 		
 		showMap = 0;
 		removeAll();
@@ -63,6 +81,24 @@ public class StartView extends JPanel implements StartInterface{
 	
 		
 	}
+	public void actionPerformed(ActionEvent e) {
+
+		if (xCoor > 1400) {
+			xCoor = 1400;
+			speed = -10;
+			// t.stop();
+			// t.start();
+			moveAction = false;
+		}
+		if (xCoor < 0) {
+			xCoor = 0;
+			speed = 10;
+			moveAction = true;
+
+		}
+		xCoor = xCoor + speed;
+		repaint();
+	}
 
 	@Override
 	public String[] getGameInfo() {
@@ -71,7 +107,7 @@ public class StartView extends JPanel implements StartInterface{
 	}
 
 	@Override
-	public void newPlayerMemu (int playerNum) {
+	public void newPlayerMenu (int playerNum) {
 		// TODO Auto-generated method stub
 	
 		showMap = 0;
@@ -115,14 +151,14 @@ public class StartView extends JPanel implements StartInterface{
 		// add(textField);
 		// textField.setColumns(10);
 
-		final JTextField textField_1 = new JTextField();
-		textField_1.setBackground(new Color(176, 224, 230));
-		textField_1.setFont(new Font("Euphemia", Font.PLAIN, 16));
-		textField_1.setBounds(441, 291, 149, 40);
-		add(textField_1);
-		textField_1.setColumns(10);
+		final JTextField nameTextField = new JTextField();
+		nameTextField.setBackground(new Color(176, 224, 230));
+		nameTextField.setFont(new Font("Euphemia", Font.PLAIN, 16));
+		nameTextField.setBounds(441, 291, 149, 40);
+		add(nameTextField);
+		nameTextField.setColumns(10);
 
-		final JComboBox raceBox = new JComboBox();
+		raceBox = new JComboBox();
 		raceBox.setBackground(new Color(176, 224, 230));
 		raceBox.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		raceBox.setModel(new DefaultComboBoxModel(new String[] { "Human",
@@ -130,7 +166,7 @@ public class StartView extends JPanel implements StartInterface{
 		raceBox.setBounds(441, 347, 149, 31);
 		add(raceBox);
 
-		final JComboBox colorBox = new JComboBox();
+		colorBox = new JComboBox();
 		colorBox.setBackground(new Color(176, 224, 230));
 		colorBox.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		colorBox.setModel(new DefaultComboBoxModel(new String[] { "Red",
@@ -210,7 +246,6 @@ public class StartView extends JPanel implements StartInterface{
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
 		showMap = 1;
 		removeAll();
 		setLayout(null);
@@ -268,20 +303,20 @@ public class StartView extends JPanel implements StartInterface{
 		lblOfPlayers.setBounds(260, 467, 98, 22);
 		add(lblOfPlayers);
 
-		final JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Euphemia", Font.PLAIN, 16));
-		comboBox.setBackground(new Color(176, 224, 230));
-		comboBox.setBounds(385, 466, 170, 38);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Beginner",
+		final JComboBox difficultyBox = new JComboBox();
+		difficultyBox.setFont(new Font("Euphemia", Font.PLAIN, 16));
+		difficultyBox.setBackground(new Color(176, 224, 230));
+		difficultyBox.setBounds(385, 466, 170, 38);
+		difficultyBox.setModel(new DefaultComboBoxModel(new String[] { "Beginner",
 				"Standard", "Tournament" }));
-		add(comboBox);
+		add(difficultyBox);
 
-		final JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBackground(new Color(176, 224, 230));
-		comboBox_2.setFont(new Font("Euphemia", Font.PLAIN, 16));
-		comboBox_2.setBounds(385, 417, 170, 38);
-		comboBox_2.setModel(new DefaultComboBoxModel(new Integer[] { 2, 3, 4 }));
-		add(comboBox_2);
+		final JComboBox playerNumBox = new JComboBox();
+		playerNumBox.setBackground(new Color(176, 224, 230));
+		playerNumBox.setFont(new Font("Euphemia", Font.PLAIN, 16));
+		playerNumBox.setBounds(385, 417, 170, 38);
+		playerNumBox.setModel(new DefaultComboBoxModel(new Integer[] { 2, 3, 4 }));
+		add(playerNumBox);
 		
 		JButton btnPrevious = new JButton("Previous");
 		btnPrevious.setFont(new Font("Euphemia", Font.PLAIN, 16));
@@ -317,7 +352,7 @@ public class StartView extends JPanel implements StartInterface{
 		
 	}
 
-
+	@Override
 	public void paintComponent(Graphics page) {
 
 		int row = 500;
@@ -400,8 +435,8 @@ public class StartView extends JPanel implements StartInterface{
 			if (showRace) {
 				page.setColor(Color.WHITE);
 				page.fillRect(92, 300, 85, 120);
-				String sColor = (String) comboBox_1.getSelectedItem();
-				String s = (String) comboBox.getSelectedItem();
+				String sColor = (String) colorBox.getSelectedItem();
+				String s = (String) raceBox.getSelectedItem();
 				if(sColor.equalsIgnoreCase("red")){
 					page.setColor(Color.RED);
 					page.drawRect(91, 299, 86, 121);
@@ -553,7 +588,6 @@ public class StartView extends JPanel implements StartInterface{
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
