@@ -37,4 +37,10 @@ public class StartView implements StartInterface{
 		
 	}
 
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

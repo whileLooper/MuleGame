@@ -5,6 +5,8 @@ import enforcedMULE.GUIModel.PlayerModel;
 
 public interface StartInterface {
 	
+	public void start();
+	
 	public void newGame();
 	
 	public String[] getGameInfo();
