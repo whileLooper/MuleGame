@@ -2,10 +2,11 @@ package enforcedMULE.GUIView;
 
 import java.awt.event.MouseListener;
 
+import javax.swing.JPanel;
 import enforcedMULE.GUIModel.PlayerModel;
 import enforcedMULE.GUIPresenter.StartInterface;
 
-public class StartView implements StartInterface{
+public class StartView extends JPanel implements StartInterface{
 
 	@Override
 	public void newGame() {
