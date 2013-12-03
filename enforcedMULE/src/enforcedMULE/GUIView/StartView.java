@@ -4,6 +4,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 import enforcedMULE.GUIModel.PlayerModel;
+import enforcedMULE.GUIPresenter.PlayerPresenter;
 import enforcedMULE.GUIPresenter.StartInterface;
 
 public class StartView extends JPanel implements StartInterface{
@@ -21,13 +22,13 @@ public class StartView extends JPanel implements StartInterface{
 	}
 
 	@Override
-	public void newPlayer(int playerNum) {
+	public void newPlayerMemu (int playerNum) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public PlayerModel getPlayerInfo() {
+	public PlayerPresenter getPlayerInfo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
