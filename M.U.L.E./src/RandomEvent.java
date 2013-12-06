@@ -59,7 +59,7 @@ public class RandomEvent {
 			}else{
 				eventSelection = gen.nextInt(7)+1;
 			}
-			System.out.println(events[eventSelection]);
+			//System.out.println(events[eventSelection]);
 			System.out.println("eventSelection: " + eventSelection);
 			if (eventSelection == 1) {
 				p.addFood(3);
