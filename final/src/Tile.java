@@ -110,17 +110,66 @@ public class Tile extends JLabel{
 		mule = m;
 	}
 	
+	/***
+	 *  Strategy patterns 
+	 *  choose one of those products method during the run time
+	 *
+	 */
+	interface Strategy {
+		int products();
+	}
+	class productsFood implements Strategy{
+
+		@Override
+		public int products() {
+			return food;
+			}
+		
+	}
+	class productsEnergy implements Strategy{
+		@Override
+		public int products() {
+			return energy;
+			}
+	}
+	class productsOre implements Strategy{
+		@Override
+		public int products() {
+			return ore;
+			}
+	}
+	class productsCrystite implements Strategy{
+		@Override
+		public int products() {
+			return crystite;
+			}
+	}
+	
+	
 	/**
 	 * This method used to get the resource the mule can product on the tile
 	 * @param resource is the kind of resource to product
 	 * @return the number of units of the resource can be produced
 	 */
 	public int products(String resource){
+		/** Strategy patterns  **/
+		Strategy s;
 		switch(resource){
-		case "Food": return food;
-		case "Energy": return energy;
-		case "Ore": return ore;
-		case "Crystite": return crystite;
+	
+		case "Food": 
+			s = new productsFood();
+			return s.products();
+			
+		case "Energy":
+			s = new productsEnergy();
+			return s.products();
+			
+		case "Ore":
+			s = new productsOre();
+			return s.products();
+		case "Crystite": 
+			s = new productsCrystite();
+			return s.products();
 		default: return 0;
 		}
 	}
