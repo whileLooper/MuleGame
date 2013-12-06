@@ -66,6 +66,9 @@ public class Game{
 		start = new Start(this);
 		start.setBounds(0, 0, 900, 688);
 		drive.add(start);
+		MP3 mp3 = MP3Singleton.getInstance();
+		mp3.setPiece("CS.mp3");
+		mp3.play();
 
 	}
 	
@@ -160,7 +163,7 @@ public class Game{
 		currentPlayer = 0;
 		numOfTurn = 0;
 		gState = GameState.LandGrant;
-		store = new Store(getDifficulty(), getTown());
+		store = town.getStore();
 		info = new InfoPanel(getPlayers(),store);
 		timerBar = new TimerBar();
 		timerBar.setBounds(0, 501, 900, 30);
@@ -168,6 +171,8 @@ public class Game{
 		drive.add(timerBar);
 		drive.add(info);		
 		changeDisplay(start, map);
+		MP3 mp3 = MP3Singleton.getInstance();
+		mp3.changeMusic("JNYW.mp3");
 		refreshInfo();
 	}
 	
@@ -425,6 +430,8 @@ public class Game{
 		getDirection();
 		changeDisplay(map, town);
 		playerInTown = true;
+		//MP3 mp3 = MP3Singleton.getInstance();
+		//mp3.changeMusic("JY.mp3");
 	}
 	
 	/**
@@ -433,6 +440,8 @@ public class Game{
 	public void playerLeaveTown(){
 		changeDisplay(town, map);
 		playerInTown = false;
+		//MP3 mp3 = MP3Singleton.getInstance();
+		//mp3.changeMusic("JNYW.mp3");
 	}
 	
 	/**
