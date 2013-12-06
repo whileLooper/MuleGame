@@ -207,12 +207,7 @@ public class Game{
 	 * @param min the min value for the progress bar
 	 */
 	public void countDown(final int max, final int min){
-		//drive.remove(timerBar);
-		//timerBar = new TimerBar();
-		//timerBar.setBounds(0, 501, 900, 30);
-		//drive.add(timerBar);
-		//timerBar.pbar = new JProgressBar();
-		//timerBar.add(new JProgressBar());
+
 		time2 = null;
 
 		timerBar.pbar.setBackground(new Color(50, 205, 50));
@@ -232,8 +227,7 @@ public class Game{
 					          public void run() {
 					        	  timerBar.pbar.setValue(percent);
 					        	  timerBar.pbar.setString(timeLeft + " Seconds Left In Round " +( numOfTurn + 1));
-					        	  //timerBar.repaint();
-					        	  drive.revalidate();
+					        	  timerBar.repaint();					        	  
 					          }
 					        });
 					        java.lang.Thread.sleep(1000);
