@@ -74,13 +74,13 @@ public class Store extends JPanel {
 		JButton btnBuyMule = new JButton("Buy Mule");
 		btnBuyMule.setBackground(new Color(176, 224, 230));
 		btnBuyMule.setFont(new Font("Euphemia", Font.PLAIN, 14));
-		btnBuyMule.setBounds(335, 105, 170, 29);
+		btnBuyMule.setBounds(359, 120, 170, 29);
 		add(btnBuyMule);
 
 		JButton btnBuysellResource = new JButton("Buy/Sell Resource");
 		btnBuysellResource.setBackground(new Color(176, 224, 230));
 		btnBuysellResource.setFont(new Font("Euphemia", Font.PLAIN, 14));
-		btnBuysellResource.setBounds(335, 169, 170, 29);
+		btnBuysellResource.setBounds(359, 184, 170, 29);
 		add(btnBuysellResource);
 
 		btnBuyMule.addMouseListener(new MouseAdapter() {
@@ -188,31 +188,31 @@ public class Store extends JPanel {
 		JButton btnFood = new JButton("Food");
 		btnFood.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnFood.setBackground(new Color(176, 224, 230));
-		btnFood.setBounds(266, 138, 89, 23);
+		btnFood.setBounds(305, 136, 89, 23);
 		add(btnFood);
 		
 		JButton btnEnergy = new JButton("Energy");
 		btnEnergy.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnEnergy.setBackground(new Color(176, 224, 230));
-		btnEnergy.setBounds(266, 181, 89, 23);
+		btnEnergy.setBounds(305, 179, 89, 23);
 		add(btnEnergy);
 		
 		JButton btnSmithore = new JButton("Smithore");
 		btnSmithore.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnSmithore.setBackground(new Color(176, 224, 230));
-		btnSmithore.setBounds(266, 229, 89, 23);
+		btnSmithore.setBounds(305, 227, 89, 23);
 		add(btnSmithore);
 		
 		JButton btnCrystite = new JButton("Crystite");
 		btnCrystite.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnCrystite.setBackground(new Color(176, 224, 230));
-		btnCrystite.setBounds(266, 273, 89, 23);
+		btnCrystite.setBounds(305, 271, 89, 23);
 		add(btnCrystite);
 		
 		JButton button = new JButton("+");
 		button.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		button.setBackground(new Color(176, 224, 230));
-		button.setBounds(430, 138, 52, 32);
+		button.setBounds(469, 136, 52, 32);
 		add(button);
 		button.addMouseListener(new MouseAdapter(){
 			@Override
@@ -232,13 +232,13 @@ public class Store extends JPanel {
 			}
 			
 		});
-		btnNewButton_1.setBounds(481, 138, 52, 32);
+		btnNewButton_1.setBounds(520, 136, 52, 32);
 		add(btnNewButton_1);
 		
 		JButton button_1 = new JButton("+");
 		button_1.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		button_1.setBackground(new Color(176, 224, 230));
-		button_1.setBounds(430, 181, 52, 29);
+		button_1.setBounds(469, 179, 52, 29);
 		add(button_1);
 		button_1.addMouseListener(new MouseAdapter(){
 			@Override
@@ -251,7 +251,7 @@ public class Store extends JPanel {
 		JButton button_2 = new JButton("-");
 		button_2.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		button_2.setBackground(new Color(176, 224, 230));
-		button_2.setBounds(481, 181, 52, 29);
+		button_2.setBounds(520, 179, 52, 29);
 		add(button_2);
 		button_2.addMouseListener(new MouseAdapter(){
 			@Override
@@ -264,7 +264,7 @@ public class Store extends JPanel {
 		JButton button_3 = new JButton("+");
 		button_3.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		button_3.setBackground(new Color(176, 224, 230));
-		button_3.setBounds(430, 229, 52, 29);
+		button_3.setBounds(469, 227, 52, 29);
 		add(button_3);
 		button_3.addMouseListener(new MouseAdapter(){
 			@Override
@@ -277,7 +277,7 @@ public class Store extends JPanel {
 		JButton button_4 = new JButton("-");
 		button_4.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		button_4.setBackground(new Color(176, 224, 230));
-		button_4.setBounds(481, 229, 52, 29);
+		button_4.setBounds(520, 227, 52, 29);
 		add(button_4);
 		button_4.addMouseListener(new MouseAdapter(){
 			@Override
@@ -297,13 +297,13 @@ public class Store extends JPanel {
 			}
 			
 		});
-		button_5.setBounds(430, 273, 52, 29);
+		button_5.setBounds(469, 271, 52, 29);
 		add(button_5);
 		
 		JButton btnNewButton_2 = new JButton("-");
 		btnNewButton_2.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnNewButton_2.setBackground(new Color(176, 224, 230));
-		btnNewButton_2.setBounds(481, 273, 52, 29);
+		btnNewButton_2.setBounds(520, 271, 52, 29);
 		add(btnNewButton_2);
 		btnNewButton_2.addMouseListener(new MouseAdapter(){
 			@Override
@@ -316,37 +316,37 @@ public class Store extends JPanel {
 		JLabel lblNewLabel = new JLabel("" + FOOD_PRICE);
 		lblNewLabel.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		lblNewLabel.setBackground(new Color(176, 224, 230));
-		lblNewLabel.setBounds(365, 142, 46, 14);
+		lblNewLabel.setBounds(404, 140, 46, 14);
 		add(lblNewLabel);
 		
 		JLabel lblE = new JLabel("" + ENERGY_PRICE);
 		lblE.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		lblE.setBackground(new Color(176, 224, 230));
-		lblE.setBounds(365, 185, 46, 14);
+		lblE.setBounds(404, 183, 46, 14);
 		add(lblE);
 		
 		JLabel lblSm = new JLabel("" + SMITHORE_PRICE);
 		lblSm.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		lblSm.setBackground(new Color(176, 224, 230));
-		lblSm.setBounds(365, 233, 46, 14);
+		lblSm.setBounds(404, 231, 46, 14);
 		add(lblSm);
 		
 		JLabel lblCr = new JLabel("" + CRYSTITE_PRICE);
 		lblCr.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		lblCr.setBackground(new Color(176, 224, 230));
-		lblCr.setBounds(365, 277, 46, 14);
+		lblCr.setBounds(404, 275, 46, 14);
 		add(lblCr);
 		
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setFont(new Font("Euphemia", Font.PLAIN, 16));
 		lblPrice.setBackground(new Color(176, 224, 230));
-		lblPrice.setBounds(365, 102, 46, 29);
+		lblPrice.setBounds(404, 100, 46, 29);
 		add(lblPrice);
 		
 		JButton btnDone = new JButton("Done");
 		btnDone.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnDone.setBackground(new Color(176, 224, 230));
-		btnDone.setBounds(525, 359, 89, 23);
+		btnDone.setBounds(564, 357, 89, 23);
 		btnDone.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -367,7 +367,7 @@ public class Store extends JPanel {
 				undoAll();
 			}
 		});
-		btnCancelAll.setBounds(210, 323, 122, 29);
+		btnCancelAll.setBounds(249, 321, 122, 29);
 		add(btnCancelAll);
 		
 		JButton btnCancelLast = new JButton("Cancel Last");
@@ -378,7 +378,7 @@ public class Store extends JPanel {
 				undoLastOne();
 			}
 		});
-		btnCancelLast.setBounds(210, 356, 122, 29);
+		btnCancelLast.setBounds(249, 354, 122, 29);
 		add(btnCancelLast);
 		validate();
 		repaint();
@@ -407,13 +407,13 @@ public class Store extends JPanel {
 		JLabel lblDoYouNeed = new JLabel("Do you need anything else?");
 		lblDoYouNeed.setBackground(new Color(176, 224, 230));
 		lblDoYouNeed.setFont(new Font("Euphemia", Font.PLAIN, 14));
-		lblDoYouNeed.setBounds(305, 182, 188, 20);
+		lblDoYouNeed.setBounds(358, 183, 188, 20);
 		add(lblDoYouNeed);
 		
 		JButton btnYes = new JButton("Yes");
 		btnYes.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnYes.setBackground(new Color(176, 224, 230));
-		btnYes.setBounds(305, 229, 79, 29);
+		btnYes.setBounds(358, 230, 79, 29);
 		btnYes.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -426,7 +426,7 @@ public class Store extends JPanel {
 		JButton btnNo = new JButton("No");
 		btnNo.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		btnNo.setBackground(new Color(176, 224, 230));
-		btnNo.setBounds(394, 229, 79, 29);
+		btnNo.setBounds(447, 230, 79, 29);
 		btnNo.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
