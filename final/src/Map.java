@@ -242,6 +242,7 @@ public class Map extends JPanel{
 	 * This method overrides the one in superclass to draw player
 	 */
 	protected void paintChildren(Graphics g) {
+		this.requestFocusInWindow();
         super.paintChildren(g);
         if(game.isPlayerTurn()){
         	game.getCurrentPlayer().drawOnMap(g);

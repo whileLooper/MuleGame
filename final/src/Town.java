@@ -140,6 +140,7 @@ public class Town extends JPanel{
 	 * This method overrides its superclass'
 	 */
 	protected void paintComponent(Graphics g){
+		this.requestFocusInWindow();
 		super.paintComponent(g);
 		g.drawImage((new ImageIcon("townp.png")).getImage(), 0,0, 500, 300, null);
 		if(!playerInStore){
