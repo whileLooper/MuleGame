@@ -639,6 +639,14 @@ public class Game{
 		if(playerInTown){
 			changeDisplay(map, town);
 		}
+		store = town.getStore();
+		info = new InfoPanel(getPlayers(),store);
+		timerBar = new TimerBar();
+		timerBar.setBounds(0, 501, 900, 30);
+		info.setBounds(0,531, 900, 160);
+		drive.add(timerBar);
+		drive.add(info);
+		refreshInfo();
 		GameStart();
 	}
 	
