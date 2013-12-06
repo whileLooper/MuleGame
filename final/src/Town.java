@@ -97,6 +97,8 @@ public class Town extends JPanel{
 		add(store);
 		revalidate();
 		repaint();
+		//MP3 mp3 = MP3Singleton.getInstance();
+		//mp3.changeMusic("MM.mp3");
 		playerInStore = true;
 		store.playerEnterStore(game.getCurrentPlayer());
 	}
@@ -108,7 +110,10 @@ public class Town extends JPanel{
 		remove(store);
 		revalidate();
 		repaint();
+		//MP3 mp3 = MP3Singleton.getInstance();
+		//mp3.changeMusic("JY.mp3");
 		playerInStore = false;
+		
 	}
 	
 	/**
