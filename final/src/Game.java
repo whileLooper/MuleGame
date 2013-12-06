@@ -29,15 +29,15 @@ public class Game{
 	
 
 	private JFrame drive;
-	private Start start;
-	private Map map;
+	private transient Start start;
+	private transient Map map;
 	private Player[] playersList;
 	private GameState gState;
 	private TurnState tState;
-	private InfoPanel info; 
-	private TimerBar timerBar;
+	private transient InfoPanel info; 
+	private transient TimerBar timerBar;
 	private String difficulty;
-	private Store store;
+	private transient Store store;
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -49,8 +49,8 @@ public class Game{
 	
 	private int turnTime ;
 	private Thread time;
-	private Thread time2;
-	private Town town;
+	private transient Thread time2;
+	private transient Town town;
 	
 	private boolean playerInTown = false;
 	private boolean isReload = false;
