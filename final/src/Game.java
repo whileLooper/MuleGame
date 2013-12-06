@@ -29,15 +29,15 @@ public class Game{
 	
 
 	private JFrame drive;
-	private transient Start start;
-	private transient Map map;
+	private Start start;
+	private Map map;
 	private Player[] playersList;
 	private GameState gState;
 	private TurnState tState;
-	private transient InfoPanel info; 
-	private transient TimerBar timerBar;
+	private InfoPanel info; 
+	private TimerBar timerBar;
 	private String difficulty;
-	private transient Store store;
+	private Store store;
 	
 	private int currentPlayer;
 	private int numOfTurn;
@@ -49,8 +49,8 @@ public class Game{
 	
 	private int turnTime ;
 	private Thread time;
-	private transient Thread time2;
-	private transient Town town;
+	private Thread time2;
+	private Town town;
 	
 	private boolean playerInTown = false;
 	private boolean isReload = false;
@@ -570,7 +570,9 @@ public class Game{
 		String toload = null;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("record.txt"));
-			toload = reader.readLine();
+			//toload = reader.readLine();
+			Database.connectDatabase("root", "");
+			toload = Database.getStringDatabase();
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

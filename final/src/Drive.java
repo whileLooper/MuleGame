@@ -69,6 +69,8 @@ public class Drive extends JFrame{
 				Gson gson = new Gson();
 				InfoStore store = game.stop();
 				String tostore = gson.toJson(store);
+				Database.connectDatabase("root", "");
+				Database.addToDatabase(tostore);
 				FileWriter writer;
 				try {
 					writer = new FileWriter("record.txt");
