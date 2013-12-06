@@ -198,7 +198,7 @@ public class Map extends JPanel{
 		Tile tile;
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 9; j++) {
-				int rand = gen.nextInt(4);
+				int rand = gen.nextInt(6);
 				if (i == 2 && j == 4) {
 					tile = new TownT(new Point(i, j));
 					tiles[i][j] = tile;
@@ -212,7 +212,7 @@ public class Map extends JPanel{
 
 					River += 1;
 				} else {
-					if (rand == 1) {
+					if (rand == 0 || rand ==1 || rand ==5) {
 						tile = new Plain(new Point(i, j));
 						tiles[i][j] = tile;
 						add(tile);
@@ -227,7 +227,7 @@ public class Map extends JPanel{
 						tiles[i][j] = tile;
 						add(tile);
 						M2Count += 1;
-					} else if (rand == 0) {
+					} else if (rand == 4) {
 						tile = new M3(new Point(i, j));
 						tiles[i][j] = tile;
 						add(tile);
@@ -235,11 +235,12 @@ public class Map extends JPanel{
 					}
 				
 				
-				//System.out.println(Plain + " " + M1Count + " " + M2Count + " " + M3Count + " " + River);
+				
 			}
 			
 			}
 		}
+		System.out.println("Random Map: Plain: "+ Plain + " Mountain1: " + M1Count + " Mountain2: " + M2Count + " Mountain3: " + M3Count + " River: " + River);
 	}
 	
 	/**
