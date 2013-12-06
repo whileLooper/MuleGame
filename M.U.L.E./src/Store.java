@@ -7,9 +7,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.*;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 /**
  * Store.java
@@ -41,7 +44,10 @@ public class Store extends JPanel {
 		setPreferredSize(new Dimension(500, 300));
 		setVisible(true);
 		setOpaque(false);
-		town = t;
+		this.setFocusable(true);
+		this.town = t;
+	
+		
 		if (difficulty == "Beginner") {
 			Food = 16;
 			Energy = 16;
@@ -349,7 +355,7 @@ public class Store extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				removeAll();
-				window1();
+				//window1();
 				town.playerOutStore();
 				validate();
 				repaint();

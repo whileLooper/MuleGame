@@ -2,11 +2,17 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * Town.java
@@ -29,28 +35,37 @@ public class Town extends JPanel{
 	 * @param g is the game
 	 */
 	public Town(Game g){
+		
+		
+		
+		this.setRequestFocusEnabled(true);
+		this.setFocusable(true);
+	
 		addKeyListener(new KeyAdapter() {
+		
 			@Override
 			public void keyPressed(KeyEvent e) {
+			//	System.out.print(".........");
+				requestFocusInWindow(true);
 				Player player= game.getCurrentPlayer();
 				Point p = player.getTownLocation();
 				int x = p.x;
 				int y = p.y;
 				int key = e.getKeyCode();
 				switch(key){
-				case KeyEvent.VK_DOWN:{
+				case KeyEvent.VK_S:{
 					y += 10;
 					break;
 				}
-				case KeyEvent.VK_UP:{
+				case KeyEvent.VK_W:{
 					y -= 10;
 					break;
 				}
-				case KeyEvent.VK_RIGHT:{
+				case KeyEvent.VK_D:{
 					x += 10;
 					break;
 				}
-				case KeyEvent.VK_LEFT:{
+				case KeyEvent.VK_A:{
 					x -= 10;
 					break;
 				}
@@ -96,6 +111,7 @@ public class Town extends JPanel{
 		add(store);
 		revalidate();
 		repaint();
+		this.requestFocusInWindow();
 		playerInStore = true;
 		store.playerEnterStore(game.getCurrentPlayer());
 	}
@@ -106,8 +122,9 @@ public class Town extends JPanel{
 	public void playerOutStore(){
 		remove(store);
 		revalidate();
-		repaint();
+		
 		playerInStore = false;
+		repaint();
 	}
 	
 	/**
@@ -140,6 +157,7 @@ public class Town extends JPanel{
 	 * This method overrides its superclass'
 	 */
 	protected void paintComponent(Graphics g){
+		this.requestFocusInWindow();
 		super.paintComponent(g);
 		g.drawImage((new ImageIcon("townp.png")).getImage(), 0,0, 500, 300, null);
 		if(!playerInStore){

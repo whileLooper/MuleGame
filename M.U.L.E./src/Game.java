@@ -66,6 +66,8 @@ public class Game{
 		start = new Start(this);
 		start.setBounds(0, 0, 900, 688);
 		drive.add(start);
+		drive.setAutoRequestFocus(true);
+		
 
 	}
 	

@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
@@ -51,6 +53,7 @@ public class Drive extends JFrame{
 		setSize(910,688);
 	    setVisible(true);
 	    setResizable(false);
+	    
 	    addWindowListener(new WindowClosed());
 	    
 	}

@@ -5,15 +5,20 @@ import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.Point;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Random;
 
@@ -34,8 +39,12 @@ public class Map extends JPanel{
 	 * @param g the current game.
 	 */
 	public Map(Game g, String mapType){
+		
 		game = g;
-		this.requestFocusInWindow();
+		this.setRequestFocusEnabled(true);
+		
+		this.setFocusable(true);
+
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -53,12 +62,16 @@ public class Map extends JPanel{
 			}
 		});
 		
-		this.requestFocusInWindow(true);
+	
+	
+		
+		
 		
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// System.out.println("Key pressed");
+				requestFocusInWindow();
 				if (game.isPlayerTurn()) {
 					Player player = game.getCurrentPlayer();
 					Point p = player.getMapLocation();
@@ -66,19 +79,19 @@ public class Map extends JPanel{
 					int y = p.y;
 					int key = e.getKeyCode();
 					switch (key) {
-					case KeyEvent.VK_DOWN: {
+					case KeyEvent.VK_S: {
 						y += 10;
 						break;
 					}
-					case KeyEvent.VK_UP: {
+					case KeyEvent.VK_W: {
 						y -= 10;
 						break;
 					}
-					case KeyEvent.VK_RIGHT: {
+					case KeyEvent.VK_D: {
 						x += 10;
 						break;
 					}
-					case KeyEvent.VK_LEFT: {
+					case KeyEvent.VK_A: {
 						x -= 10;
 						break;
 					}
@@ -242,6 +255,7 @@ public class Map extends JPanel{
 	 * This method overrides the one in superclass to draw player
 	 */
 	protected void paintChildren(Graphics g) {
+		this.requestFocusInWindow();
         super.paintChildren(g);
         if(game.isPlayerTurn()){
         	game.getCurrentPlayer().drawOnMap(g);
