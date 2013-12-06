@@ -147,7 +147,7 @@ public class RandomEvent {
 			for (int j = 0; j < 9; j++) {
 				if (p[i][j].getType() == "Mountains") {
 					int rand = new Random().nextInt(100);
-					if (rand >= 1 && rand <= 3) {
+					if (rand == 1) {
 						p[i][j].setCrystite(true);
 						//m.repaint();
 						//System.out.println("setCrystite");

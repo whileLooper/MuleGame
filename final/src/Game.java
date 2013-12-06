@@ -185,8 +185,8 @@ public class Game{
 					        	  	drive.remove(info);
 									info = new InfoPanel(getPlayers(),store);
 									info.setBounds(0,531, 900, 130);
-									info.repaint();
 									drive.add(info);
+									drive.revalidate();
 					          }
 					        });
 					        java.lang.Thread.sleep(100);
@@ -232,7 +232,8 @@ public class Game{
 					          public void run() {
 					        	  timerBar.pbar.setValue(percent);
 					        	  timerBar.pbar.setString(timeLeft + " Seconds Left In Round " +( numOfTurn + 1));
-					        	  timerBar.repaint();					        	  
+					        	  //timerBar.repaint();
+					        	  drive.revalidate();
 					          }
 					        });
 					        java.lang.Thread.sleep(1000);
