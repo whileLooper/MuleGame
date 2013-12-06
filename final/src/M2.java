@@ -26,10 +26,10 @@ public class M2 extends Tile {
 	public void setCrystite(boolean res){
 		mine = res;
 		if (mine) {
-			image = new ImageIcon("Image/tileImages/M2mining.png");
+			setImage(new ImageIcon("Image/tileImages/M2mining.png"));
 		}
 		else {
-			image = new ImageIcon("Image/tileImages/M2.png");
+			setImage(new ImageIcon("Image/tileImages/M2.png"));
 		}
 	}
 	

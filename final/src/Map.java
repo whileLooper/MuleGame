@@ -85,18 +85,17 @@ public class Map extends JPanel{
 					case KeyEvent.VK_SPACE: {
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.setMule(tile);
-						repaint();
+						//repaint();
+						break;
 					}
 					case KeyEvent.VK_C: {
 						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.crystiteMining(tile);
-						repaint();
-					}
-					case KeyEvent.VK_F: {
-						Tile tile = (Tile) getComponentAt(new Point(x, y));
 						player.riverFishing(tile);
-						repaint();
+						//repaint();
+						break;
 					}
+
 					default:
 					}
 

@@ -24,6 +24,12 @@ public class River extends Tile {
 	 */
 	public void setFish(boolean res){
 		fish = res;
+		if (fish) {
+			setImage(new ImageIcon("Image/tileImages/RiverFish.png"));
+		}
+		else {
+			setImage(new ImageIcon("Image/tileImages/River.png"));
+		}
 	}
 	
 	/**

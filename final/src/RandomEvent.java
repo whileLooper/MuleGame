@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 
 public class RandomEvent {
 	/**
@@ -140,16 +142,24 @@ public class RandomEvent {
 	}
 	
 	public static void randomCrystal(Map m) {
-		System.out.println("Random Crystal: 232323231124214123");
-			Tile[][] p = m.getMap();
-			for(int i = 0; i < 5; i ++){
-				for(int j = 0; j < 9; j++){
-					if (p[i][j].getType() == "Mountains") {
-						int rand = new Random().nextInt(100);
-						System.out.println("Random Crystal: " + rand);
-						if (rand >= 0 && rand <= 100) {
-							p[i][j].setCrystite(true);
-							System.out.println("setCrystite");
+		Tile[][] p = m.getMap();
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 9; j++) {
+				if (p[i][j].getType() == "Mountains") {
+					int rand = new Random().nextInt(100);
+					if (rand >= 1 && rand <= 3) {
+						p[i][j].setCrystite(true);
+						//m.repaint();
+						System.out.println("setCrystite");
+					}
+				}
+				if(p[i][j].getType() == "River") {
+					int rand = new Random().nextInt(100);
+					System.out.println("Random River: " + rand);
+					if (rand >= 1 && rand <= 10) {
+						p[i][j].setFish(true);
+						//m.repaint();
+						System.out.println("setFish");
 					}
 				}
 			}

@@ -196,6 +196,6 @@ public class Tile extends JLabel{
 	}
 	
 	public void setImage(ImageIcon i) {
-		image = i;
+		setIcon(i);
 	}
 }
