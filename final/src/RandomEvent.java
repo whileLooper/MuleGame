@@ -93,7 +93,7 @@ public class RandomEvent {
 		return p;
 	}
 	
-	public static Player[] randomWorldEvent(Player[] p) {
+	public static void randomWorldEvent(Player[] p) {
 		String[] events = {"SPACE PIRATES ARRIVED IN TOWN. EVERYONE LOSES 20% OF THEIR MONEY.",
 				"SANTA CLAUS IS HERE AND GIVES EVERYONE 3 FOOD AND 200 MONEY.",
 				"SNOW IS COMING. ENERGY DECREASES BY 50% FOR EVERYONE.",
@@ -102,7 +102,8 @@ public class RandomEvent {
 		
 		Random gen = new Random();
 		int rand = gen.nextInt(100);
-		if (rand >= 0 && rand <= 30) {
+		if (rand >= 0 && rand <= 10) {
+			System.out.println("world random event");
 			int rand2 = gen.nextInt(5)+1;
 			if (rand2 == 1) {
 				System.out.println(events[0]);
@@ -138,7 +139,6 @@ public class RandomEvent {
 			}
 			else {System.out.println("THIS SHOULD NOT APPEAR. ERROR.");}
 		}
-		return p;
 	}
 	
 	public static void randomCrystal(Map m) {
@@ -150,16 +150,15 @@ public class RandomEvent {
 					if (rand >= 1 && rand <= 3) {
 						p[i][j].setCrystite(true);
 						//m.repaint();
-						System.out.println("setCrystite");
+						//System.out.println("setCrystite");
 					}
 				}
 				if(p[i][j].getType() == "River") {
 					int rand = new Random().nextInt(100);
-					System.out.println("Random River: " + rand);
 					if (rand >= 1 && rand <= 10) {
 						p[i][j].setFish(true);
 						//m.repaint();
-						System.out.println("setFish");
+						//System.out.println("setFish");
 					}
 				}
 			}

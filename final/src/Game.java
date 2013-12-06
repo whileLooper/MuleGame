@@ -336,6 +336,8 @@ public class Game{
 	private void nextTurn(){
 		
 		numOfTurn ++;
+		RandomEvent.randomWorldEvent(playersList);
+
 		if(gState == GameState.LandGrant){
 			if(numOfTurn == 2) nextGameState();
 		}else if(gState == GameState.LandPurchase){
@@ -350,7 +352,6 @@ public class Game{
 				System.out.println("Next Turn");
 				System.out.println("Round number: " + numOfTurn);
 				harvest();
-				playersList = RandomEvent.randomWorldEvent(playersList);
 				
 			}
 		}
