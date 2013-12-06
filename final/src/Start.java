@@ -251,7 +251,7 @@ public class Start extends JPanel implements ActionListener {
 		
 		JLabel lblDifficulty = new JLabel("Difficulty");
 		lblDifficulty.setFont(new Font("Euphemia", Font.PLAIN, 16));
-		lblDifficulty.setBounds(276, 425, 61, 22);
+		lblDifficulty.setBounds(267, 474, 61, 22);
 		add(lblDifficulty);
 
 		JLabel lblMap = new JLabel("Map");
@@ -261,7 +261,7 @@ public class Start extends JPanel implements ActionListener {
 
 		JLabel lblOfPlayers = new JLabel("# of Players");
 		lblOfPlayers.setFont(new Font("Euphemia", Font.PLAIN, 16));
-		lblOfPlayers.setBounds(260, 467, 98, 22);
+		lblOfPlayers.setBounds(267, 425, 98, 22);
 		add(lblOfPlayers);
 
 		final JComboBox comboBox = new JComboBox();

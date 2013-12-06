@@ -444,13 +444,13 @@ public class Game{
 		int x = pOnM.x;
 		int y = pOnM.y;
 		if(y > 150 && y < 300 && x < 350){
-			player.setTownLocation(new Point(0, 125));
+			player.setTownLocation(new Point(201, 215));
 		}else if(x > 350 && x < 500 && y < 200){
-			player.setTownLocation(new Point(225, 0));
+			player.setTownLocation(new Point(420, 0));
 		}else if(y > 150 && y < 300 && x > 500){
-			player.setTownLocation(new Point(450, 125));
+			player.setTownLocation(new Point(650, 216));
 		}else{
-			player.setTownLocation(new Point(225, 250));
+			player.setTownLocation(new Point(415, 450));
 		}
 	}
 	
