@@ -57,23 +57,24 @@ public class Town extends JPanel{
 				default:
 				}
 				
-				if(x + 50 > 500 || x < 0 || y + 50 > 300 || y < 0){
+				if(x + 50 > 700 || x < 200 || y + 50 > 500 || y < 0){
 					System.out.println("Leave Town");
 					game.playerLeaveTown();
-				}else if((x >= 0 && x + 50 <= 500 && y >= 100 && y + 50 <= 200) || (x >= 200 && x + 50 <= 300 && y >= 0 && y + 50 <= 300)){
+				}else if((x >= 200 && x + 50 <= 700 && y >= 200 && y + 50 <= 300) //horizontal movement
+						|| (x >= 400 && x + 50 <= 500 && y >= 0 && y + 50 <= 500)){//vertical movement
 					player.setTownLocation(new Point(x, y));
 					repaint();
-				}else if(x > 310 && x + 50 < 490 && y < 100){
+				}else if(x > 500 && x + 50 < 700 && y < 200){
 					System.out.println("Enter Pub");
 					game.playerEnterPub();
-				}else if(x > 310 && x + 50 < 490 && y + 50 > 200){
+				}else if(x > 500 && x + 50 < 700 && y + 50 > 300){
 					playerEnterStore();
 				}
 			}
 		});
 		game = g;
 		setFocusable(true);
-		setPreferredSize(new Dimension(500, 300));
+		setPreferredSize(new Dimension(900, 500));
 		setVisible(true);
 		repaint();
 		store = new Store(game.getDifficulty(), this);
@@ -142,7 +143,7 @@ public class Town extends JPanel{
 	protected void paintComponent(Graphics g){
 		this.requestFocusInWindow();
 		super.paintComponent(g);
-		g.drawImage((new ImageIcon("townp.png")).getImage(), 0,0, 500, 300, null);
+		g.drawImage((new ImageIcon("Image/towna.png")).getImage(), 0,0, 900, 500, null);
 		if(!playerInStore){
 			game.getCurrentPlayer().drawOnTown(g);
 		}
