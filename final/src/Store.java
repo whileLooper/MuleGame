@@ -391,6 +391,8 @@ public class Store extends JPanel {
 	    setLayout(null);
 		
 		JLabel lblTrueFalse = new JLabel("");
+		lblTrueFalse.setBackground(new Color(176, 224, 230));
+		lblTrueFalse.setFont(new Font("Euphemia", Font.PLAIN, 14));
 		if(successDis == 1){
 			lblTrueFalse.setText("");
 			successDis =0;
@@ -401,7 +403,7 @@ public class Store extends JPanel {
 		}else if (!success){
 			lblTrueFalse.setText("Purchase Failed");
 		}
-		lblTrueFalse.setBounds(131, 71, 206, 28);
+		lblTrueFalse.setBounds(358, 105, 206, 28);
 		add(lblTrueFalse);
 		
 		JLabel lblDoYouNeed = new JLabel("Do you need anything else?");
@@ -686,6 +688,7 @@ public class Store extends JPanel {
 
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
+		
 		g.drawImage((new ImageIcon("Image/townb.png")).getImage(), 0,0, 900, 500, null);
 	}
 	

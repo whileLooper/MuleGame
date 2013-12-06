@@ -195,35 +195,49 @@ public class Map extends JPanel{
 		int M3Count = 0;
 		int River = 0;
 		int Plain = 0;
-		for(int i = 0; i < 5; i ++){
-			for(int j = 0; j < 9; j++){
-				int rand = gen.nextInt(5);
-			if (i == 2 && j == 4) {
-				add(new TownT(new Point(i,j)));
+		Tile tile;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 9; j++) {
+				int rand = gen.nextInt(4);
+				if (i == 2 && j == 4) {
+					tile = new TownT(new Point(i, j));
+					tiles[i][j] = tile;
+					add(tile);
+
+				} else if (i != 2 && j == 4) {
+
+					tile = new River(new Point(i, j));
+					tiles[i][j] = tile;
+					add(tile);
+
+					River += 1;
+				} else {
+					if (rand == 1) {
+						tile = new Plain(new Point(i, j));
+						tiles[i][j] = tile;
+						add(tile);
+						Plain += 1;
+					} else if (rand == 2) {
+						tile = new M1(new Point(i, j));
+						tiles[i][j] = tile;
+						add(tile);
+						M1Count += 1;
+					} else if (rand == 3) {
+						tile = new M2(new Point(i, j));
+						tiles[i][j] = tile;
+						add(tile);
+						M2Count += 1;
+					} else if (rand == 0) {
+						tile = new M3(new Point(i, j));
+						tiles[i][j] = tile;
+						add(tile);
+						M3Count += 1;
+					}
+				
+				
+				//System.out.println(Plain + " " + M1Count + " " + M2Count + " " + M3Count + " " + River);
 			}
-			else {
-				if (rand == 1) {
-					add(new Plain(new Point(i,j)));
-					Plain+=1;
-				}
-				else if (rand == 2) {
-					add(new M1(new Point(i, j)));
-					M1Count+=1;
-				}
-				else if (rand == 3) {
-					add(new M2(new Point(i, j)));
-					M2Count+=1;
-				}
-				else if (rand == 4) {
-					add(new M3(new Point(i, j)));
-					M3Count+=1;
-				}
-				else if (rand == 0) {
-					add(new River(new Point(i, j)));
-					River+=1;
-				}
-				System.out.println(Plain + " " + M1Count + " " + M2Count + " " + M3Count + " " + River);
-			}
+			
 			}
 		}
 	}
