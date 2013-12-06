@@ -640,7 +640,7 @@ public class Store extends JPanel {
 	 */
 	private void undoLastOne(){
 		if(!commands.isEmpty()){
-			Command toundo = commands.get(commands.size() - 1);
+			Command toundo = commands.remove(commands.size() - 1);
 			toundo.undo();
 		}
 	}
