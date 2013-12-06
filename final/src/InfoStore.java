@@ -22,7 +22,7 @@ public class InfoStore {
 	private ArrayList<ArrayList<Mule>> PlayerMules = new ArrayList<ArrayList<Mule>>();
 	private int Food, Energy, Smithore, Crystite, Mule; 
 	private boolean PlayerInStore = false;
-	private Game g;
+	private transient Game g;
 	/**
 	private Point CurrentPlayerMapLocation;
 	private Point CurrentPlayerTownLocation = null;
