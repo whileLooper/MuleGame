@@ -189,7 +189,7 @@ public class Store extends JPanel {
 		button.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Food");
+				doCommand("buy", "Food");
 			}
 			
 		});
@@ -198,7 +198,7 @@ public class Store extends JPanel {
 		btnNewButton_1.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Food");
+				doCommand("sell", "Food");
 			}
 			
 		});
@@ -211,7 +211,7 @@ public class Store extends JPanel {
 		button_1.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Energy");
+				doCommand("buy", "Energy");
 			}
 			
 		});
@@ -222,7 +222,7 @@ public class Store extends JPanel {
 		button_2.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Energy");
+				doCommand("sell", "Energy");
 			}
 			
 		});
@@ -233,7 +233,7 @@ public class Store extends JPanel {
 		button_3.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Smithore");
+				doCommand("buy", "Smithore");
 			}
 			
 		});
@@ -253,7 +253,7 @@ public class Store extends JPanel {
 		button_5.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				buy("Crystite");
+				doCommand("buy", "Crystite");
 			}
 			
 		});
@@ -266,7 +266,7 @@ public class Store extends JPanel {
 		btnNewButton_2.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				sell("Crystite");
+				doCommand("sell", "Crystite");
 			}
 			
 		});
@@ -296,6 +296,7 @@ public class Store extends JPanel {
 		btnDone.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				commands.clear();
 				successDis = 1;
 				window4();
 			}
@@ -401,20 +402,25 @@ public class Store extends JPanel {
 	 * 
 	 * @param type the type of resource the player is selling.
 	 */
-	public void sell(String type) {
+	public boolean sell(String type) {
 		if (type == "Food" && p.sellResource("Food", FOOD_PRICE)) {
 			Food+=1;
+			return true;
 		}
 		else if (type == "Energy" && p.sellResource("Energy", ENERGY_PRICE)) {
 			Energy+=1;
+			return true;
 		}
 		else if (type == "Smithore" && p.sellResource("Smithore", SMITHORE_PRICE)) {
 			Smithore+=1;
 			Mule+=1;
+			return true;
 		}
 		else if (type == "Crystite" && p.sellResource("Crystite", CRYSTITE_PRICE)) {
 			Crystite+=1;
+			return true;
 		}
+		return false;
 	}
 	
 	/**
@@ -534,6 +540,38 @@ public class Store extends JPanel {
 		return false;
 		
 	}
+	
+	private ArrayList<Command> commands = new ArrayList<Command>();
+	/**
+	 * This is the prosessor for the command pattern
+	 * @param bs indicate whether the command is selling or buying
+	 * @param type indicate the type of good to buy or sell
+	 */
+	private void doCommand(String bs, String type){
+		Command command = new Command(bs, type);
+		if(command.doIt()){
+			commands.add(command);
+		}
+	}
+	
+	/**
+	 * This method is used to undo last transition
+	 */
+	private void undoLastOne(){
+		if(!commands.isEmpty()){
+			Command toundo = commands.get(commands.size() - 1);
+			toundo.undo();
+		}
+	}
+	
+	/**
+	 * This method is used to undo all transitions player makes in story
+	 */
+	private void undoAll(){
+		while(! commands.isEmpty()){
+			undoLastOne();
+		}
+	}
 	/**
 	 * choose player
 	 * 
@@ -563,5 +601,32 @@ public class Store extends JPanel {
 		Smithore = s;
 		Crystite = c;
 		Mule = m;
+	}
+	
+	private class Command{
+		
+		private String bos;
+		private String type;
+		
+		public Command(String bs, String t){
+			bos = bs;
+			type = t;
+		}
+		
+		public boolean doIt(){
+			if(bos.equals("buy")){
+				return buy(type);
+			}else{
+				return sell(type);
+			}
+		}
+		
+		public void undo(){
+			if(bos.equals("buy")){
+				sell(type);
+			}else{
+				buy(type);
+			}
+		}
 	}
 }
