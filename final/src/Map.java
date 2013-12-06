@@ -26,6 +26,11 @@ import java.util.Random;
 public class Map extends JPanel{
 	
 	private Tile[][] tiles = new Tile[5][9];
+	private String[][] cmap = { {"P","P","M1","P","R","P","M3","P","P"},
+                                {"P","M1","P","P","R","P","P","P","M3"},
+                                {"M3","P","P","P","Town","P","P","P","M1"},
+                                {"P","M2","P","P","R","P","M2","P","P"},
+                                {"P","P","M2","P","R","P","P","P","M2"}};
 	private Game game;
 	
 	/**
@@ -139,46 +144,12 @@ public class Map extends JPanel{
 	/**
 	 * This method initiates a standard map
 	 */
-	private void standardMap(){
-		String[][] cmap = { {"P","P","M1","P","R","P","M3","P","P"},
-				            {"P","M1","P","P","R","P","P","P","M3"},
-				            {"M3","P","P","P","Town","P","P","P","M1"},
-				            {"P","M2","P","P","R","P","M2","P","P"},
-				            {"P","P","M2","P","R","P","P","P","M2"}};		
-
+	private void standardMap(){		
+		TileFactory tf = new TileFactory();
 		for(int i = 0; i < 5; i ++){
 			for(int j = 0; j < 9; j++){
 				String tileS = cmap[i][j];
-				Tile tile;
-				switch(tileS){
-					case "P":{
-						tile = new Plain(new Point(i,j));
-						break;
-					}
-					case "R":{
-						tile = new River(new Point(i,j));
-						break;
-					}
-					case "M1":{
-						tile = new M1(new Point(i,j));
-						break;
-					}
-					case "M2":{
-						tile = new M2(new Point(i,j));
-						break;
-					}
-					case "M3":{
-						tile = new M3(new Point(i,j));
-						break;
-					}
-					case "Town":{
-						tile = new TownT(new Point(i,j));
-						break;
-					}
-					default:{
-						tile = null;
-					}
-				}
+				Tile tile = tf.createTile(tileS, i, j);
 				tiles[i][j] = tile;
 				add(tile);
 			}
