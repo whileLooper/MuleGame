@@ -28,6 +28,7 @@ public class Tile extends JLabel{
 	protected boolean mine = false;
 	protected boolean fish = false;
 	protected Mule mule = null;
+	protected String name;
 	
     /**
      * This is the constructor the tile class
@@ -36,7 +37,7 @@ public class Tile extends JLabel{
      * @param o is the amount of ore the tile products
      * @param c is the amount of crystal the tile products 
      */
-	public Tile(ImageIcon i, int f, int e, int o, int c,Point newPoint){
+	public Tile(ImageIcon i, int f, int e, int o, int c,Point newPoint, String name){
 		image = i;
 		food = f;
 		energy = e;
@@ -44,6 +45,7 @@ public class Tile extends JLabel{
 		crystite = c;
 		p = newPoint;
 		setIcon(i);
+		this.name = name;
 	}
 	
 	/**
@@ -197,5 +199,13 @@ public class Tile extends JLabel{
 	
 	public void setImage(ImageIcon i) {
 		image = i;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public ImageIcon getImage() {
+		return image;
 	}
 }

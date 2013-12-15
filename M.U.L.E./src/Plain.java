@@ -20,6 +20,6 @@ public class Plain extends Tile {
 	 * This is the constructor of the Plain Class
 	 */
 	public Plain(Point newPoint){
-		super(new ImageIcon("Image/tileImages/Plain.png"), 2, 3, 1, new Random().nextInt(4), newPoint);
+		super(new ImageIcon("Image/tileImages/Plain.png"), 2, 3, 1, new Random().nextInt(4), newPoint, "plain");
 	}
 }

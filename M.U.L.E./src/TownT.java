@@ -18,7 +18,7 @@ public class TownT extends Tile{
 	 * This is the constructor of the TownT Class
 	 */
 	public TownT(Point newPoint){
-		super(new ImageIcon("Image/tileImages/Town.png"), 0, 0, 0, 0, newPoint);
+		super(new ImageIcon("Image/tileImages/Town.png"), 0, 0, 0, 0, newPoint, "town");
 	}
 	
 	@Override

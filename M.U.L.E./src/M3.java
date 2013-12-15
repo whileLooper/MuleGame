@@ -17,7 +17,7 @@ public class M3 extends Tile {
 	 */
 	public M3(Point newPoint){
 		
-		super(new ImageIcon("Image/tileImages/M3.png"), 1, 1, 4, new Random().nextInt(4), newPoint);
+		super(new ImageIcon("Image/tileImages/M3.png"), 1, 1, 4, new Random().nextInt(4), newPoint, "M3");
 	}
 	
 	/**

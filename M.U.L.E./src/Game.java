@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -150,7 +151,7 @@ public class Game{
 	}
 	
 	/**
-	 * This method sets up the map. The maptype, playersList and difficulty are gotten from start and the map, town, infopanel are created.
+	 * This method sets up the map. The maptype, playersList and difficulty are taken from start and the map, town, infopanel are created.
 	 * The timerBar is also created here. The display is then changed to the map panel.
 	 */
 	public void setUpMap(){
@@ -328,6 +329,13 @@ public class Game{
 			}
 		}
 		System.out.println("nextPlayer"+playerTime());
+		RandomEvent.randomCrystal(map);
+		for (int i = 0; i < 5; i++) {
+			System.out.println();
+			for (int j = 0; j < 9; j++) {
+				System.out.print(map.tiles[i][j].getImage() + " ");
+			}
+		}
 		
 
 	}
@@ -487,7 +495,7 @@ public class Game{
 						System.out.println("CurrentData: Food: " + playersList[currentPlayer].getFood() + " Money: " + playersList[currentPlayer].getMoney() +
 								"Ore: " + playersList[currentPlayer].getOre() + "Crystal: " + playersList[currentPlayer].getCrystal() + " Energy: " + playersList[currentPlayer].getEnergy());
 						playersList[currentPlayer] = RandomEvent.randomEvent(numOfTurn, getCurrentPlayer(), currentPlayer);
-						RandomEvent.randomCrystal(map);
+						
 						map.repaint();
 						System.out.println("CurrentData: Food: " + playersList[currentPlayer].getFood() + " Money: " + playersList[currentPlayer].getMoney() +
 								"Ore: " + playersList[currentPlayer].getOre() + "Crystal: " + playersList[currentPlayer].getCrystal() + " Energy: " + playersList[currentPlayer].getEnergy());
@@ -522,6 +530,7 @@ public class Game{
 	 */
 	private void displayReset(){
 		getCurrentPlayer().resetMapLocation();
+
 		map.repaint();
 		if(playerInTown){
 			changeDisplay(town, map);

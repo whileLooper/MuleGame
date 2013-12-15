@@ -1,3 +1,5 @@
+import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -139,8 +141,8 @@ public class RandomEvent {
 		return p;
 	}
 	
-	public static void randomCrystal(Map m) {
-		System.out.println("Random Crystal: 232323231124214123");
+	public static ArrayList<Point> randomCrystal(Map m) {
+			ArrayList<Point> points = new ArrayList<Point>();
 			Tile[][] p = m.getMap();
 			for(int i = 0; i < 5; i ++){
 				for(int j = 0; j < 9; j++){
@@ -148,11 +150,12 @@ public class RandomEvent {
 						int rand = new Random().nextInt(100);
 						System.out.println("Random Crystal: " + rand);
 						if (rand >= 0 && rand <= 100) {
-							p[i][j].setCrystite(true);
+							points.add(new Point(i, j));
 							System.out.println("setCrystite");
 					}
 				}
 			}
 		}
+			return points;
 	}
 }

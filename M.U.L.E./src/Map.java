@@ -20,6 +20,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -30,7 +31,7 @@ import java.util.Random;
  */
 public class Map extends JPanel{
 	
-	private Tile[][] tiles = new Tile[5][9];
+	public Tile[][] tiles = new Tile[5][9];
 	private Game game;
 	
 	/**
@@ -250,6 +251,10 @@ public class Map extends JPanel{
 		return tiles;
 	}
 	
+	public void setTile(int i, int j, Tile t)
+	{
+		tiles[i][j] = t;
+	}
 	@Override
 	/**
 	 * This method overrides the one in superclass to draw player
@@ -257,10 +262,15 @@ public class Map extends JPanel{
 	protected void paintChildren(Graphics g) {
 		this.requestFocusInWindow();
         super.paintChildren(g);
+        ArrayList<Point> p = RandomEvent.randomCrystal(this);
+		for (int k = 0; k < p.size(); k++) {
+			tiles[p.get(k).x][p.get(k).y].setImage(new ImageIcon("Image/tileImages/M1mining.png"));
+		}
         if(game.isPlayerTurn()){
         	game.getCurrentPlayer().drawOnMap(g);
         	for(int i = 0; i < 5; i++){
         		for(int j = 0; j < 9; j++){
+        			
         			Tile tile = tiles[i][j];
         			if(! tile.isEmpty()){
         				tile.getMule().drawOnMap(g);
